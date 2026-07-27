@@ -1,0 +1,16 @@
+{
+  "type": "hero",
+  "title": "Спорт нового поколения",
+  "subtitle": "5 сентября с 10:00 до 20:00",
+  "location": "ВДНХ (площадь Промышленности)",
+  "button": { "text": "зарегистрироваться", "link": "#registration" },
+  "backgroundImage": "components/HeroSection/bg-hero.jpg",
+  "navItems": [
+    { "text": "О проекте", "link": "#about" },
+    { "text": "Главные события", "link": "#main-events" },
+    { "text": "Активности", "link": "#activities" },
+    { "text": "Карта", "link": "#map" },
+    { "text": "Вопросы и ответы", "link": "#faq" },
+    { "text": "Контакты", "link": "#contacts" }
+  ]
+}

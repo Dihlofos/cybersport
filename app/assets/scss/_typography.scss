@@ -1,0 +1,34 @@
+// ══════════════════════════════════════════════════════════
+// @font-face — self-hosted шрифты
+// ══════════════════════════════════════════════════════════
+
+
+@font-face {
+  font-family: "Unbounded";
+  font-display: swap;
+  font-weight: 400;
+  font-style: normal;
+  src: local("Unbounded"), local("Unbounded Regular"),
+    url("../fonts/Unbounded-Regular.woff2") format("woff2"),
+    url("../fonts/Unbounded-Regular.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Tektur";
+  font-display: swap;
+  font-weight: 400;
+  font-style: normal;
+  src: local("Tektur"), local("Tektur Regular"),
+    url("../fonts/Tektur-Regular.woff2") format("woff2"),
+    url("../fonts/Tektur-Regular.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Tektur";
+  font-display: swap;
+  font-weight: 700;
+  font-style: normal;
+  src: local("Tektur"), local("Tektur Bold"),
+    url("../fonts/Tektur-Bold.woff2") format("woff2"),
+    url("../fonts/Tektur-Bold.woff") format("woff");
+}

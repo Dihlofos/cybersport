@@ -1,0 +1,65 @@
+// ══════════════════════════════════════════════════════════
+// CSS Reset
+// ══════════════════════════════════════════════════════════
+
+@use 'variables' as *;
+@use 'mixins' as *;
+@use 'breakpoints' as *;
+
+html {
+  @include font(10px, 10px, 400);
+
+  @media (max-width: $desktop) {
+    @include font(10px, 10px, 400);
+  }
+
+  @media (max-width: $laptop) {
+    @include font(8px, 8px, 400);
+  }
+
+  @media (max-width: $tablet) {
+    @include font(10px, 10px, 400);
+  }
+
+  @media (max-width: $mobile) {
+    @include font(10px, 10px, 400);
+  }
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  position: relative;
+  min-width: 320px;
+  margin: 0 auto;
+  font-family: $monserrat;
+  background-color: $darkBlue;
+  color: $white;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
+}
+
+body,
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+button {
+  font-family: $monserrat;
+}
+
+main {
+  position: relative;
+  flex-grow: 1;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
