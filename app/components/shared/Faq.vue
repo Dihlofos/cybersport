@@ -85,7 +85,7 @@ function isOpen(index) {
   }
 
   &__title {
-    font-family: $mossport;
+    font-family: $unbounded;
     font-size: 6.4rem;
     font-style: normal;
     font-weight: 400;
@@ -122,14 +122,14 @@ function isOpen(index) {
     &.active {
       background: linear-gradient(
         180deg,
-        $magenta -300%,
+        $red -300%,
         rgba(12, 19, 89, 0.9) 100%
       );
     }
   }
 
   &__toggler {
-    font-family: $mossport;
+    font-family: $unbounded;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -217,7 +217,7 @@ function isOpen(index) {
 
     p {
       color: $white;
-      font-family: $monserrat;
+      font-family: $unbounded;
       font-size: 2rem;
       font-style: normal;
       font-weight: 400;

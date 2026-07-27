@@ -81,7 +81,7 @@ function closeMobile() {
       flex-direction: column;
       position: fixed;
       inset: 0;
-      background-color: $magenta;
+      background-color: $red;
       z-index: 1029;
       padding: 2rem 2rem 4rem;
       opacity: 0;

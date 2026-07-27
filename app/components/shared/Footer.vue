@@ -54,7 +54,7 @@ import footerData from '~/../data/sections/footer.json'
   }
 
   &__title {
-    font-family: $mossport;
+    font-family: $unbounded;
     font-size: 6.4rem;
     font-style: normal;
     font-weight: 400;
@@ -95,7 +95,7 @@ import footerData from '~/../data/sections/footer.json'
 
   &__contacts-label {
     color: $white;
-    font-family: $monserrat;
+    font-family: $unbounded;
     font-size: 2rem;
     font-style: normal;
     font-weight: 400;
@@ -109,7 +109,7 @@ import footerData from '~/../data/sections/footer.json'
 
   &__contacts-link {
     color: $white;
-    font-family: $monserrat;
+    font-family: $unbounded;
     font-size: 4rem;
     font-style: normal;
     font-weight: 400;
@@ -123,7 +123,7 @@ import footerData from '~/../data/sections/footer.json'
 
   &__info {
     color: $white;
-    font-family: $monserrat;
+    font-family: $unbounded;
     font-size: 2rem;
     font-style: normal;
     font-weight: 400;
@@ -164,7 +164,7 @@ import footerData from '~/../data/sections/footer.json'
     a {
       color: $white;
       opacity: 0.8;
-      font-family: $monserrat;
+      font-family: $unbounded;
       font-size: 1.6rem;
       font-style: normal;
       font-weight: 400;

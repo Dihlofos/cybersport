@@ -14,7 +14,7 @@ defineProps({
 <style lang="scss">
 .title {
   :where(&) {
-    font-family: $monserrat;
+    font-family: $unbounded;
     font-size: 6rem;
     font-style: italic;
     font-weight: 700;

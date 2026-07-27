@@ -43,7 +43,7 @@ const props = defineProps({
   &.white {
     background-color: $white;
     border-color: $white;
-    color: $magenta;
+    color: $red;
 
     &:hover {
       color: $white;
@@ -68,14 +68,14 @@ const props = defineProps({
   &--primary {
     display: inline-flex;
     color: $white;
-    font-family: $monserrat;
+    font-family: $unbounded;
     font-size: 2.8rem;
     font-style: normal;
     font-weight: 600;
     line-height: normal;
     border-radius: 20px;
-    border: 2px solid $magenta;
-    background: $magenta;
+    border: 2px solid $red;
+    background: $red;
     text-decoration: none;
     padding: 2.3rem;
     cursor: pointer;
@@ -87,8 +87,8 @@ const props = defineProps({
     }
 
     &--active {
-      border: 2px solid $magenta;
-      background: $magenta;
+      border: 2px solid $red;
+      background: $red;
     }
 
     @media (max-width: $tablet) {

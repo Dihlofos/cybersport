@@ -34,7 +34,7 @@ onUnmounted(() => {
   background: transparent;
   transition: all 250ms ease;
   padding: 2.6rem 0;
-  background-color: $magenta;
+  background-color: $red;
 
   @media (max-width: $tablet) {
     background: transparent;
