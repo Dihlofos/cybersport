@@ -13,7 +13,7 @@
 }
 
 // Container — desktop-first
-@mixin container($max-width: 120rem) {
+@mixin container($max-width: 116rem) {
   max-width: $max-width;
   margin: 0 auto;
   padding: 0 3rem;

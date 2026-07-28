@@ -31,8 +31,7 @@ const props = defineProps({
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  border-radius: 8px;
+  border-radius: 13px;
   transition: all 150ms ease;
 
   &:disabled {
@@ -40,44 +39,21 @@ const props = defineProps({
     cursor: not-allowed;
   }
 
-  &.white {
-    background-color: $white;
-    border-color: $white;
-    color: $red;
-
-    &:hover {
-      color: $white;
-    }
-  }
-
-  // --- Sizes ---
-  &--sm {
-    padding: 4px 16px;
-    font-size: 1.4rem;
-  }
-  &--md {
-    padding: 8px 24px;
-    font-size: 1.6rem;
-  }
-  &--lg {
-    padding: 16px 32px;
-    font-size: 1.8rem;
-  }
-
   // --- Variants ---
   &--primary {
     display: inline-flex;
     color: $white;
-    font-family: $unbounded;
-    font-size: 2.8rem;
+    font-family: $tektur;
+    font-size: 4.2rem;
     font-style: normal;
-    font-weight: 600;
+    font-weight: 400;
     line-height: normal;
-    border-radius: 20px;
-    border: 2px solid $red;
+    border-radius: 13px;
+    border: none;
     background: $red;
+    text-transform: uppercase;
     text-decoration: none;
-    padding: 2.3rem;
+    padding: 1rem 2.3rem;
     cursor: pointer;
     flex-shrink: 0;
 
