@@ -1,7 +1,7 @@
 {
-  "title": "Мой сайт",
-  "description": "Современный статический сайт на Nuxt 3",
-  "keywords": ["nuxt", "vue", "ssg", "template"],
-  "url": "https://example.com",
+  "title": "Киберзарница-2026",
+  "description": "Масштабный фестиваль, объединяющий киберспорт, современные технологии и физическую активность в едином пространстве",
+  "keywords": [],
+  "url": "https://cyber.sport.mos.ru/",
   "ogImage": "/images/favicons/favicon.svg"
 }

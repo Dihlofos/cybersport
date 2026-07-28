@@ -3,18 +3,103 @@ const props = defineProps({
   title: { type: String, required: true },
   subtitle: { type: String, default: '' },
   location: { type: String, default: '' },
-  button: { type: Object, default: () => ({}) },
+  labels: { type: Array, default: () => [] },
+  mainImage: { type: Object, default: () => ({}) },
   backgroundImage: { type: String, default: '' },
-  navItems: { type: Array, default: () => [] },
+  logos: { type: Array, default: () => [] },
 })
 </script>
 
 <template>
   <section id="hero" class="hero">
-    <!-- TODO: заполнить template -->
+    <Image :src="backgroundImage" alt="" class="hero__bg" width="1920" height="1080" />
+    <Container>
+      <h1 class="visually-hidden">{{ title }}</h1>
+      <div class="hero__logos">
+        <div class="hero__logo" v-for="(logo, index) in logos" :key="index">
+          <Image :src="logo.src" :alt="logo.alt" :width="logo.width" :height="logo.height" />
+        </div>
+      </div>
+
+      <Image class="hero__main-logo" :src="mainImage.src" :alt="mainImage.alt" :width="mainImage.width" :height="mainImage.height" />
+      <div class="hero__content">
+        <div class="hero__subtitle">{{ subtitle }}</div>
+        <div class="hero__labels">
+          <div class="hero__label" v-for="(label, index) in labels" :key="index">
+            <Image :src="label.icon" alt="" width="24" height="24" />
+            <span>{{ label.text }} <span v-if="label.smallText">{{ label.smallText }}</span></span>
+
+          </div>
+        </div>
+      </div>
+    </Container>
   </section>
 </template>
 
 <style lang="scss">
-// TODO: заполнить стили
+.hero {
+  position: relative;
+  padding: 6.2rem 0 13.3rem;
+
+  &__bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+  }
+
+  &__logos {
+    padding-top: 3.7rem;
+    max-width: 30rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 3.7rem;
+    row-gap: 1.9rem;
+    margin: 0 auto 10.3rem;
+  }
+
+  &__main-logo {
+    display: block;
+    margin: 0 auto 8.8rem;
+  }
+
+  &__content {
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  &__labels {
+    display: flex;
+    gap: 4rem;
+  }
+
+  &__label {
+    display: flex;
+    gap: 1.3rem;
+    align-items: center;
+    background-color: $light;
+    color: $darkBlue;
+    font-size: 1.8rem;
+    padding: 1.3rem 2rem;
+    border-radius: 13px;
+    span span {
+      font-size: 1.4rem;
+    }
+  }
+
+  &__subtitle {
+    color: $light;
+    text-transform: uppercase;
+    font-size: 4.2rem;
+    line-height: 1;
+    margin: 0 0 4.6rem
+  }
+}
 </style>

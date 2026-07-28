@@ -131,7 +131,6 @@ const imgBindings = computed(() => {
 
 <template>
   <picture v-if="usePicture">
-    <!-- Пользовательские источники с медиа-запросами -->
     <template v-for="(source, index) in processedSources" :key="index">
       <source
         :media="source.media"
@@ -139,11 +138,7 @@ const imgBindings = computed(() => {
         :type="source.type"
       />
     </template>
-
-    <!-- Дефолтный WebP для основного src -->
     <source v-if="webpSrc" :srcset="webpSrc" type="image/webp" />
-
-    <!-- Фолбэк: <img> со всеми биндингами -->
     <img v-bind="imgBindings" />
   </picture>
   <img v-else v-bind="imgBindings" />

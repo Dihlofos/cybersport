@@ -100,7 +100,7 @@ function closeMobile() {
 
   &__list {
     display: flex;
-    gap: 2.4rem;
+    gap: 6rem;
     align-items: center;
     list-style: none;
 
@@ -114,8 +114,9 @@ function closeMobile() {
   }
 
   &__link {
-    font-size: 1.8rem;
-    font-weight: 500;
+    font-size: 1.4rem;
+    font-family: $tektur;
+    font-weight: 400;
     line-height: 1.1;
     color: $white;
     transition: color 150ms ease;
@@ -123,6 +124,7 @@ function closeMobile() {
 
     &:hover {
       text-decoration: underline;
+      color: $light;
     }
 
     @media (max-width: $tablet) {

@@ -1,16 +1,62 @@
 {
   "type": "hero",
-  "title": "Спорт нового поколения",
-  "subtitle": "5 сентября с 10:00 до 20:00",
+  "title": "Киберзарница - Спорт нового поколения",
+  "subtitle": "Спорт нового поколения",
   "location": "ВДНХ (площадь Промышленности)",
-  "button": { "text": "зарегистрироваться", "link": "#registration" },
-  "backgroundImage": "components/HeroSection/bg-hero.jpg",
-  "navItems": [
-    { "text": "О проекте", "link": "#about" },
-    { "text": "Главные события", "link": "#main-events" },
-    { "text": "Активности", "link": "#activities" },
-    { "text": "Карта", "link": "#map" },
-    { "text": "Вопросы и ответы", "link": "#faq" },
-    { "text": "Контакты", "link": "#contacts" }
+  "labels": [
+    {
+      "text": "5 сентября с 10:00 до 20:00",
+      "icon": "/images/icons/calendar.svg"
+    },
+    {
+      "text": "ВДНХ",
+      "smallText": "(площадь Промышленности)",
+      "icon": "/images/icons/pin.svg"
+    }
+  ],
+  "mainImage": {
+    "src": "/images/hero/main-logo.svg",
+    "alt": "",
+    "width": 960,
+    "height": 435
+  },
+  "backgroundImage": "/images/hero/bg.jpg",
+  "logos": [
+    {
+      "src": "/images/logos/major.svg",
+      "alt": "",
+      "width": 61,
+      "height": 29
+    },
+    {
+      "src": "/images/logos/leto.svg",
+      "alt": "",
+      "width": 67,
+      "height": 28
+    },
+    {
+      "src": "/images/logos/dep.svg",
+      "alt": "",
+      "width": 89,
+      "height": 30
+    },
+    {
+      "src": "/images/logos/moscybersport.svg",
+      "alt": "",
+      "width": 78,
+      "height": 23
+    },
+    {
+      "src": "/images/logos/fed.svg",
+      "alt": "",
+      "width": 78,
+      "height": 26
+    },
+    {
+      "src": "/images/logos/vdnkh.svg",
+      "alt": "",
+      "width": 30,
+      "height": 32
+    }
   ]
 }
