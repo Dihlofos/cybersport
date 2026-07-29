@@ -52,15 +52,14 @@ const props = defineProps({
   }
 
   &__logos {
-    padding-top: 3.7rem;
-    max-width: 30rem;
+    padding-top: 7rem;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     gap: 3.7rem;
     row-gap: 1.9rem;
-    margin: 0 auto 10.3rem;
+    margin: 0 auto 11rem;
   }
 
   &__main-logo {

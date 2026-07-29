@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
 
-const STORAGE_KEY = 'cookie-modal-shown'
+const STORAGE_KEY = 'cyber-sport-cookie-modal-shown'
 
 const isVisible = ref(false)
 
@@ -29,7 +29,9 @@ function accept() {
     </div>
 
     <button class="cookie-modal__close" @click="accept">
-      Ok
+      <svg xmlns="http://www.w3.org/2000/svg" width="31" height="31" viewBox="0 0 31 31" fill="none">
+        <path d="M1.41406 1.41418L29.4141 29.4142M29.4141 1.41418L1.41406 29.4142" stroke="#F32F0A" stroke-width="4"/>
+      </svg>
     </button>
   </div>
 </template>
@@ -44,11 +46,11 @@ function accept() {
   display: flex;
   align-items: flex-start;
   gap: 1.6rem;
-  background-color: $white;
-  color: $black;
-  padding: 1.6rem 2rem;
-  max-width: 48.6rem;
-  border-radius: 10px;
+  background-color: $brown;
+  color: $white;
+  padding: 2.4rem 2.8rem;
+  max-width: 76rem;
+  border-radius: 13px;
 
   @media (max-width: $tablet) {
     max-width: 90%;
@@ -65,34 +67,16 @@ function accept() {
   }
 
   &__close {
-    flex-grow: 0;
-    flex-shrink: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: $red;
-    font-family: $unbounded;
-    font-size: 1.6rem;
-    font-weight: 600;
-    color: $white;
-    border-radius: 30px;
-    padding: 0.6rem 1.6rem;
     border: none;
+    background: none;
     cursor: pointer;
-
-    @media (max-width: $mobile) {
-      padding: 2rem;
-    }
   }
 
   &__text {
-    color: $black;
-    max-width: 37.4rem;
 
     p {
-      color: $black;
-      font-family: $unbounded;
-      font-size: 1rem;
+      font-family: $tektur;
+      font-size: 1.4rem;
       font-style: normal;
       font-weight: 400;
       line-height: 1.3;

@@ -23,40 +23,34 @@
   "backgroundImage": "/images/hero/bg.jpg",
   "logos": [
     {
-      "src": "/images/logos/major.svg",
-      "alt": "",
-      "width": 61,
-      "height": 29
-    },
-    {
-      "src": "/images/logos/leto.svg",
-      "alt": "",
-      "width": 67,
-      "height": 28
-    },
-    {
       "src": "/images/logos/dep.svg",
       "alt": "",
-      "width": 89,
-      "height": 30
+      "width": 115,
+      "height": 34
     },
     {
       "src": "/images/logos/moscybersport.svg",
       "alt": "",
-      "width": 78,
-      "height": 23
+      "width": 115,
+      "height": 34
+    },
+    {
+      "src": "/images/logos/leto.svg",
+      "alt": "",
+      "width": 88,
+      "height": 37
     },
     {
       "src": "/images/logos/fed.svg",
       "alt": "",
-      "width": 78,
-      "height": 26
+      "width": 112,
+      "height": 37
     },
     {
       "src": "/images/logos/vdnkh.svg",
       "alt": "",
-      "width": 30,
-      "height": 32
+      "width": 39,
+      "height": 42
     }
   ]
 }
