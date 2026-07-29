@@ -2,6 +2,7 @@
 const props = defineProps({
   title: { type: String, required: true },
   subtitle: { type: String, default: '' },
+  decor: { type: String, default: '' },
   digital: { type: Array, default: () => [] },
   physical: { type: Array, default: () => [] },
   description: { type: String, default: '' },

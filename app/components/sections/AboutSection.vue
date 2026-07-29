@@ -63,7 +63,7 @@ const props = defineProps({
 <style lang="scss">
 .about {
   position: relative;
-  padding: 9.6rem 0 9.6rem;
+  padding: 9.6rem 0 16rem;
   background-color: $darkBlue;
 
   // ──────────────────────────────────────────────
