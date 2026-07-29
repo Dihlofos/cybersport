@@ -49,14 +49,14 @@ const nextRef = ref(null)
         type="button"
         aria-label="Назад"
       >
-        <Image :src="arrowLeft" alt="" width="57" height="57" />
+        <Image :src="arrowLeft" alt="" width="30" height="45" />
       </button>
 
       <div class="slider__viewport">
         <Swiper
           :modules="[Navigation]"
-          :slides-per-view="3"
-          :space-between="24"
+          :slides-per-view="4"
+          :space-between="40"
           :slides-per-group="1"
           :allow-touch-move="true"
           :navigation="{ prevEl: prevRef, nextEl: nextRef }"
@@ -79,7 +79,7 @@ const nextRef = ref(null)
         type="button"
         aria-label="Вперёд"
       >
-        <Image :src="arrowRight" alt="" width="57" height="57" />
+        <Image :src="arrowRight" alt="" width="30" height="45" />
       </button>
     </div>
 
@@ -101,14 +101,12 @@ const nextRef = ref(null)
 // Общие стили
 // ═══════════════════════════════════════════
 .slider {
-  --slider-slide-width: 37rem;
-
   // ═══ Desktop: Swiper ═══
   &__desktop {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 6.3rem;
+    gap: 2.4rem;
   }
 
   &__viewport {
@@ -123,15 +121,11 @@ const nextRef = ref(null)
     }
   }
 
-  &__slide {
-    // Ширина управляется через slidesPerView, не переопределяем
-  }
-
   // ═══ Стрелки ═══
   &__arrow {
     flex-shrink: 0;
-    width: 5.7rem;
-    height: 5.7rem;
+    width: 2.9rem;
+    height: 4.5rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -174,21 +168,6 @@ const nextRef = ref(null)
     flex-shrink: 0;
     scroll-snap-align: start;
     width: var(--slider-slide-width);
-  }
-}
-
-// ═══════════════════════════════════════════
-// Адаптив через CSS (без JS)
-// ═══════════════════════════════════════════
-@media (max-width: $tablet) {
-  .slider {
-    --slider-slide-width: 30rem;
-  }
-}
-
-@media (max-width: $mobile) {
-  .slider {
-    --slider-slide-width: 28rem;
   }
 }
 </style>

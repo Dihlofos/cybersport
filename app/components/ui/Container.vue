@@ -25,7 +25,7 @@ const props = defineProps({
   }
 
   &--wide {
-    @include container(140rem);
+    @include container(127rem);
   }
 }
 </style>

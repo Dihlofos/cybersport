@@ -62,7 +62,7 @@ defineProps({
 <style lang="scss">
 .how-it-works {
   position: relative;
-  padding: 8.6rem 0 8rem;
+  padding: 8.6rem 0 11rem;
   background-color: $blue;
   overflow: hidden;
 
