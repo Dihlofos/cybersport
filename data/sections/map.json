@@ -3,7 +3,7 @@
   "title": "КАРТА ПЛОЩАДКИ",
   "actions": [
     { "text": "Как добраться", "icon": "help", "link": "#" },
-    { "text": "Построить маршрут", "icon": "distance", "link": "#" }
+    { "text": "Построить маршрут", "icon": "distance", "link": "https://yandex.com/maps/-/CTvia8ZR", "target": "_blank" }
   ],
   "zones": [
     { "number": 1, "name": "Зона регистрации и выдачи призов" },
