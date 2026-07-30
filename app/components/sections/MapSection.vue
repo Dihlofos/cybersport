@@ -1,9 +1,75 @@
 <script setup>
+import { ref, computed, onMounted, onUnmounted } from 'vue'
+import { useFloating, offset, flip, shift } from '@floating-ui/vue'
+
 const props = defineProps({
   title: { type: String, required: true },
   actions: { type: Array, default: () => [] },
   zones: { type: Array, default: () => [] },
   stations: { type: Array, default: () => [] },
+})
+
+const activeFigure = ref(null)
+const floatingEl = ref(null)
+const isOpen = computed(() => activeFigure.value !== null)
+
+const referenceEl = computed(() => {
+  if (activeFigure.value === null) return null
+  return document.getElementById(`figure ${activeFigure.value}`)
+})
+
+const { floatingStyles } = useFloating(referenceEl, floatingEl, {
+  open: isOpen,
+  placement: 'left',
+  middleware: [offset(12), flip(), shift({ padding: 8 })],
+})
+
+const figureNameMap = computed(() => {
+  const map = {}
+  for (const z of props.zones) map[z.number] = z.name
+  for (const s of props.stations) map[s.number] = s.name
+  return map
+})
+
+const activeFigureName = computed(() => {
+  if (activeFigure.value === null) return ''
+  return figureNameMap.value[activeFigure.value] ?? ''
+})
+
+function handleFigureSelect(num) {
+  activeFigure.value = activeFigure.value === num ? null : num
+}
+
+function handleFigureClick(event) {
+  const g = event.target.closest('[id^="figure"]')
+  if (!g) return
+  const num = parseInt(g.id.replace('figure ', ''), 10)
+  if (isNaN(num)) return
+  handleFigureSelect(num)
+}
+
+function closeTooltip() {
+  activeFigure.value = null
+}
+
+function onDocumentClick(event) {
+  if (activeFigure.value === null) return
+  if (event.target.closest('[id^="figure"]')) return
+  if (event.target.closest('.map__legend-item')) return
+  if (floatingEl.value && floatingEl.value.contains(event.target)) return
+  closeTooltip()
+}
+
+function figureId(num) {
+  return `figure ${num}`
+}
+
+onMounted(() => {
+  document.addEventListener('click', onDocumentClick)
+})
+
+onUnmounted(() => {
+  document.removeEventListener('click', onDocumentClick)
 })
 </script>
 
@@ -39,6 +105,8 @@ const props = defineProps({
                 v-for="zone in zones"
                 :key="zone.number"
                 class="map__legend-item"
+                :class="{ active: activeFigure === zone.number }"
+                @click.stop="handleFigureSelect(zone.number)"
               >
                 <span class="map__legend-num">{{ zone.number }}.</span>
                 <span class="map__legend-name">{{ zone.name }}</span>
@@ -53,6 +121,8 @@ const props = defineProps({
                 v-for="station in stations"
                 :key="station.number"
                 class="map__legend-item"
+                :class="{ active: activeFigure === station.number }"
+                @click.stop="handleFigureSelect(station.number)"
               >
                 <span class="map__legend-num">{{ station.number }}.</span>
                 <span class="map__legend-name">{{ station.name }}</span>
@@ -76,88 +146,103 @@ const props = defineProps({
             viewBox="0 0 760 605"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
+            @click="handleFigureClick"
           >
-            <g id="figure 2" transform="rotate(-41.8478 473.302 531.108)">
+            <g id="figure 2" :class="{ 'map__figure--active': activeFigure === 2 }" transform="rotate(-41.8478 473.302 531.108)">
               <rect id="Rectangle 489" x="473.302" y="531.108" width="51.3989" height="36.185" fill="#C3AD89" stroke="#F32F0A" stroke-width="1.09605"/>
               <text x="499" y="549" transform="rotate(41.8478 499 549)" class="map__figure">2</text>
             </g>
-            <g id="figure 1" transform="rotate(-41.8478 366.195 411.394)">
+            <g id="figure 1" :class="{ 'map__figure--active': activeFigure === 1 }" transform="rotate(-41.8478 366.195 411.394)">
               <rect id="Rectangle 489_2" x="366.195" y="411.394" width="36.8627" height="13.9166" fill="#C3AD89" stroke="#F32F0A" stroke-width="1.09605"/>
               <text x="384.6" y="418.4" transform="rotate(41.8478 384.6 418.4)" class="map__figure">1</text>
             </g>
-            <g id="figure 4" transform="rotate(-41.8478 403.716 408.792)">
+            <g id="figure 4" :class="{ 'map__figure--active': activeFigure === 4 }" transform="rotate(-41.8478 403.716 408.792)">
               <rect id="Rectangle 489_3" x="403.716" y="408.792" width="20.6595" height="39.9237" fill="#C3AD89" stroke="#F32F0A" stroke-width="1.09605"/>
               <text x="414" y="428.8" transform="rotate(41.8478 414 428.8)" class="map__figure">4</text>
             </g>
-            <g id="figure 13" transform="rotate(-41.8478 450.167 363.902)">
+            <g id="figure 13" :class="{ 'map__figure--active': activeFigure === 13 }" transform="rotate(-41.8478 450.167 363.902)">
               <rect id="Rectangle 489_4" x="450.167" y="363.902" width="20.6595" height="39.9237" fill="#C3AD89" stroke="#F32F0A" stroke-width="1.09605"/>
               <text x="460.5" y="383.9" transform="rotate(41.8478 460.5 383.9)" class="map__figure">13</text>
             </g>
-            <g id="figure 7" transform="rotate(-41.8478 216.2 37.1603)">
+            <g id="figure 7" :class="{ 'map__figure--active': activeFigure === 7 }" transform="rotate(-41.8478 216.2 37.1603)">
               <rect id="Rectangle 489_5" x="216.2" y="37.1603" width="12.4565" height="26.4101" fill="#C3AD89" stroke="#F32F0A" stroke-width="1.09605"/>
               <text x="222.4" y="50.4" transform="rotate(41.8478 222.4 50.4)" class="map__figure">7</text>
             </g>
-            <g id="figure 6" transform="rotate(-41.8478 230.899 64.775)">
+            <g id="figure 6" :class="{ 'map__figure--active': activeFigure === 6 }" transform="rotate(-41.8478 230.899 64.775)">
               <rect id="Rectangle 489_6" x="230.899" y="64.775" width="19.3978" height="19.3703" fill="#C3AD89" stroke="#F32F0A" stroke-width="1.09605"/>
               <text x="240.6" y="74.5" transform="rotate(41.8478 240.6 74.5)" class="map__figure">6</text>
             </g>
-            <g id="figure 5_1" transform="rotate(-41.8478 348.479 240.392)">
+            <g id="figure 5_1" :class="{ 'map__figure--active': activeFigure === 5 }" transform="rotate(-41.8478 348.479 240.392)">
               <rect id="Rectangle 489_7" x="348.479" y="240.392" width="19.3978" height="19.3703" fill="#C3AD89" stroke="#F32F0A" stroke-width="1.09605"/>
               <text x="358.2" y="250.1" transform="rotate(41.8478 358.2 250.1)" class="map__figure">5</text>
             </g>
-            <g id="figure 11" transform="rotate(-41.8478 373.94 266.798)">
+            <g id="figure 11" :class="{ 'map__figure--active': activeFigure === 11 }" transform="rotate(-41.8478 373.94 266.798)">
               <rect id="Rectangle 489_8" x="373.94" y="266.798" width="30.1674" height="23.5698" fill="#C3AD89" stroke="#F32F0A" stroke-width="1.09605"/>
               <text x="389" y="278.6" transform="rotate(41.8478 389 278.6)" class="map__figure">11</text>
             </g>
-            <g id="figure 8" transform="rotate(-41.8478 405.663 219.117)">
+            <g id="figure 8" :class="{ 'map__figure--active': activeFigure === 8 }" transform="rotate(-41.8478 405.663 219.117)">
               <rect id="Rectangle 489_9" x="405.663" y="219.117" width="19.3978" height="19.3703" fill="#C3AD89" stroke="#F32F0A" stroke-width="1.09605"/>
               <text x="415.4" y="228.8" transform="rotate(41.8478 415.4 228.8)" class="map__figure">8</text>
             </g>
-            <g id="figure 10" transform="rotate(-41.8478 425.055 320.192)">
+            <g id="figure 10" :class="{ 'map__figure--active': activeFigure === 10 }" transform="rotate(-41.8478 425.055 320.192)">
               <rect id="Rectangle 489_10" x="425.055" y="320.192" width="19.3978" height="19.3703" fill="#C3AD89" stroke="#F32F0A" stroke-width="1.09605"/>
               <text x="434.8" y="329.9" transform="rotate(41.8478 434.8 329.9)" class="map__figure">10</text>
             </g>
-            <g id="figure 18" transform="rotate(-41.8478 516.358 400.692)">
+            <g id="figure 18" :class="{ 'map__figure--active': activeFigure === 18 }" transform="rotate(-41.8478 516.358 400.692)">
               <rect id="Rectangle 489_11" x="516.358" y="400.692" width="19.3978" height="19.3703" fill="#C3AD89" stroke="#F32F0A" stroke-width="1.09605"/>
               <text x="526.1" y="410.4" transform="rotate(41.8478 526.1 410.4)" class="map__figure">18</text>
             </g>
-            <g id="figure 14" transform="rotate(-41.8478 419.754 360.246)">
+            <g id="figure 14" :class="{ 'map__figure--active': activeFigure === 14 }" transform="rotate(-41.8478 419.754 360.246)">
               <rect id="Rectangle 489_12" x="419.754" y="360.246" width="19.3978" height="19.3703" fill="#C3AD89" stroke="#F32F0A" stroke-width="1.09605"/>
               <text x="429.5" y="369.9" transform="rotate(41.8478 429.5 369.9)" class="map__figure">14</text>
             </g>
-            <g id="figure 5_2" transform="rotate(-41.8478 443.033 303.409)">
+            <g id="figure 5_2" :class="{ 'map__figure--active': activeFigure === 5 }" transform="rotate(-41.8478 443.033 303.409)">
               <rect id="Rectangle 489_13" x="443.033" y="303.409" width="19.3978" height="19.3703" fill="#C3AD89" stroke="#F32F0A" stroke-width="1.09605"/>
               <text x="452.7" y="313.1" transform="rotate(41.8478 452.7 313.1)" class="map__figure">5</text>
             </g>
-            <g id="figure 16" transform="rotate(-41.8478 534.337 383.909)">
+            <g id="figure 16" :class="{ 'map__figure--active': activeFigure === 16 }" transform="rotate(-41.8478 534.337 383.909)">
               <rect id="Rectangle 489_14" x="534.337" y="383.909" width="19.3978" height="19.3703" fill="#C3AD89" stroke="#F32F0A" stroke-width="1.09605"/>
               <text x="544" y="393.6" transform="rotate(41.8478 544 393.6)" class="map__figure">16</text>
             </g>
-            <g id="figure 15" transform="rotate(-41.8478 533.748 345.204)">
+            <g id="figure 15" :class="{ 'map__figure--active': activeFigure === 15 }" transform="rotate(-41.8478 533.748 345.204)">
               <rect id="Rectangle 489_15" x="533.748" y="345.204" width="8.41758" height="30.9737" fill="#C3AD89" stroke="#F32F0A" stroke-width="1.09605"/>
               <text x="538" y="360.7" transform="rotate(41.8478 538 360.7)" class="map__figure">15</text>
             </g>
-            <g id="figure 17" transform="rotate(6.14117 502.743 446.275)">
+            <g id="figure 17" :class="{ 'map__figure--active': activeFigure === 17 }" transform="rotate(6.14117 502.743 446.275)">
               <rect id="Rectangle 489_16" x="502.743" y="446.275" width="12.3089" height="23.7182" fill="#C3AD89" stroke="#F32F0A" stroke-width="1.09605"/>
               <text x="508.9" y="458.1" transform="rotate(-6.14117 508.9 458.1)" class="map__figure">17</text>
             </g>
-            <g id="figure 12" transform="rotate(-41.8478 425.503 241.008)">
+            <g id="figure 12" :class="{ 'map__figure--active': activeFigure === 12 }" transform="rotate(-41.8478 425.503 241.008)">
               <rect id="Rectangle 489_17" x="425.503" y="241.008" width="19.3978" height="19.3703" fill="#C3AD89" stroke="#F32F0A" stroke-width="1.09605"/>
               <text x="435.2" y="250.7" transform="rotate(41.8478 435.2 250.7)" class="map__figure">12</text>
             </g>
-            <g id="figure 19" transform="rotate(-41.8478 298.241 110.764)">
+            <g id="figure 19" :class="{ 'map__figure--active': activeFigure === 19 }" transform="rotate(-41.8478 298.241 110.764)">
               <rect id="Rectangle 489_18" x="298.241" y="110.764" width="22.0123" height="123.709" fill="#C3AD89" stroke="#F32F0A" stroke-width="1.09605"/>
               <text x="309.2" y="172.6" transform="rotate(41.8478 309.2 172.6)" class="map__figure">19</text>
             </g>
-            <g id="figure 3" transform="rotate(0.970437 207.974 100.658)">
+            <g id="figure 3" :class="{ 'map__figure--active': activeFigure === 3 }" transform="rotate(0.970437 207.974 100.658)">
               <rect id="Rectangle 489_19" x="207.974" y="100.658" width="53.2104" height="117.219" fill="#C3AD89" stroke="#F32F0A" stroke-width="1.09605"/>
               <text x="234.6" y="159.3" transform="rotate(-0.970437 234.6 159.3)" class="map__figure">3</text>
             </g>
-            <g id="figure 9" transform="rotate(0.970437 278.294 214.136)">
+            <g id="figure 9" :class="{ 'map__figure--active': activeFigure === 9 }" transform="rotate(0.970437 278.294 214.136)">
               <rect id="Rectangle 489_20" x="278.294" y="214.136" width="64.6588" height="23.9899" fill="#C3AD89" stroke="#F32F0A" stroke-width="1.09605"/>
               <text x="310.6" y="226.1" transform="rotate(-0.970437 310.6 226.1)" class="map__figure">9</text>
             </g>
           </svg>
+
+          <div
+            v-if="activeFigure"
+            ref="floatingEl"
+            class="map__tooltip"
+            :style="floatingStyles"
+          >
+            <span class="map__tooltip-text">{{ activeFigureName }}</span>
+            <button class="map__tooltip-close" type="button" @click.stop="closeTooltip" aria-label="Закрыть">
+              <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
+                <path d="M0.707031 0.707031L10.3169 10.3169M10.3169 0.707031L0.707031 10.3169" stroke="white" stroke-width="2"/>
+              </svg>
+            </button>
+          </div>
         </div>
       </div>
     </Container>
@@ -275,6 +360,16 @@ const props = defineProps({
     display: flex;
     align-items: baseline;
     padding-left: 4rem;
+    cursor: pointer;
+    transition: opacity 150ms ease;
+
+    &:hover {
+      opacity: 0.8;
+    }
+
+    &.active:hover {
+      opacity: 1;
+    }
   }
 
   &__legend-num {
@@ -359,6 +454,10 @@ const props = defineProps({
     left: 0;
     width: 100%;
     height: 100%;
+
+    [id^="figure"] {
+      cursor: pointer;
+    }
   }
 
   &__figure {
@@ -368,9 +467,65 @@ const props = defineProps({
     fill: $red;
     text-anchor: middle;
     dominant-baseline: central;
+    pointer-events: none;
 
     @media (max-width: $tablet) {
       font-size: 12px;
+    }
+  }
+
+  &__figure--active {
+    rect {
+      fill: $red;
+    }
+
+    .map__figure {
+      fill: $light;
+    }
+  }
+
+  &__tooltip {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background-color: $red;
+    color: $white;
+    font-family: $tektur;
+    font-size: 1.4rem;
+    font-weight: 400;
+    line-height: 1.4;
+    padding: 0.4rem 0.5rem 0.4rem 1rem;
+    border-radius: 13px;
+    white-space: nowrap;
+  }
+
+  &__tooltip-text {
+    flex: 1;
+  }
+
+  &__tooltip-close {
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    padding: 0;
+    border: none;
+    background: none;
+    color: $darkBlue;
+    font-size: 1.6rem;
+    line-height: 1;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: opacity 150ms ease;
+
+    &:hover {
+      opacity: 0.6;
     }
   }
 
