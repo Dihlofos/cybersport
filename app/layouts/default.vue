@@ -7,6 +7,7 @@
     <slot />
     <Footer />
     <CookieModal />
+    <Modal />
   </div>
 </template>
 

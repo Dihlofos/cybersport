@@ -1,6 +1,9 @@
 <script setup>
 import site from '~/../data/site.json'
 import { getYM } from '~/utils/getYM'
+import { useModalProvider } from '~/composables/useModal'
+
+useModalProvider()
 
 const YM_ID = '111100058' // ⚠️ ЗДЕСЬ МЕНЯТЬ ID ЯНДЕКС.МЕТРИКИ
 

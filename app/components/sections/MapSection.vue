@@ -1,6 +1,10 @@
 <script setup>
 import { ref, computed, watch, nextTick, onMounted, onUnmounted } from 'vue'
 import { computePosition, autoUpdate, offset, flip, shift } from '@floating-ui/dom'
+import { useModal } from '~/composables/useModal'
+import modalData from '~/../data/modal.json'
+
+const modal = useModal()
 
 const props = defineProps({
   title: { type: String, required: true },
@@ -95,6 +99,13 @@ function onDocumentClick(event) {
   closeTooltip()
 }
 
+function onActionClick(action, event) {
+  if (action.link === '#') {
+    event.preventDefault()
+    modal.open(modalData.howToGet, event.currentTarget)
+  }
+}
+
 onMounted(() => {
   document.addEventListener('click', onDocumentClick)
 })
@@ -117,6 +128,7 @@ onUnmounted(() => {
           :href="action.link"
           :target="action.target || '_self'"
           class="map__action"
+          @click="onActionClick(action, $event)"
         >
           <img
             :src="`/images/icons/${action.icon}.svg`"
@@ -327,6 +339,8 @@ onUnmounted(() => {
     padding: 1.3rem 2.5rem 1.3rem 1.6rem;
     border-radius: 13px;
     text-decoration: none;
+    border: none;
+    cursor: pointer;
     transition: opacity 150ms ease;
 
     &:hover {
