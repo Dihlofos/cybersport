@@ -9,10 +9,373 @@ const props = defineProps({
 
 <template>
   <section id="map" class="map">
-    <!-- TODO: заполнить template -->
+    <Container>
+      <h2 class="map__title">{{ title }}</h2>
+
+      <div class="map__actions">
+        <a
+          v-for="(action, index) in actions"
+          :key="index"
+          :href="action.link"
+          class="map__action"
+        >
+          <img
+            :src="`/images/icons/${action.icon}.svg`"
+            alt=""
+            width="24"
+            height="24"
+            class="map__action-icon"
+          />
+          <span>{{ action.text }}</span>
+        </a>
+      </div>
+
+      <div class="map__content">
+        <div class="map__legend">
+          <div v-if="zones.length" class="map__legend-group">
+            <h3 class="map__legend-title">Основные зоны</h3>
+            <ul class="map__legend-list">
+              <li
+                v-for="zone in zones"
+                :key="zone.number"
+                class="map__legend-item"
+              >
+                <span class="map__legend-num">{{ zone.number }}.</span>
+                <span class="map__legend-name">{{ zone.name }}</span>
+              </li>
+            </ul>
+          </div>
+
+          <div v-if="stations.length" class="map__legend-group">
+            <h3 class="map__legend-title">Игровые станции</h3>
+            <ul class="map__legend-list">
+              <li
+                v-for="station in stations"
+                :key="station.number"
+                class="map__legend-item"
+              >
+                <span class="map__legend-num">{{ station.number }}.</span>
+                <span class="map__legend-name">{{ station.name }}</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="map__map-area">
+          <img
+            src="/images/map/map-overlay.jpg"
+            alt=""
+            width="760"
+            height="605"
+            class="map__overlay"
+          />
+          <svg
+            class="map__svg"
+            width="760"
+            height="605"
+            viewBox="0 0 760 605"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g id="figure 2" transform="rotate(-41.8478 473.302 531.108)">
+              <rect id="Rectangle 489" x="473.302" y="531.108" width="51.3989" height="36.185" fill="#C3AD89" stroke="#F32F0A" stroke-width="1.09605"/>
+              <text x="499" y="549" transform="rotate(41.8478 499 549)" class="map__figure">2</text>
+            </g>
+            <g id="figure 1" transform="rotate(-41.8478 366.195 411.394)">
+              <rect id="Rectangle 489_2" x="366.195" y="411.394" width="36.8627" height="13.9166" fill="#C3AD89" stroke="#F32F0A" stroke-width="1.09605"/>
+              <text x="384.6" y="418.4" transform="rotate(41.8478 384.6 418.4)" class="map__figure">1</text>
+            </g>
+            <g id="figure 4" transform="rotate(-41.8478 403.716 408.792)">
+              <rect id="Rectangle 489_3" x="403.716" y="408.792" width="20.6595" height="39.9237" fill="#C3AD89" stroke="#F32F0A" stroke-width="1.09605"/>
+              <text x="414" y="428.8" transform="rotate(41.8478 414 428.8)" class="map__figure">4</text>
+            </g>
+            <g id="figure 13" transform="rotate(-41.8478 450.167 363.902)">
+              <rect id="Rectangle 489_4" x="450.167" y="363.902" width="20.6595" height="39.9237" fill="#C3AD89" stroke="#F32F0A" stroke-width="1.09605"/>
+              <text x="460.5" y="383.9" transform="rotate(41.8478 460.5 383.9)" class="map__figure">13</text>
+            </g>
+            <g id="figure 7" transform="rotate(-41.8478 216.2 37.1603)">
+              <rect id="Rectangle 489_5" x="216.2" y="37.1603" width="12.4565" height="26.4101" fill="#C3AD89" stroke="#F32F0A" stroke-width="1.09605"/>
+              <text x="222.4" y="50.4" transform="rotate(41.8478 222.4 50.4)" class="map__figure">7</text>
+            </g>
+            <g id="figure 6" transform="rotate(-41.8478 230.899 64.775)">
+              <rect id="Rectangle 489_6" x="230.899" y="64.775" width="19.3978" height="19.3703" fill="#C3AD89" stroke="#F32F0A" stroke-width="1.09605"/>
+              <text x="240.6" y="74.5" transform="rotate(41.8478 240.6 74.5)" class="map__figure">6</text>
+            </g>
+            <g id="figure 5_1" transform="rotate(-41.8478 348.479 240.392)">
+              <rect id="Rectangle 489_7" x="348.479" y="240.392" width="19.3978" height="19.3703" fill="#C3AD89" stroke="#F32F0A" stroke-width="1.09605"/>
+              <text x="358.2" y="250.1" transform="rotate(41.8478 358.2 250.1)" class="map__figure">5</text>
+            </g>
+            <g id="figure 11" transform="rotate(-41.8478 373.94 266.798)">
+              <rect id="Rectangle 489_8" x="373.94" y="266.798" width="30.1674" height="23.5698" fill="#C3AD89" stroke="#F32F0A" stroke-width="1.09605"/>
+              <text x="389" y="278.6" transform="rotate(41.8478 389 278.6)" class="map__figure">11</text>
+            </g>
+            <g id="figure 8" transform="rotate(-41.8478 405.663 219.117)">
+              <rect id="Rectangle 489_9" x="405.663" y="219.117" width="19.3978" height="19.3703" fill="#C3AD89" stroke="#F32F0A" stroke-width="1.09605"/>
+              <text x="415.4" y="228.8" transform="rotate(41.8478 415.4 228.8)" class="map__figure">8</text>
+            </g>
+            <g id="figure 10" transform="rotate(-41.8478 425.055 320.192)">
+              <rect id="Rectangle 489_10" x="425.055" y="320.192" width="19.3978" height="19.3703" fill="#C3AD89" stroke="#F32F0A" stroke-width="1.09605"/>
+              <text x="434.8" y="329.9" transform="rotate(41.8478 434.8 329.9)" class="map__figure">10</text>
+            </g>
+            <g id="figure 18" transform="rotate(-41.8478 516.358 400.692)">
+              <rect id="Rectangle 489_11" x="516.358" y="400.692" width="19.3978" height="19.3703" fill="#C3AD89" stroke="#F32F0A" stroke-width="1.09605"/>
+              <text x="526.1" y="410.4" transform="rotate(41.8478 526.1 410.4)" class="map__figure">18</text>
+            </g>
+            <g id="figure 14" transform="rotate(-41.8478 419.754 360.246)">
+              <rect id="Rectangle 489_12" x="419.754" y="360.246" width="19.3978" height="19.3703" fill="#C3AD89" stroke="#F32F0A" stroke-width="1.09605"/>
+              <text x="429.5" y="369.9" transform="rotate(41.8478 429.5 369.9)" class="map__figure">14</text>
+            </g>
+            <g id="figure 5_2" transform="rotate(-41.8478 443.033 303.409)">
+              <rect id="Rectangle 489_13" x="443.033" y="303.409" width="19.3978" height="19.3703" fill="#C3AD89" stroke="#F32F0A" stroke-width="1.09605"/>
+              <text x="452.7" y="313.1" transform="rotate(41.8478 452.7 313.1)" class="map__figure">5</text>
+            </g>
+            <g id="figure 16" transform="rotate(-41.8478 534.337 383.909)">
+              <rect id="Rectangle 489_14" x="534.337" y="383.909" width="19.3978" height="19.3703" fill="#C3AD89" stroke="#F32F0A" stroke-width="1.09605"/>
+              <text x="544" y="393.6" transform="rotate(41.8478 544 393.6)" class="map__figure">16</text>
+            </g>
+            <g id="figure 15" transform="rotate(-41.8478 533.748 345.204)">
+              <rect id="Rectangle 489_15" x="533.748" y="345.204" width="8.41758" height="30.9737" fill="#C3AD89" stroke="#F32F0A" stroke-width="1.09605"/>
+              <text x="538" y="360.7" transform="rotate(41.8478 538 360.7)" class="map__figure">15</text>
+            </g>
+            <g id="figure 17" transform="rotate(6.14117 502.743 446.275)">
+              <rect id="Rectangle 489_16" x="502.743" y="446.275" width="12.3089" height="23.7182" fill="#C3AD89" stroke="#F32F0A" stroke-width="1.09605"/>
+              <text x="508.9" y="458.1" transform="rotate(-6.14117 508.9 458.1)" class="map__figure">17</text>
+            </g>
+            <g id="figure 12" transform="rotate(-41.8478 425.503 241.008)">
+              <rect id="Rectangle 489_17" x="425.503" y="241.008" width="19.3978" height="19.3703" fill="#C3AD89" stroke="#F32F0A" stroke-width="1.09605"/>
+              <text x="435.2" y="250.7" transform="rotate(41.8478 435.2 250.7)" class="map__figure">12</text>
+            </g>
+            <g id="figure 19" transform="rotate(-41.8478 298.241 110.764)">
+              <rect id="Rectangle 489_18" x="298.241" y="110.764" width="22.0123" height="123.709" fill="#C3AD89" stroke="#F32F0A" stroke-width="1.09605"/>
+              <text x="309.2" y="172.6" transform="rotate(41.8478 309.2 172.6)" class="map__figure">19</text>
+            </g>
+            <g id="figure 3" transform="rotate(0.970437 207.974 100.658)">
+              <rect id="Rectangle 489_19" x="207.974" y="100.658" width="53.2104" height="117.219" fill="#C3AD89" stroke="#F32F0A" stroke-width="1.09605"/>
+              <text x="234.6" y="159.3" transform="rotate(-0.970437 234.6 159.3)" class="map__figure">3</text>
+            </g>
+            <g id="figure 9" transform="rotate(0.970437 278.294 214.136)">
+              <rect id="Rectangle 489_20" x="278.294" y="214.136" width="64.6588" height="23.9899" fill="#C3AD89" stroke="#F32F0A" stroke-width="1.09605"/>
+              <text x="310.6" y="226.1" transform="rotate(-0.970437 310.6 226.1)" class="map__figure">9</text>
+            </g>
+          </svg>
+        </div>
+      </div>
+    </Container>
   </section>
 </template>
 
 <style lang="scss">
-// TODO: заполнить стили
+.map {
+  background-color: $blue;
+  padding: 8.2rem 0 10rem;
+
+  &__title {
+    font-family: $unbounded;
+    font-size: 4.2rem;
+    font-weight: 400;
+    line-height: 1;
+    color: $light;
+    text-transform: uppercase;
+    text-align: center;
+    margin: 0 0 4.6rem;
+
+    @media (max-width: $tablet) {
+      font-size: 3.2rem;
+      margin: 0 0 5rem;
+    }
+
+    @media (max-width: $mobile) {
+      font-size: 2.4rem;
+      margin: 0 0 3rem;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    width: fit-content;
+    gap: 3.5rem;
+    margin: 0 auto 10.3rem;
+  }
+
+  &__action {
+    display: inline-flex;
+    align-items: center;
+    gap: 1.3rem;
+    background-color: $light;
+    color: $darkBlue;
+    font-family: $tektur;
+    font-size: 1.8rem;
+    font-weight: 400;
+    padding: 1.3rem 2.5rem 1.3rem 1.6rem;
+    border-radius: 13px;
+    text-decoration: none;
+    transition: opacity 150ms ease;
+
+    &:hover {
+      opacity: 0.85;
+    }
+
+    @media (max-width: $mobile) {
+      font-size: 1.4rem;
+      padding: 1rem 1.4rem;
+      gap: 1rem;
+    }
+  }
+
+  &__action-icon {
+    display: block;
+    flex-shrink: 0;
+  }
+
+  &__content {
+    display: grid;
+    grid-template-columns: 1fr 760px;
+    gap: 4rem;
+    align-items: start;
+
+    @media (max-width: $tablet) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__legend {
+    padding-top: 0.8rem;
+  }
+
+  &__legend-group {
+    &:not(:last-child) {
+      margin-bottom: 3rem;
+    }
+  }
+
+  &__legend-title {
+    font-family: $tektur;
+    font-weight: 700;
+    font-size: 1.8rem;
+    color: $red;
+    text-transform: uppercase;
+    margin: 0 0 2.1rem;
+
+    @media (max-width: $mobile) {
+      font-size: 1.6rem;
+    }
+  }
+
+  &__legend-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+  }
+
+  &__legend-item {
+    position: relative;
+    display: flex;
+    align-items: baseline;
+    padding-left: 4rem;
+  }
+
+  &__legend-num {
+    position: absolute;
+    left: -0.1rem;
+    top: 0.3rem;
+    font-family: $tektur;
+    font-weight: 400;
+    font-size: 1.4rem;
+    color: $white;
+    flex-shrink: 0;
+
+    .active & {
+      color: $red;
+    }
+  }
+
+  &__legend-name {
+    font-family: $tektur;
+    font-weight: 400;
+    font-size: 1.4rem;
+    line-height: 1.3;
+    color: $white;
+
+    .active & {
+      color: $red;
+
+      &:before {
+        content: " → "
+      }
+    }
+  }
+
+  &__map-area {
+    position: relative;
+    width: 760px;
+    height: 605px;
+    border-radius: 13px;
+
+    &::after,
+    &::before {
+      content: '';
+      position: absolute;
+      width: 7rem;
+      height: 7rem;
+      border-color: $light;
+      background: transparent;
+    }
+
+    &::before {
+      top: -2.4rem;
+      right: -2.4rem;
+      border-top: 1.2rem solid #C3AD89;
+      border-right: 1.2rem solid #C3AD89;
+    }
+
+    &::after {
+      bottom: -2.4rem;
+      left: -2.4rem;
+      border-bottom: 1.2rem solid #C3AD89;
+      border-left: 1.2rem solid #C3AD89;
+    }
+
+    @media (max-width: $tablet) {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 760 / 605;
+    }
+  }
+
+  &__overlay {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 13px;
+  }
+
+  &__svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  &__figure {
+    font-family: $tektur;
+    font-weight: 700;
+    font-size: 15px;
+    fill: $red;
+    text-anchor: middle;
+    dominant-baseline: central;
+
+    @media (max-width: $tablet) {
+      font-size: 12px;
+    }
+  }
+
+  @media (max-width: $mobile) {
+    padding: 5rem 0 6rem;
+  }
+}
 </style>

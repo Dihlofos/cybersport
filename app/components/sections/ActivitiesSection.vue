@@ -70,7 +70,7 @@ const arrows = {
 <style lang="scss">
 .activities {
   position: relative;
-  padding: 8rem 0 10rem;
+  padding: 8rem 0 9.3rem;
   background-color: $darkBlue;
   overflow: hidden;
 
