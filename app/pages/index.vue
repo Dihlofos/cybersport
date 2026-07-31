@@ -5,6 +5,7 @@ import mainEventsData from '~/../data/sections/main-events.json'
 import howItWorksData from '~/../data/sections/how-it-works.json'
 import activitiesData from '~/../data/sections/activities.json'
 import mapData from '~/../data/sections/map.json'
+import orgData from '~/../data/sections/org.json'
 import faqData from '~/../data/sections/faq.json'
 
 useHead({
@@ -20,6 +21,7 @@ useHead({
     <HowItWorksSection v-bind="howItWorksData" />
     <ActivitiesSection v-bind="activitiesData" />
     <MapSection v-bind="mapData" />
+    <OrgSection v-bind="orgData" />
     <Faq v-bind="faqData" />
   </main>
 </template>

@@ -7,12 +7,7 @@ const props = defineProps({
   items: { type: Array, required: true },
   images: {
     type: Object,
-    default: () => ({
-      decorLeft: '/images/faq/decor-left.svg',
-      decorRight: '/images/faq/decor-right.svg',
-      arrowDown: '/images/faq/arrow-down.svg',
-      arrowUp: '/images/faq/arrow-up.svg',
-    }),
+    default: () => ({}),
   },
 })
 
@@ -29,40 +24,48 @@ function isOpen(index) {
 
 <template>
   <section id="faq" class="faq">
-    <Image :src="images.decorLeft" alt="" class="faq__decor faq__decor--left" width="1075" height="1090" />
-    <Image :src="images.decorRight" alt="" class="faq__decor faq__decor--right" width="945" height="958" />
     <Container>
-      <div class="faq__wrapper">
-        <h2 class="faq__title">{{ title }}</h2>
-        <div class="faq__accordion">
-          <div
-            v-for="(item, index) in items"
-            :key="index"
-            class="faq__item"
+      <h2 class="faq__title">{{ title }}</h2>
+      <div class="faq__accordion">
+        <div
+          v-for="(item, index) in items"
+          :key="index"
+          class="faq__item"
+        >
+          <button
+            class="faq__toggler"
             :class="{ active: isOpen(index) }"
+            :aria-expanded="isOpen(index)"
+            :aria-controls="`faq-content-${index}`"
+            @click="toggle(index)"
           >
-            <button
-              class="faq__toggler"
-              :class="{ active: isOpen(index) }"
-              :aria-expanded="isOpen(index)"
-              :aria-controls="`faq-content-${index}`"
-              @click="toggle(index)"
-            >
-              {{ item.question }}
-              <span class="faq__icon" aria-hidden="true">
-                <img :src="images.arrowDown" alt="" class="faq__down" width="36" height="36">
-                <img :src="images.arrowUp" alt="" class="faq__up" width="36" height="36">
-              </span>
-            </button>
+            <span class="faq__question">{{ item.question }}</span>
+            <span class="faq__icon" aria-hidden="true">
+              <img
+                v-show="!isOpen(index)"
+                src="/images/faq/arrow-down-new.svg"
+                alt=""
+                width="29"
+                height="45"
+              />
+              <img
+                v-show="isOpen(index)"
+                src="/images/faq/arrow-right.svg"
+                alt=""
+                width="29"
+                height="45"
+                class="faq__arrow--open"
+              />
+            </span>
+          </button>
 
-            <div
-              :id="`faq-content-${index}`"
-              class="faq__content"
-              :class="{ active: isOpen(index) }"
-              role="region"
-            >
-              <p v-html="sanitizeText(item.answer)"></p>
-            </div>
+          <div
+            :id="`faq-content-${index}`"
+            class="faq__content"
+            :class="{ active: isOpen(index) }"
+            role="region"
+          >
+            <p v-html="sanitizeText(item.answer)"></p>
           </div>
         </div>
       </div>
@@ -70,142 +73,105 @@ function isOpen(index) {
   </section>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .faq {
-  position: relative;
-  z-index: 2;
-  padding-block: 8rem 0;
+  background-color: $darkBlue;
+  padding: 8.2rem 0 10rem;
 
-  @media (max-width: $tablet) {
-    padding-block: 4rem 0;
-  }
-
-  &__wrapper {
-    position: relative;
+  @media (max-width: $mobile) {
+    padding: 5rem 0 6rem;
   }
 
   &__title {
     font-family: $unbounded;
-    font-size: 6.4rem;
-    font-style: normal;
+    font-size: 4.2rem;
     font-weight: 400;
-    line-height: 0.86;
+    line-height: 1;
+    color: $light;
     text-transform: uppercase;
-    color: $white;
-    text-align: center;
-    margin: 0 0 6rem;
+    margin: 0 0 4.6rem;
 
     @media (max-width: $tablet) {
-      font-size: 4rem;
-      margin-bottom: 3rem;
+      font-size: 3.2rem;
+      margin: 0 0 4rem;
+    }
+
+    @media (max-width: $mobile) {
+      font-size: 2.4rem;
+      margin: 0 0 3rem;
     }
   }
 
   &__accordion {
-    position: relative;
-    z-index: 2;
+    display: flex;
+    flex-direction: column;
   }
 
   &__item {
-    width: 100%;
-    background: rgba(0, 0, 0, 0.25);
-    border-radius: 20px;
-    margin: 0 0 2.3rem;
-    overflow: hidden;
-    transition: background 0.3s ease;
+    border-bottom: 1px solid $red;
 
-    @media (max-width: $tablet) {
-      border-radius: 12px;
-      margin-bottom: 1.6rem;
-    }
-
-    &.active {
-      background: linear-gradient(
-        180deg,
-        $red -300%,
-        rgba(12, 19, 89, 0.9) 100%
-      );
+    &:first-child {
+      border-top: 1px solid $red;
     }
   }
 
   &__toggler {
-    font-family: $unbounded;
     display: flex;
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    color: $white;
-    font-size: 3.8rem;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    text-transform: uppercase;
     border: none;
     background: transparent;
     cursor: pointer;
     text-align: left;
-    padding: 1.7rem 2.5rem 2rem;
-    gap: 1.5rem;
+    padding: 2.8rem 0;
+    gap: 11.5rem;
 
     @media (max-width: $tablet) {
-      padding: 1.8rem;
-      font-size: 2.2rem;
+      gap: 3rem;
+      padding: 2rem 0;
+    }
+
+    @media (max-width: $mobile) {
+      gap: 1.5rem;
+      padding: 1.5rem 0;
+    }
+
+    &:hover {
+      opacity: 0.8;
     }
   }
 
-  &__decor {
-    top: 0;
-    position: absolute;
-    max-width: unset;
-    user-select: none;
-    pointer-events: none;
+  &__question {
+    font-family: $tektur;
+    font-size: 1.8rem;
+    font-weight: 700;
+    line-height: 1.3;
+    color: $red;
+    text-transform: uppercase;
 
-    &--left {
-      top: -32.7rem;
-      left: -52.8rem;
-    }
-
-    &--right {
-      top: -38.5rem;
-      right: -56rem;
+    @media (max-width: $mobile) {
+      font-size: 1.4rem;
     }
   }
 
   &__icon {
+    flex-shrink: 0;
     display: flex;
-    width: 3.6rem;
-    height: 3.6rem;
-
-    @media (max-width: $tablet) {
-        width: 2.4rem;
-        height: 2.4rem;
-    }
+    align-items: center;
+    justify-content: center;
+    width: 4.5rem;
+    height: 2.9rem;
 
     img {
-        width: 3.6rem;
-        height: 3.6rem;
-        align-self: flex-start;
-
-        @media (max-width: $tablet) {
-          width: 2.4rem;
-          height: 2.4rem;
-        }
+      display: block;
+      width: auto;
+      height: 100%;
     }
-
-    .faq__up {
-        display: none;
-    }
-
   }
 
-  .faq__item.active &__icon {
-    .faq__down {
-        display: none;
-    }
-
-    .faq__up {
-        display: block;
-    }
+  &__arrow--open {
+    transform: rotate(90deg);
   }
 
   &__content {
@@ -216,19 +182,16 @@ function isOpen(index) {
     }
 
     p {
-      color: $white;
-      font-family: $unbounded;
-      font-size: 2rem;
-      font-style: normal;
+      font-family: $tektur;
+      font-size: 1.4rem;
       font-weight: 400;
-      line-height: 120%;
-      padding: 0 2.5rem 3.1rem;
+      line-height: 1.5;
+      color: $white;
       margin: 0;
-      max-width: 108rem;
+      padding: 0 0 2.8rem;
 
-      @media (max-width: $tablet) {
-        font-size: 1.4rem;
-        padding: 0 1.8rem 1.8rem;
+      @media (max-width: $mobile) {
+        padding: 0 0 2rem;
       }
     }
   }
