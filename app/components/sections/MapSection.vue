@@ -297,7 +297,7 @@ onUnmounted(() => {
 <style lang="scss">
 .map {
   background-color: $blue;
-  padding: 8.2rem 0 10rem;
+  padding: 8.2rem 0 13.2rem;
 
   &__title {
     font-family: $unbounded;

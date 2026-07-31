@@ -39,18 +39,18 @@ function isOpen(index) {
             :aria-controls="`faq-content-${index}`"
             @click="toggle(index)"
           >
-            <span class="faq__question">{{ item.question }}</span>
+            <span class="faq__question" v-html="sanitizeText(item.question)"></span>
             <span class="faq__icon" aria-hidden="true">
               <img
                 v-show="!isOpen(index)"
-                src="/images/faq/arrow-down-new.svg"
+                src="/images/faq/arrow-down.svg"
                 alt=""
                 width="29"
                 height="45"
               />
               <img
                 v-show="isOpen(index)"
-                src="/images/faq/arrow-right.svg"
+                src="/images/faq/arrow-up.svg"
                 alt=""
                 width="29"
                 height="45"
@@ -76,7 +76,7 @@ function isOpen(index) {
 <style lang="scss" scoped>
 .faq {
   background-color: $darkBlue;
-  padding: 8.2rem 0 10rem;
+  padding: 11.8rem 0 10rem;
 
   @media (max-width: $mobile) {
     padding: 5rem 0 6rem;
@@ -89,7 +89,7 @@ function isOpen(index) {
     line-height: 1;
     color: $light;
     text-transform: uppercase;
-    margin: 0 0 4.6rem;
+    margin: 0 0 1.7rem;
 
     @media (max-width: $tablet) {
       font-size: 3.2rem;
@@ -111,7 +111,11 @@ function isOpen(index) {
     border-bottom: 1px solid $red;
 
     &:first-child {
-      border-top: 1px solid $red;
+      border-top: none;
+    }
+
+    &:last-child {
+      border-bottom: none;
     }
   }
 
@@ -124,8 +128,12 @@ function isOpen(index) {
     background: transparent;
     cursor: pointer;
     text-align: left;
-    padding: 2.8rem 0;
+    padding: 3.7rem 0 3.3rem;
     gap: 11.5rem;
+
+    &.active  {
+      padding-bottom: 1.9rem;
+    }
 
     @media (max-width: $tablet) {
       gap: 3rem;
@@ -168,11 +176,13 @@ function isOpen(index) {
       width: auto;
       height: 100%;
     }
+
+    .active & {
+      position: relative;
+      top: 2rem;
+    }
   }
 
-  &__arrow--open {
-    transform: rotate(90deg);
-  }
 
   &__content {
     display: none;
@@ -188,7 +198,7 @@ function isOpen(index) {
       line-height: 1.5;
       color: $white;
       margin: 0;
-      padding: 0 0 2.8rem;
+      padding: 0 0 3.4rem;
 
       @media (max-width: $mobile) {
         padding: 0 0 2rem;

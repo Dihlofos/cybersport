@@ -14,9 +14,7 @@ defineProps({
           <h2 class="org__title">{{ title }}</h2>
           <p class="org__desc">{{ text }}</p>
         </div>
-        <div v-if="logo" class="org__logo-area">
-          <img :src="logo" alt="" class="org__logo" />
-        </div>
+        <Image :src="logo" alt="" class="org__decor" />
       </div>
     </Container>
   </section>
@@ -24,21 +22,15 @@ defineProps({
 
 <style lang="scss" scoped>
 .org {
+  position: relative;
   background-color: $darkBlue;
   padding: 8.2rem 0 0;
 
-  &__content {
-    display: grid;
-    grid-template-columns: 1fr auto;
-    align-items: center;
-    gap: 4rem;
+  .container {
+    position: relative;
+
   }
 
-  &__text {
-    display: flex;
-    flex-direction: column;
-    gap: 2.5rem;
-  }
 
   &__title {
     font-family: $unbounded;
@@ -47,7 +39,7 @@ defineProps({
     line-height: 1;
     color: $light;
     text-transform: uppercase;
-    margin: 0;
+    margin: 0 0 8rem;
 
     @media (max-width: $tablet) {
       font-size: 3.2rem;
@@ -62,7 +54,7 @@ defineProps({
     font-family: $tektur;
     font-size: 1.4rem;
     font-weight: 400;
-    line-height: 1.5;
+    line-height: 1.3;
     color: $white;
     margin: 0;
     max-width: 43.4rem;
@@ -72,10 +64,10 @@ defineProps({
     flex-shrink: 0;
   }
 
-  &__logo {
-    display: block;
-    max-width: 100%;
-    height: auto;
+  &__decor {
+    position: absolute;
+    right: 7rem;
+    top: 0.7rem;
   }
 
   @media (max-width: $mobile) {
