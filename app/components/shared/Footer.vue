@@ -6,25 +6,72 @@ import footerData from '~/../data/sections/footer.json'
   <footer class="footer" id="contact">
     <Container>
       <div class="footer__wrapper">
+        <div class="footer__logo">
+          <Image
+            src="/images/footer/logo.svg"
+            alt="Фиджитал Центр Спорта Москвы"
+            width="458"
+            height="209"
+            class="footer__logo-img"
+          />
+        </div>
+
         <div class="footer__content">
-          <div class="footer__title">{{ footerData.title }}</div>
+          <h2 class="footer__title">{{ footerData.title }}</h2>
 
           <div class="footer__contacts">
-            <div v-for="contact in footerData.contacts" :key="contact.email" class="footer__contacts-item">
-              <div class="footer__contacts-label">{{ contact.label }}</div>
-              <a :href="'mailto:' + contact.email" target="_blank" class="footer__contacts-link">{{ contact.email }}</a>
+            <div
+              v-for="contact in footerData.contacts"
+              :key="contact.email"
+              class="footer__contact"
+            >
+              <div class="footer__contact-label">{{ contact.label }}</div>
+              <a
+                :href="'mailto:' + contact.email"
+                target="_blank"
+                class="footer__contact-email"
+              >{{ contact.email }}</a>
             </div>
           </div>
 
           <div class="footer__info">
             <p class="footer__info-text">{{ footerData.info.text }}</p>
-            <ul>
-              <li v-for="(item, i) in footerData.info.items" :key="i">{{ item }}</li>
+            <ul class="footer__info-list">
+              <li
+                v-for="(item, i) in footerData.info.items"
+                :key="i"
+                class="footer__info-item"
+              >{{ item }}</li>
             </ul>
           </div>
 
+          <div class="footer__socials">
+            <a
+              v-for="social in footerData.socials"
+              :key="social.icon"
+              :href="social.href"
+              target="_blank"
+              :aria-label="social.label"
+              class="footer__social-link"
+            >
+              <Image
+                :src="'/images/logos/' + social.icon + '.svg'"
+                :alt="social.label"
+                width="38"
+                height="38"
+                class="footer__social-icon"
+              />
+            </a>
+          </div>
+
           <div class="footer__docs">
-            <a v-for="doc in footerData.docs" :key="doc.href" :href="doc.href" target="_blank">{{ doc.label }}</a>
+            <a
+              v-for="doc in footerData.docs"
+              :key="doc.href"
+              :href="doc.href"
+              target="_blank"
+              class="footer__doc-link"
+            >{{ doc.label }}</a>
           </div>
         </div>
       </div>
@@ -35,144 +82,184 @@ import footerData from '~/../data/sections/footer.json'
 <style lang="scss">
 .footer {
   position: relative;
-  background-color: $darkBlue;
-  padding: 7rem 0 3.2rem;
+  background-color: $blue;
+  padding: 7.3rem 0 6.6rem;
   overflow: hidden;
 
   @media (max-width: $tablet) {
-    padding: 4rem 0 2rem;
+    padding: 4rem 0 3rem;
   }
 
   &__wrapper {
-    position: relative;
+    display: grid;
+    grid-template-columns: auto 55.9rem;
+
+    @media (max-width: $tablet) {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+  }
+
+  &__logo {
+    @media (max-width: $tablet) {
+      order: 1;
+    }
+  }
+
+  &__logo-img {
+    display: block;
+    width: 45.8rem;
+    max-width: 100%;
+    height: auto;
+
+    @media (max-width: $tablet) {
+      width: 28rem;
+    }
   }
 
   &__content {
-    position: relative;
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
+
+    @media (max-width: $tablet) {
+      order: 2;
+    }
   }
 
   &__title {
     font-family: $unbounded;
-    font-size: 6.4rem;
-    font-style: normal;
+    font-size: 4.2rem;
     font-weight: 400;
-    line-height: 0.86;
+    line-height: normal;
     text-transform: uppercase;
-    color: $white;
-    text-align: left;
-    margin-bottom: 4rem;
+    color: $light;
+    margin: 0 0 5.3rem;
 
     @media (max-width: $tablet) {
-      font-size: 4rem;
-      margin-bottom: 3.5rem;
+      font-size: 2.8rem;
+      margin-bottom: 2.5rem;
     }
   }
 
   &__contacts {
     display: flex;
-    flex-direction: row;
-    gap: 6.6rem;
-    margin-bottom: 4rem;
+    width: 100%;
+    justify-content: space-between;
+    margin-bottom: 2.7rem;
+    padding-right: 10rem;
 
     @media (max-width: $tablet) {
       flex-direction: column;
-      gap: 1.5rem;
-      margin-bottom: 1.5rem;
+      gap: 2rem;
+      margin-bottom: 2rem;
     }
   }
 
-  &__contacts-item {
+  &__contact {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
-
-    @media (max-width: $tablet) {
-      gap: 0.2rem;
-    }
+    gap: 0.7rem;
   }
 
-  &__contacts-label {
-    color: $white;
-    font-family: $unbounded;
-    font-size: 2rem;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 120%;
+  &__contact-label {
+    font-family: $tektur;
+    font-size: 1.8rem;
+    font-weight: 700;
+    line-height: normal;
     text-transform: uppercase;
-
-    @media (max-width: $tablet) {
-      font-size: 1.2rem;
-    }
+    color: $red;
   }
 
-  &__contacts-link {
-    color: $white;
-    font-family: $unbounded;
-    font-size: 4rem;
-    font-style: normal;
+  &__contact-email {
+    font-family: $tektur;
+    font-size: 1.4rem;
     font-weight: 400;
-    line-height: 3.2rem;
-    text-decoration: none;
-
-    @media (max-width: $tablet) {
-      font-size: 2.4rem;
-    }
+    line-height: normal;
+    color: $white;
+    text-decoration: underline;
+    text-underline-offset: from-font;
+    text-decoration-color: $white;
   }
 
   &__info {
-    color: $white;
-    font-family: $unbounded;
-    font-size: 2rem;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 120%;
-    max-width: 105rem;
+    margin-bottom: 4.7rem;
 
     @media (max-width: $tablet) {
-      font-size: 1.2rem;
+      margin-bottom: 3rem;
     }
+  }
 
-    &-text {
-      margin: 0;
+  &__info-text {
+    font-family: $tektur;
+    font-size: 1.4rem;
+    font-weight: 400;
+    line-height: normal;
+    color: $white;
+    margin: 0;
+  }
+
+  &__info-list {
+    margin: 1.8rem 0 0;
+    padding-left: 2.1rem;
+
+    @media (max-width: $tablet) {
+      margin-top: 1rem;
     }
+  }
 
-    ul {
-      margin-top: 2.3rem;
-      margin-bottom: 2.2rem;
-      padding-left: 3rem;
-      max-width: 85rem;
+  &__info-item {
+    font-family: $tektur;
+    font-size: 1.4rem;
+    font-weight: 400;
+    line-height: normal;
+    color: $white;
+  }
 
-      @media (max-width: $tablet) {
-        margin-top: 1rem;
-        margin-bottom: 2.4rem;
-      }
-    }
+  &__info-item::marker {
+    color: $white;
+  }
+
+  &__socials {
+    display: flex;
+    flex-direction: row;
+    gap: 2.2rem;
+    margin-bottom: 1.7rem;
+  }
+
+  &__social-link {
+    display: block;
+    width: 3.8rem;
+    height: 3.8rem;
+  }
+
+  &__social-icon {
+    display: block;
+    width: 100%;
+    height: 100%;
   }
 
   &__docs {
     display: flex;
     flex-direction: row;
-    gap: 5rem;
 
     @media (max-width: $tablet) {
       flex-direction: column;
-      gap: 0.3rem;
+      gap: 0.5rem;
     }
+  }
 
-    a {
-      color: $white;
-      opacity: 0.8;
-      font-family: $unbounded;
-      font-size: 1.6rem;
-      font-style: normal;
-      font-weight: 400;
-      line-height: 2rem;
+  &__doc-link {
+    font-family: $tektur;
+    font-size: 1.4rem;
+    font-weight: 400;
+    line-height: normal;
+    color: $white;
+    opacity: 0.4;
+    text-decoration: none;
 
-      @media (max-width: $tablet) {
-        font-size: 1.2rem;
-      }
+    @media (max-width: $tablet) {
+      font-size: 1.2rem;
     }
   }
 }

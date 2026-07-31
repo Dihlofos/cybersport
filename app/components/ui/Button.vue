@@ -62,17 +62,17 @@ const props = defineProps({
       border-color: $darkBlue;
     }
 
-    &--active {
-      border: 2px solid $red;
-      background: $red;
-    }
-
     @media (max-width: $tablet) {
       border-width: 1px;
       border-radius: 6px;
       font-size: 2.2rem;
       padding: 0.5rem 0.8rem;
     }
+  }
+
+  &--primary--active {
+    border: 2px solid $red;
+    background: $red;
   }
 
   &--secondary {

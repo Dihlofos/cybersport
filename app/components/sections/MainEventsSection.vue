@@ -119,16 +119,16 @@ defineProps({
     pointer-events: none;
     user-select: none;
     z-index: 0;
+  }
 
-    &--left {
-      bottom: -3rem;
-      left: -11.3rem;
-    }
+  &__decor--left {
+    bottom: -3rem;
+    left: -11.3rem;
+  }
 
-    &--right {
-      top: -1rem;
-      right: -7.2rem;
-    }
+  &__decor--right {
+    top: -1rem;
+    right: -7.2rem;
   }
 
   // ──────────────────────────────────────────────

@@ -176,14 +176,14 @@ const arrows = {
     line-height: 1.3;
     margin: 0;
     flex: 1;
+  }
 
-    &--light {
-      color: $white;
-    }
+  &__card-text--light {
+    color: $white;
+  }
 
-    &--dark {
-      color: $blue;
-    }
+  &__card-text--dark {
+    color: $blue;
   }
 
   // ──────────────────────────────────────────────

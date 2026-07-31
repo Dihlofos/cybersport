@@ -26,6 +26,10 @@ defineProps({
   background-color: $darkBlue;
   padding: 8.2rem 0 0;
 
+  @media (max-width: $mobile) {
+    padding: 5rem 0 0;
+  }
+
   .container {
     position: relative;
 
@@ -60,31 +64,31 @@ defineProps({
     max-width: 43.4rem;
   }
 
+  &__content {
+    @media (max-width: $mobile) {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+  }
+
   &__logo-area {
     flex-shrink: 0;
+
+    @media (max-width: $mobile) {
+      order: -1;
+    }
+  }
+
+  &__logo {
+    @media (max-width: $mobile) {
+      max-width: 20rem;
+    }
   }
 
   &__decor {
     position: absolute;
     right: 7rem;
     top: 0.7rem;
-  }
-
-  @media (max-width: $mobile) {
-    padding: 5rem 0 0;
-
-    &__content {
-      grid-template-columns: 1fr;
-      gap: 3rem;
-    }
-
-    &__logo-area {
-      order: -1;
-    }
-
-    &__logo {
-      max-width: 20rem;
-    }
   }
 }
 </style>

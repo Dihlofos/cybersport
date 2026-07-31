@@ -3,12 +3,12 @@
   "title": "Контакты",
   "contacts": [
     {
-      "label": "По вопросам регистрации",
-      "email": "name@mail.ru"
+      "label": "общая почта",
+      "email": "info@fcs.msk.ru"
     },
     {
       "label": "Для СМИ",
-      "email": "pressame@mail.ru"
+      "email": "lidskiy.ivan@fcs.msk.ru"
     }
   ],
   "info": {
@@ -18,9 +18,19 @@
       "ФИО корреспондента / всех участников съемочной группы с контактными телефонами."
     ]
   },
+  "socials": [
+    {
+      "icon": "tg",
+      "href": "https://t.me/fcsmsk",
+      "label": "Telegram"
+    },
+    {
+      "icon": "vk",
+      "href": "https://vk.com/fcsmsk",
+      "label": "VK"
+    }
+  ],
   "docs": [
-    { "href": "/docs/policy.pdf", "label": "Политика конфиденциальности" },
-    { "href": "/docs/reject.pdf", "label": "Отказ от претензий от участника" },
-    { "href": "/docs/reject_child.pdf", "label": "Отказ от претензий от опекуна ребенка" }
+    { "href": "/docs/policy.pdf", "label": "Политика конфиденциальности" }
   ]
 }

@@ -84,19 +84,19 @@ defineProps({
     user-select: none;
     z-index: 0;
 
-    &--left {
-      bottom: -7.5rem;
-      left: -12.5rem;
-    }
-
-    &--right {
-      top: -7rem;
-      right: -12.9rem;
-    }
-
     @media (max-width: $tablet) {
       display: none;
     }
+  }
+
+  &__decor--left {
+    bottom: -7.5rem;
+    left: -12.5rem;
+  }
+
+  &__decor--right {
+    top: -7rem;
+    right: -12.9rem;
   }
 
   // ──────────────────────────────────────────────

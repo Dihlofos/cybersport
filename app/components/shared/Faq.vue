@@ -41,14 +41,14 @@ function isOpen(index) {
           >
             <span class="faq__question" v-html="sanitizeText(item.question)"></span>
             <span class="faq__icon" aria-hidden="true">
-              <img
+              <Image
                 v-show="!isOpen(index)"
                 src="/images/faq/arrow-down.svg"
                 alt=""
                 width="29"
                 height="45"
               />
-              <img
+              <Image
                 v-show="isOpen(index)"
                 src="/images/faq/arrow-up.svg"
                 alt=""
@@ -76,7 +76,7 @@ function isOpen(index) {
 <style lang="scss" scoped>
 .faq {
   background-color: $darkBlue;
-  padding: 11.8rem 0 10rem;
+  padding: 11.8rem 0 12.2rem;
 
   @media (max-width: $mobile) {
     padding: 5rem 0 6rem;

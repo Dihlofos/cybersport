@@ -139,12 +139,12 @@ const nextRef = ref(null)
     &:hover {
       opacity: 0.8;
     }
+  }
 
-    &--disabled,
-    &.swiper-button-disabled {
-      opacity: 0.3;
-      pointer-events: none;
-    }
+  &__arrow--disabled,
+  &__arrow.swiper-button-disabled {
+    opacity: 0.3;
+    pointer-events: none;
   }
 
   // ═══ Tablet / Mobile: нативный скролл ═══
