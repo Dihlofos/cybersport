@@ -60,7 +60,7 @@ defineProps({
           </div>
 
           <div class="main-events__card-bottom">
-            <a :href="event.registration.link" class="main-events__reg-btn">{{ event.registration.text }}</a>
+            <a :href="event.registration.link" class="main-events__reg-btn" target="_blank">{{ event.registration.text }}</a>
             <p class="main-events__deadline">{{ event.registration.deadline }}</p>
           </div>
         </article>

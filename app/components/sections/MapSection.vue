@@ -177,7 +177,7 @@ onUnmounted(() => {
         </div>
 
         <div class="map__map-area">
-          <img
+          <Image
             src="/images/map/map-overlay.jpg"
             alt=""
             width="760"
