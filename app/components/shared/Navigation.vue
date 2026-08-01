@@ -1,6 +1,11 @@
 <script setup>
 import { navItems, images } from '~/../data/navigation.json'
 
+const props = defineProps({
+  scrolled: { type: Boolean, required: false },
+
+})
+
 const mobileOpen = ref(false)
 
 function toggleMobile() {
@@ -13,7 +18,7 @@ function closeMobile() {
 </script>
 
 <template>
-  <nav class="nav" :class="{ 'nav--open': mobileOpen }">
+  <nav class="nav" :class="{ 'nav--open': mobileOpen, 'scrolled': scrolled }">
     <button class="nav__toggle" @click="toggleMobile" aria-label="Меню">
       <Image v-if="!mobileOpen" :src="images.burger" alt="Открыть меню" width="44" height="44" />
       <Image v-else :src="images.close" alt="Закрыть меню" width="35" height="35" />
@@ -48,6 +53,7 @@ function closeMobile() {
     cursor: pointer;
     padding: 0;
     line-height: 0;
+    transition: all 250ms ease;
 
     &:focus-visible {
       outline: 2px solid #0055ff;
@@ -61,14 +67,17 @@ function closeMobile() {
       align-items: center;
       justify-content: center;
       position: fixed;
-      top: 1.2rem;
       right: 1.6rem;
       z-index: 1030;
+      top: 7rem;
 
       .nav--open & {
         top: 1.6rem;
         right: 2rem;
+      }
 
+      .scrolled & {
+        top: 1.2rem;
       }
     }
   }

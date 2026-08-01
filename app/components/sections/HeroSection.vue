@@ -61,7 +61,6 @@ const props = defineProps({
 
   &__logo {
     @media (max-width: $mobile) {
-      width: 7rem;
 
       &.vdnkh {
         width: 3rem;
@@ -86,7 +85,9 @@ const props = defineProps({
     }
 
     @media (max-width: $mobile) {
-      padding-right: 5rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      // padding-right: 5rem;
       gap: 2rem;
     }
   }

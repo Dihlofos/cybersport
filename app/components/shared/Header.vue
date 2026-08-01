@@ -18,7 +18,7 @@ onUnmounted(() => {
   <header class="header" :class="{ 'header--scrolled': scrolled }">
     <Container>
       <div class="header__inner">
-        <Navigation />
+        <Navigation :scrolled="scrolled" />
       </div>
     </Container>
   </header>
