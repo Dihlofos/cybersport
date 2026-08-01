@@ -161,7 +161,7 @@ onUnmounted(() => {
 
           <div v-if="stations.length" class="map__legend-group">
             <h3 class="map__legend-title">Игровые станции</h3>
-            <ul class="map__legend-list">
+            <ul class="map__legend-list map__legend-list--tablet-columns">
               <li
                 v-for="station in stations"
                 :key="station.number"
@@ -251,11 +251,11 @@ onUnmounted(() => {
             </g>
             <g id="figure 15" data-figure="15" :class="{ 'map__figure--active': activeFigure === 15 }" transform="rotate(-41.8478 533.748 345.204)">
               <rect id="Rectangle 489_15" x="533.748" y="345.204" width="8.41758" height="30.9737" fill="#C3AD89" stroke="#F32F0A" stroke-width="1.09605"/>
-              <text x="538" y="360.7" transform="rotate(41.8478 538 360.7)" class="map__figure">15</text>
+              <text x="538" y="360.7" transform="rotate(41.8478 538 360.7)" class="map__figure small">15</text>
             </g>
             <g id="figure 17" data-figure="17" :class="{ 'map__figure--active': activeFigure === 17 }" transform="rotate(6.14117 502.743 446.275)">
               <rect id="Rectangle 489_16" x="502.743" y="446.275" width="12.3089" height="23.7182" fill="#C3AD89" stroke="#F32F0A" stroke-width="1.09605"/>
-              <text x="508.9" y="458.1" transform="rotate(-6.14117 508.9 458.1)" class="map__figure">17</text>
+              <text x="508.9" y="458.1" transform="rotate(-6.14117 508.9 458.1)" class="map__figure small">17</text>
             </g>
             <g id="figure 12" data-figure="12" :class="{ 'map__figure--active': activeFigure === 12 }" transform="rotate(-41.8478 425.503 241.008)">
               <rect id="Rectangle 489_17" x="425.503" y="241.008" width="19.3978" height="19.3703" fill="#C3AD89" stroke="#F32F0A" stroke-width="1.09605"/>
@@ -298,6 +298,10 @@ onUnmounted(() => {
 .map {
   background-color: $blue;
   padding: 8.2rem 0 13.2rem;
+
+  @media (max-width: $tablet) {
+    padding: 6rem 0 8rem;
+  }
 
   &__title {
     font-family: $unbounded;
@@ -361,7 +365,7 @@ onUnmounted(() => {
 
   &__content {
     display: grid;
-    grid-template-columns: 1fr 760px;
+    grid-template-columns: 1fr 76rem;
     gap: 4rem;
     align-items: start;
 
@@ -400,6 +404,15 @@ onUnmounted(() => {
     display: flex;
     flex-direction: column;
     gap: 0.9rem;
+
+    @media (max-width: $tablet) {
+      gap: 0;
+
+      &--tablet-columns {
+        column-count: 2;
+        display: block;
+      }
+    }
   }
 
   &__legend-item {
@@ -416,6 +429,10 @@ onUnmounted(() => {
 
     &.active:hover {
       opacity: 1;
+    }
+
+    @media (max-width: $tablet) {
+      margin: 0 0 0.6rem;
     }
   }
 
@@ -452,8 +469,8 @@ onUnmounted(() => {
 
   &__map-area {
     position: relative;
-    width: 760px;
-    height: 605px;
+    width: 76rem;
+    height: 60.5rem;
     border-radius: 13px;
 
     &::after,
@@ -464,6 +481,10 @@ onUnmounted(() => {
       height: 7rem;
       border-color: $light;
       background: transparent;
+
+      @media (max-width: $tablet) {
+        display: none;
+      }
     }
 
     &::before {
@@ -515,6 +536,10 @@ onUnmounted(() => {
     text-anchor: middle;
     dominant-baseline: central;
     pointer-events: none;
+
+    &.small {
+      font-size: 1.1rem;
+    }
 
     @media (max-width: $tablet) {
       font-size: 1.2rem;

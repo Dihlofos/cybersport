@@ -89,6 +89,7 @@ defineProps({
     position: absolute;
     right: 7rem;
     top: 0.7rem;
+    width: 33.7rem;
   }
 }
 </style>

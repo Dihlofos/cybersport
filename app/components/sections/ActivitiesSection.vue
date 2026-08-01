@@ -111,6 +111,10 @@ const arrows = {
     pointer-events: none;
     z-index: 0;
     transform: translateX(-50%);
+
+    @media (max-width: $tablet) {
+      bottom: -13rem;
+    }
   }
 
   // ──────────────────────────────────────────────
@@ -125,6 +129,10 @@ const arrows = {
     height: 30.3rem;
     box-shadow: 0 0.4rem 0.4rem rgba($black, 0.5);
     overflow: hidden;
+
+    @media (max-width: $tablet) {
+      width: 27rem;
+    }
   }
 
   &__card-top {
@@ -202,7 +210,8 @@ const arrows = {
 
     @media (max-width: $tablet) {
       font-size: 3.2rem;
-      margin: 5rem 0 4rem;
+      margin: 10rem 0 4rem;
+      max-width: 50rem;
     }
 
     @media (max-width: $mobile) {
@@ -236,7 +245,7 @@ const arrows = {
     flex-shrink: 0;
 
     @media (max-width: $tablet) {
-      max-width: 100%;
+      max-width: 70rem;
     }
   }
 

@@ -38,12 +38,7 @@ defineProps({
           width="174"
           height="165"
         />
-        <a
-          :href="button.link"
-          class="how-it-works__btn"
-        >
-          {{ button.text }}
-        </a>
+        <Button :to="button.link" class="how-it-works__btn" target="_blank">{{ button.text }}</Button>
         <Image
           v-if="decorRight"
           :src="decorRight"
@@ -66,6 +61,9 @@ defineProps({
   background-color: $blue;
   overflow: hidden;
 
+  @media (max-width: $tablet) {
+    padding: 6rem 0;
+  }
 
   .container {
     position: relative;
@@ -92,11 +90,19 @@ defineProps({
   &__decor--left {
     bottom: -7.5rem;
     left: -12.5rem;
+
+    @media (max-width: $laptop) {
+      left: -17.5rem;
+    }
   }
 
   &__decor--right {
     top: -7rem;
     right: -12.9rem;
+
+    @media (max-width: $laptop) {
+      right: -18.9rem;
+    }
   }
 
   // ──────────────────────────────────────────────
@@ -130,12 +136,9 @@ defineProps({
     display: flex;
     gap: 4rem;
 
-    @media (max-width: $laptop) {
+    @media (max-width: $tablet) {
       flex-wrap: wrap;
       justify-content: center;
-    }
-
-    @media (max-width: $tablet) {
       gap: 2.4rem;
     }
 
@@ -237,39 +240,6 @@ defineProps({
 
     @media (max-width: $mobile) {
       margin-top: 4rem;
-    }
-  }
-
-  &__btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 1.5rem 3rem;
-    border: none;
-    border-radius: 1.3rem;
-    background-color: $red;
-    font-family: $tektur;
-    font-size: 4.2rem;
-    font-weight: 400;
-    line-height: 1;
-    color: $white;
-    text-transform: uppercase;
-    text-decoration: none;
-    cursor: pointer;
-    transition: opacity 0.2s;
-
-    &:hover {
-      opacity: 0.85;
-    }
-
-    @media (max-width: $tablet) {
-      font-size: 2.8rem;
-      padding: 0.8rem 2rem;
-    }
-
-    @media (max-width: $mobile) {
-      font-size: 2rem;
-      padding: 0.6rem 1.6rem;
     }
   }
 }

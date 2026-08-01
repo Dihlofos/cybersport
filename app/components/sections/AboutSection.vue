@@ -15,20 +15,28 @@ const props = defineProps({
     <Container>
       <div class="about__content-top">
         <h2 class="about__title">{{ title }}</h2>
-
-        <div class="about__text">
-          <p
-            v-for="(paragraph, i) in paragraphs"
-            :key="i"
-            class="about__paragraph"
-            v-html="paragraph"
+        <div class="about__mobile-wrap">
+          <Image
+            class="about__image tablet"
+            :src="image.src"
+            :alt="image.alt"
+            :width="image.width"
+            :height="image.height"
           />
+          <div class="about__text">
+            <p
+              v-for="(paragraph, i) in paragraphs"
+              :key="i"
+              class="about__paragraph"
+              v-html="paragraph"
+            />
+          </div>
         </div>
       </div>
 
       <div class="about__content-bottom">
         <Image
-          class="about__image"
+          class="about__image desktop"
           :src="image.src"
           :alt="image.alt"
           :width="image.width"
@@ -47,7 +55,7 @@ const props = defineProps({
         </ul>
       </div>
       <div class="about__registration">
-        <Button :href="link.href" class="about__link" v-anchor>{{ link.text }}</Button>
+        <Button :to="link.href" class="about__link" target="_blank">{{ link.text }}</Button>
         <Image
           :src="decor"
           alt=""
@@ -82,6 +90,14 @@ const props = defineProps({
     }
   }
 
+  &__mobile-wrap {
+    @media (max-width: $tablet) {
+      display: flex;
+      gap: 3rem;
+      align-items: flex-end;
+    }
+  }
+
   &__title {
     @include font(4.2rem, 1, 400);
     font-family: $unbounded;
@@ -106,7 +122,12 @@ const props = defineProps({
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
-    max-width: 64.2rem
+    max-width: 64.2rem;
+
+    @media (max-width: $tablet) {
+      max-width: 40rem;
+    }
+
   }
 
   &__paragraph {
@@ -153,7 +174,7 @@ const props = defineProps({
 
     @media (max-width: $tablet) {
       width: 100%;
-      max-width: 36rem;
+      max-width: 34rem;
       margin: 0 auto;
     }
 
@@ -173,6 +194,10 @@ const props = defineProps({
     margin: 0;
     padding: 0;
     z-index: 3;
+
+    @media (max-width: $tablet) {
+      gap: 3rem;
+    }
 
     @media (max-width: $mobile) {
       gap: 1.5rem;

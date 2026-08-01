@@ -41,6 +41,10 @@ const props = defineProps({
   position: relative;
   padding: 6.2rem 0 13.3rem;
 
+  @media (max-width: $tablet) {
+    padding: 0 0 8.3rem;
+  }
+
   &__bg {
     position: absolute;
     top: 0;
@@ -60,11 +64,21 @@ const props = defineProps({
     gap: 3.7rem;
     row-gap: 1.9rem;
     margin: 0 auto 11rem;
+
+    @media (max-width: $tablet) {
+      justify-content: flex-start;
+      padding-top: 2rem;
+      margin: 0 0 7rem;
+    }
   }
 
   &__main-logo {
     display: block;
     margin: 0 auto 8.8rem;
+
+    @media (max-width: $tablet) {
+      margin: 0 auto 5.8rem;
+    }
   }
 
   &__content {

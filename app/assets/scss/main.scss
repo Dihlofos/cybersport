@@ -30,3 +30,11 @@ html {
     display: block;
   }
 }
+
+.desktop {
+  display: block;
+
+  @media (max-width: $tablet) {
+    display: none;
+  }
+}

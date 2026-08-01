@@ -24,7 +24,8 @@
       "image": "/images/main-events/tanks.jpg",
       "registration": {
         "text": "Регистрация закрыта",
-        "deadline": "Дата окончания регистрации: 31 июля"
+        "deadline": "Дата окончания регистрации: 31 июля",
+        "disabled": true
       }
     }
   ],

@@ -60,7 +60,14 @@ defineProps({
           </div>
 
           <div class="main-events__card-bottom">
-            <a :href="event.registration.link ? event.registration.link : undefined" class="main-events__reg-btn" target="_blank">{{ event.registration.text }}</a>
+            <a
+              :href="event.registration.link ? event.registration.link : undefined"
+              class="main-events__reg-btn"
+              target="_blank"
+              :class="{ disabled: event.registration.disabled }"
+            >
+              {{ event.registration.text }}
+            </a>
             <p class="main-events__deadline">{{ event.registration.deadline }}</p>
           </div>
         </article>
@@ -111,6 +118,10 @@ defineProps({
     z-index: 2;
   }
 
+  @media (max-width: $tablet) {
+    padding: 0 0 6rem;
+  }
+
   // ──────────────────────────────────────────────
   // Декоративные элементы по бокам
   // ──────────────────────────────────────────────
@@ -119,6 +130,10 @@ defineProps({
     pointer-events: none;
     user-select: none;
     z-index: 0;
+
+    @media (max-width: $tablet) {
+      display: none;
+    }
   }
 
   &__decor--left {
@@ -167,8 +182,11 @@ defineProps({
     margin-bottom: 3.4rem;
 
     @media (max-width: $tablet) {
-      flex-direction: column;
       gap: 2.4rem;
+    }
+
+    @media (max-width: $mobile) {
+      flex-direction: column;
     }
   }
 
@@ -200,6 +218,11 @@ defineProps({
     gap: 2.8rem;
     padding: 3.6rem 2.6rem 0 3.6rem;
 
+    @media (max-width: $tablet) {
+      padding: 2.4rem 2.4rem 0;
+      gap: 2.4rem;
+    }
+
     @media (max-width: $mobile) {
       flex-direction: column;
       gap: 1.6rem;
@@ -213,6 +236,12 @@ defineProps({
   &__card-image {
     width: 16rem;
     flex-shrink: 0;
+    overflow: hidden;
+
+    @media (max-width: $tablet) {
+      width: 12rem;
+      height: 19rem;
+    }
 
     @media (max-width: $mobile) {
       width: 100%;
@@ -228,7 +257,7 @@ defineProps({
     border-radius: 0.5rem;
 
     @media (max-width: $mobile) {
-      height: 18rem;
+      height: 100%;
     }
   }
 
@@ -320,6 +349,10 @@ defineProps({
     gap: 1.6rem;
     padding: 2.6rem 3.6rem 2.6rem;
 
+    @media (max-width: $tablet) {
+      padding: 2.4rem;
+    }
+
     @media (max-width: $mobile) {
       padding: 1.6rem 2rem;
     }
@@ -345,8 +378,18 @@ defineProps({
     cursor: pointer;
     transition: opacity 0.2s;
 
-    &:hover {
+    &.disabled {
+      cursor: auto;
+    }
+
+    &:not(.disabled):hover {
       opacity: 0.85;
+    }
+
+    @media (max-width: $tablet) {
+      white-space: normal;
+      height: auto;
+      font-size: 1.6rem;
     }
 
     @media (max-width: $mobile) {
