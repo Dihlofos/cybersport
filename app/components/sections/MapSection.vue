@@ -2,6 +2,7 @@
 import { ref, computed, watch, nextTick, onMounted, onUnmounted } from 'vue'
 import { computePosition, autoUpdate, offset, flip, shift } from '@floating-ui/dom'
 import { useModal } from '~/composables/useModal'
+import { getSmoothScrollInstance } from '~/directives/anchor'
 import modalData from '~/../data/modal.json'
 
 const modal = useModal()
@@ -16,9 +17,24 @@ const props = defineProps({
 const activeFigure = ref(null)
 const activeFigureEl = ref(null)
 const tooltipRef = ref(null)
+const mapAreaRef = ref(null)
 const tooltipStyle = ref({ position: 'absolute', top: '0px', left: '0px' })
 
 let positionCleanup = null
+
+function scrollToMap() {
+  if (typeof window === 'undefined') return
+  if (window.innerWidth > 1023) return
+  if (!mapAreaRef.value) return
+
+  const instance = getSmoothScrollInstance()
+  if (instance) {
+    instance.animateScroll(mapAreaRef.value, null, {
+      speed: 200,
+      offset: 45,
+    })
+  }
+}
 
 const figureNameMap = computed(() => {
   const map = {}
@@ -70,6 +86,7 @@ function handleFigureSelect(num) {
   }
   activeFigure.value = num
   activeFigureEl.value = document.querySelector(`[data-figure="${num}"]`)
+  scrollToMap()
 }
 
 function handleFigureClick(event) {
@@ -176,7 +193,7 @@ onUnmounted(() => {
           </div>
         </div>
 
-        <div class="map__map-area">
+        <div ref="mapAreaRef" class="map__map-area">
           <Image
             src="/images/map/map-overlay.jpg"
             alt=""
@@ -300,7 +317,7 @@ onUnmounted(() => {
   padding: 8.2rem 0 13.2rem;
 
   @media (max-width: $tablet) {
-    padding: 6rem 0 8rem;
+    padding: 6rem 0;
   }
 
   &__title {
@@ -329,6 +346,12 @@ onUnmounted(() => {
     width: fit-content;
     gap: 3.5rem;
     margin: 0 auto 10.3rem;
+
+    @media (max-width: $mobile) {
+      width: 100%;
+      margin: 0 0 4rem;
+      gap: 2rem;
+    }
   }
 
   &__action {
@@ -434,6 +457,10 @@ onUnmounted(() => {
     @media (max-width: $tablet) {
       margin: 0 0 0.6rem;
     }
+
+    @media (max-width: $mobile) {
+      padding-left: 2rem;
+    }
   }
 
   &__legend-num {
@@ -506,6 +533,14 @@ onUnmounted(() => {
       height: auto;
       aspect-ratio: 760 / 605;
     }
+
+    @media (max-width: $mobile) {
+      height: auto;
+      width: 217%;
+      max-width: unset;
+      aspect-ratio: 760 / 605;
+      margin-left: -60%;
+    }
   }
 
   &__overlay {
@@ -573,6 +608,11 @@ onUnmounted(() => {
     padding: 0.4rem 0.5rem 0.4rem 1rem;
     border-radius: 13px;
     white-space: nowrap;
+
+    @media (max-width: $mobile) {
+      max-width: 27rem;
+      white-space: normal;
+    }
   }
 
   &__tooltip-text {

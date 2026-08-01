@@ -74,6 +74,10 @@ const props = defineProps({
   padding: 9.6rem 0 16rem;
   background-color: $darkBlue;
 
+  @media (max-width: $mobile) {
+    padding: 6rem 0 8rem;
+  }
+
   // ──────────────────────────────────────────────
   // Top row: title + text
   // ──────────────────────────────────────────────
@@ -88,6 +92,10 @@ const props = defineProps({
       gap: 2.4rem;
       margin-bottom: 3rem;
     }
+
+    @media (max-width: $mobile) {
+      margin: 0;
+    }
   }
 
   &__mobile-wrap {
@@ -95,6 +103,11 @@ const props = defineProps({
       display: flex;
       gap: 3rem;
       align-items: flex-end;
+    }
+
+    @media (max-width: $mobile) {
+      flex-direction: column;
+      align-items: flex-start;
     }
   }
 
@@ -126,6 +139,10 @@ const props = defineProps({
 
     @media (max-width: $tablet) {
       max-width: 40rem;
+    }
+
+    @media (max-width: $mobile) {
+      max-width: 65rem;
     }
 
   }

@@ -74,6 +74,10 @@ const arrows = {
   background-color: $darkBlue;
   overflow: hidden;
 
+  @media (max-width: $mobile) {
+    padding: 6rem 0;
+  }
+
   // ──────────────────────────────────────────────
   // Заголовок
   // ──────────────────────────────────────────────
@@ -114,6 +118,10 @@ const arrows = {
 
     @media (max-width: $tablet) {
       bottom: -13rem;
+    }
+
+    @media (max-width: $mobile) {
+      bottom: -8rem;
     }
   }
 
@@ -216,7 +224,7 @@ const arrows = {
 
     @media (max-width: $mobile) {
       font-size: 2.4rem;
-      margin: 3rem 0 2.4rem;
+      margin: 8rem 0 2.4rem;
     }
   }
 

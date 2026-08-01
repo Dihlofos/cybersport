@@ -245,7 +245,8 @@ defineProps({
 
     @media (max-width: $mobile) {
       width: 100%;
-      max-width: 16rem;
+      max-width: 30rem;
+      height: auto;
     }
   }
 
@@ -254,10 +255,11 @@ defineProps({
     width: 100%;
     height: 23.1rem;
     object-fit: cover;
-    border-radius: 0.5rem;
+    border-radius: 5px;
 
     @media (max-width: $mobile) {
       height: 100%;
+      border-radius: 10px;
     }
   }
 

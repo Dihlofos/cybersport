@@ -45,6 +45,10 @@ const props = defineProps({
     padding: 0 0 8.3rem;
   }
 
+  @media (max-width: $mobile) {
+    padding: 0 0 4.3rem;
+  }
+
   &__bg {
     position: absolute;
     top: 0;
@@ -70,6 +74,11 @@ const props = defineProps({
       padding-top: 2rem;
       margin: 0 0 7rem;
     }
+
+    @media (max-width: $mobile) {
+      padding-right: 4rem;
+      gap: 2rem;
+    }
   }
 
   &__main-logo {
@@ -91,6 +100,11 @@ const props = defineProps({
   &__labels {
     display: flex;
     gap: 4rem;
+
+    @media (max-width: $mobile) {
+      flex-direction: column;
+      gap: 1.6rem;
+    }
   }
 
   &__label {

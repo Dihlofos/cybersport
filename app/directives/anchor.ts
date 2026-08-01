@@ -16,6 +16,10 @@ export function setSmoothScrollInstance(instance: any) {
   smoothScroll = instance
 }
 
+export function getSmoothScrollInstance() {
+  return smoothScroll
+}
+
 function createClickHandler(options: AnchorOptions) {
   return (event: Event) => {
     const mouseEvent = event as MouseEvent
