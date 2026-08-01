@@ -76,7 +76,7 @@ const props = defineProps({
     }
 
     @media (max-width: $mobile) {
-      padding-right: 4rem;
+      padding-right: 5rem;
       gap: 2rem;
     }
   }

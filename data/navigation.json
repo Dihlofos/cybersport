@@ -1,7 +1,7 @@
 {
   "navItems": [
     { "label": "О проекте", "link": "#about" },
-    { "label": "Главное событие", "link": "#main-events" },
+    { "label": "Главная сцена", "link": "#main-events" },
     { "label": "Активности", "link": "#activities" },
     { "label": "Карта", "link": "#map" },
     { "label": "Вопросы и ответы", "link": "#faq" },

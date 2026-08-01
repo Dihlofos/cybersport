@@ -30,7 +30,7 @@ function scrollToMap() {
   const instance = getSmoothScrollInstance()
   if (instance) {
     instance.animateScroll(mapAreaRef.value, null, {
-      speed: 200,
+      speed: 350,
       offset: 45,
     })
   }
