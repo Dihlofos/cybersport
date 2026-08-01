@@ -320,6 +320,10 @@ onUnmounted(() => {
     padding: 6rem 0;
   }
 
+  @media (max-width: $mobile) {
+    padding: 6rem 0 0;
+  }
+
   &__title {
     font-family: $unbounded;
     font-size: 4.2rem;
@@ -351,6 +355,7 @@ onUnmounted(() => {
       width: 100%;
       margin: 0 0 4rem;
       gap: 2rem;
+      flex-direction: column;
     }
   }
 
@@ -639,10 +644,6 @@ onUnmounted(() => {
     &:hover {
       opacity: 0.6;
     }
-  }
-
-  @media (max-width: $mobile) {
-    padding: 5rem 0 6rem;
   }
 }
 </style>

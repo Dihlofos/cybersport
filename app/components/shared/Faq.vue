@@ -145,9 +145,12 @@ function isOpen(index) {
       padding: 1.5rem 0;
     }
 
-    &:hover {
-      opacity: 0.8;
+    @media (min-width: 1025px) {
+      &:hover {
+        opacity: 0.8;
+      }
     }
+
   }
 
   &__question {
@@ -180,6 +183,11 @@ function isOpen(index) {
     .active & {
       position: relative;
       top: 2rem;
+    }
+
+    @media (max-width: $mobile) {
+      width: 2rem;
+      height: auto;
     }
   }
 

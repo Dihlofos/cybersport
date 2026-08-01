@@ -90,6 +90,12 @@ defineProps({
     right: 7rem;
     top: 0.7rem;
     width: 33.7rem;
+
+    @media(max-width: $mobile) {
+      width: 10rem;
+      top: -3.5rem;
+      right: 0;
+    }
   }
 }
 </style>
