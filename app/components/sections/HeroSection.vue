@@ -16,7 +16,7 @@ const props = defineProps({
     <Container>
       <h1 class="visually-hidden">{{ title }}</h1>
       <div class="hero__logos">
-        <div class="hero__logo" v-for="(logo, index) in logos" :key="index">
+        <div class="hero__logo" :class="[logo.name]" v-for="(logo, index) in logos" :key="index">
           <Image :src="logo.src" :alt="logo.alt" :width="logo.width" :height="logo.height" />
         </div>
       </div>
@@ -57,6 +57,16 @@ const props = defineProps({
     height: 100%;
     object-fit: cover;
     z-index: -1;
+  }
+
+  &__logo {
+    @media (max-width: $mobile) {
+      width: 7rem;
+
+      &.vdnkh {
+        width: 3rem;
+      }
+    }
   }
 
   &__logos {

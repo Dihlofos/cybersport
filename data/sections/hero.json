@@ -26,31 +26,36 @@
       "src": "/images/logos/dep.svg",
       "alt": "",
       "width": 115,
-      "height": 34
+      "height": 34,
+      "name": "dep"
     },
     {
       "src": "/images/logos/moscybersport.svg",
       "alt": "",
       "width": 115,
-      "height": 34
+      "height": 34,
+      "name": "moscybersport"
     },
     {
       "src": "/images/logos/leto.svg",
       "alt": "",
       "width": 88,
-      "height": 37
+      "height": 37,
+      "name": "leto"
     },
     {
       "src": "/images/logos/fed.svg",
       "alt": "",
       "width": 112,
-      "height": 37
+      "height": 37,
+      "name": "fed"
     },
     {
       "src": "/images/logos/vdnkh.svg",
       "alt": "",
       "width": 39,
-      "height": 42
+      "height": 42,
+      "name": "vdnkh"
     }
   ]
 }
