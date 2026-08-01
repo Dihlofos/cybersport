@@ -55,6 +55,37 @@ function stopPositioning() {
   }
 }
 
+// Floating UI позиционирует тултип относительно .map__map-area,
+// но на мобильной раскладке этот блок шире экрана (width: 217%; margin-left: -60%)
+// и торчит за пределы вьюпорта. Поэтому после расчёта зажимаем тултип
+// в границы реального экрана (left/top пересчитываются обратно в координаты блока).
+function applyTooltipPosition(x, y) {
+  const area = mapAreaRef.value
+  const tooltip = tooltipRef.value
+  if (!area || !tooltip) return
+
+  const margin = 8
+  const areaRect = area.getBoundingClientRect()
+  const tooltipWidth = tooltip.offsetWidth
+  const tooltipHeight = tooltip.offsetHeight
+
+  const viewportLeft = areaRect.left + x
+  const viewportTop = areaRect.top + y
+
+  const left = clamp(viewportLeft, margin, window.innerWidth - tooltipWidth - margin)
+  const top = clamp(viewportTop, margin, window.innerHeight - tooltipHeight - margin)
+
+  tooltipStyle.value = {
+    position: 'absolute',
+    top: `${top - areaRect.top}px`,
+    left: `${left - areaRect.left}px`,
+  }
+}
+
+function clamp(value, min, max) {
+  return Math.min(Math.max(value, min), Math.max(min, max))
+}
+
 function startPositioning() {
   stopPositioning()
 
@@ -64,12 +95,12 @@ function startPositioning() {
   const middleware = [offset(12), flip(), shift({ padding: 8 })]
 
   computePosition(reference, tooltipRef.value, { placement: 'left', middleware }).then(({ x, y }) => {
-    tooltipStyle.value = { position: 'absolute', top: `${y}px`, left: `${x}px` }
+    applyTooltipPosition(x, y)
   })
 
   positionCleanup = autoUpdate(reference, tooltipRef.value, () => {
     computePosition(reference, tooltipRef.value, { placement: 'left', middleware }).then(({ x, y }) => {
-      tooltipStyle.value = { position: 'absolute', top: `${y}px`, left: `${x}px` }
+      applyTooltipPosition(x, y)
     })
   })
 }
