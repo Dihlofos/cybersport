@@ -115,6 +115,8 @@ const props = defineProps({
     @media (max-width: $mobile) {
       flex-direction: column;
       gap: 1.6rem;
+      width: 100%;
+      max-width: 44rem;
     }
   }
 
@@ -129,6 +131,13 @@ const props = defineProps({
     border-radius: 13px;
     span span {
       font-size: 1.4rem;
+    }
+
+    @media (max-width: $mobile) {
+      font-size: 1.6rem;
+      gap: 0.5rem;
+      padding: 1.3rem 1.4rem;
+      width: 100%;
     }
   }
 

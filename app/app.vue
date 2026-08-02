@@ -28,7 +28,6 @@ useHead({
     { rel: 'icon', type: 'image/svg+xml', href: '/images/favicons/favicon.svg' },
     { rel: 'shortcut icon', href: '/images/favicons/favicon.ico' },
     { rel: 'apple-touch-icon', sizes: '180x180', href: '/images/favicons/apple-touch-icon.png' },
-    { rel: 'manifest', href: '/images/favicons/site.webmanifest' },
     { rel: 'canonical', href: site.url },
   ],
   script: [
