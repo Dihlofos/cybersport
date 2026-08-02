@@ -289,10 +289,6 @@ onUnmounted(() => {
               <rect id="Rectangle 489_12" x="419.754" y="360.246" width="19.3978" height="19.3703" fill="#C3AD89" stroke="#F32F0A" stroke-width="1.09605"/>
               <text x="429.5" y="369.9" transform="rotate(41.8478 429.5 369.9)" class="map__figure">14</text>
             </g>
-            <g id="figure 5_2" data-figure="5" :class="{ 'map__figure--active': activeFigure === 5 }" transform="rotate(-41.8478 443.033 303.409)">
-              <rect id="Rectangle 489_13" x="443.033" y="303.409" width="19.3978" height="19.3703" fill="#C3AD89" stroke="#F32F0A" stroke-width="1.09605"/>
-              <text x="452.7" y="313.1" transform="rotate(41.8478 452.7 313.1)" class="map__figure">5</text>
-            </g>
             <g id="figure 16" data-figure="16" :class="{ 'map__figure--active': activeFigure === 16 }" transform="rotate(-41.8478 534.337 383.909)">
               <rect id="Rectangle 489_14" x="534.337" y="383.909" width="19.3978" height="19.3703" fill="#C3AD89" stroke="#F32F0A" stroke-width="1.09605"/>
               <text x="544" y="393.6" transform="rotate(41.8478 544 393.6)" class="map__figure">16</text>
