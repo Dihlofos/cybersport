@@ -11,7 +11,8 @@
     {
       "text": "ВДНХ",
       "smallText": "(площадь Промышленности)",
-      "icon": "/images/icons/pin.svg"
+      "icon": "/images/icons/pin.svg",
+      "link": "#map"
     }
   ],
   "mainImage": {

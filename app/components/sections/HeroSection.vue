@@ -25,11 +25,16 @@ const props = defineProps({
       <div class="hero__content">
         <div class="hero__subtitle">{{ subtitle }}</div>
         <div class="hero__labels">
-          <div class="hero__label" v-for="(label, index) in labels" :key="index">
+          <a class="hero__label"
+            v-for="(label, index) in labels"
+            :key="index"
+            v-anchor="label.link ? label.link : undefined"
+            :href="label.link? label.link : undefined"
+          >
             <Image :src="label.icon" alt="" width="24" height="24" />
             <span>{{ label.text }} <span v-if="label.smallText">{{ label.smallText }}</span></span>
 
-          </div>
+          </a>
         </div>
       </div>
     </Container>
@@ -112,6 +117,7 @@ const props = defineProps({
     display: flex;
     gap: 4rem;
 
+
     @media (max-width: $mobile) {
       flex-direction: column;
       gap: 1.6rem;
@@ -129,6 +135,7 @@ const props = defineProps({
     font-size: 1.8rem;
     padding: 1.3rem 2rem;
     border-radius: 13px;
+    text-decoration: none;
     span span {
       font-size: 1.4rem;
     }

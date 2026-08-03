@@ -21,14 +21,20 @@
   "socials": [
     {
       "icon": "tg",
-      "href": "https://t.me/fcsmsk",
+      "href": "https://t.me/cybermos_ru",
       "label": "Telegram"
+    },
+        {
+      "icon": "max",
+      "href": "https://max.ru/join/mBfxGxsH9XhjMwx4Y1zWxwBKfh-5V9s9YsR-DH_oouU",
+      "label": "Max"
     },
     {
       "icon": "vk",
-      "href": "https://vk.com/fcsmsk",
+      "href": "https://vk.ru/cybermos_ru",
       "label": "VK"
     }
+
   ],
   "docs": [
     { "href": "/docs/policy.pdf", "label": "Политика конфиденциальности" }
