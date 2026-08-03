@@ -8,7 +8,7 @@
     },
     {
       "label": "Для СМИ",
-      "email": "lidskiy.ivan@fcs.msk.ru"
+      "email": "press_kiberzarnitsa@mail.ru"
     }
   ],
   "info": {
@@ -37,6 +37,6 @@
 
   ],
   "docs": [
-    { "href": "/docs/policy.pdf", "label": "Политика конфиденциальности" }
+    { "href": "/docs/", "label": "Политика конфиденциальности" }
   ]
 }
