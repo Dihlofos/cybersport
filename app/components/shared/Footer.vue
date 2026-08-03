@@ -241,7 +241,7 @@ import footerData from '~/../data/sections/footer.json'
 
   &__docs {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
 
     @media (max-width: $tablet) {
       flex-direction: column;
