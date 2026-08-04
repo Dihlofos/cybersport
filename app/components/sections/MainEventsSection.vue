@@ -206,6 +206,7 @@ defineProps({
     position: relative;
     z-index: 2;
     display: flex;
+    align-items: flex-start;
     gap: 4rem;
     margin: 0 0 3rem;
 
