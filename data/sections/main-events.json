@@ -10,11 +10,11 @@
       "description": "Решающая битва за чемпионство",
       "prize": "Призовой фонд — 300 000 рублей",
       "image": "/images/main-events/cs.jpg",
-      "registration": {
+      "registrations": [{
         "text": "Регистрация на отборочные соревнования",
         "deadline": "Дата окончания регистрации: 28 августа",
         "link": "https://www.google.com/url?q=https://cybermos.ru/tournament/counter-strike-2/online/kiberzarnitsa-2026-cs2/&sa=D&source=docs&ust=1785506057199456&usg=AOvVaw3CMXJ6z7b2yoA2dNU6qjM8"
-      }
+      }]
     },
     {
       "game": "«Мир танков»",
@@ -22,11 +22,19 @@
       "description": "Станьте свидетелем истории киберспорта",
       "prize": "Призовой фонд — 500 000 рублей",
       "image": "/images/main-events/tanks3.jpg",
-      "registration": {
-        "text": "Регистрация закрыта",
-        "deadline": "Дата окончания регистрации: 31 июля",
-        "disabled": true
-      }
+      "registrations": [
+        {
+          "text": "Открытая квалификация 2 августа",
+          "deadline": "",
+          "link": "https://vkvideo.ru/video-194768127_456241824?list=34d94cb94466aef7e2"
+        },
+        {
+          "text": "Закрытая квалификация 9 августа",
+          "involved": "Участники: <b>WhoCares?, ENEMY, JUMBO, ALFA, SPARTAK, Kuzbass, AMG, SCANDAL</b>, For Fun, BOGATYRI, HOAXkz, PRIME ERA, PARADOX, BOOM, HEAX, WZP.",
+          "deadline": "",
+          "link": "https://www.google.com/url?q=https://cybermos.ru/tournament/counter-strike-2/online/kiberzarnitsa-2026-cs2/&sa=D&source=docs&ust=1785506057199456&usg=AOvVaw3CMXJ6z7b2yoA2dNU6qjM8"
+        }
+      ]
     }
   ],
   "bottom": {

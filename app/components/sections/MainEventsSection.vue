@@ -1,4 +1,5 @@
 <script setup>
+import { sanitizeText } from '~/utils/sanitize'
 defineProps({
   title: { type: String, required: true },
   decorRight: { type: String, default: '' },
@@ -35,6 +36,7 @@ defineProps({
       <div class="main-events__grid">
         <article
           v-for="(event, index) in events"
+          :class="{['main-events__card--' + index]: true }"
           :key="index"
           class="main-events__card"
         >
@@ -59,16 +61,24 @@ defineProps({
             </div>
           </div>
 
-          <div class="main-events__card-bottom">
+          <div
+            v-for="(reg, regIndex) in event.registrations"
+            :key="regIndex"
+            class="main-events__card-bottom"
+            :class="{['main-events__card-bottom--' + regIndex]: true }"
+          >
+            <div v-if="reg.subtitle" class="main-events__card-bottom-subtitle">{{ reg.subtitle }}</div>
             <a
-              :href="event.registration.link ? event.registration.link : undefined"
+              v-if="reg.text"
+              :href="reg.link ? reg.link : undefined"
               class="main-events__reg-btn"
               target="_blank"
-              :class="{ disabled: event.registration.disabled }"
+              :class="{ disabled: reg.disabled }"
             >
-              {{ event.registration.text }}
+              {{ reg.text }}
             </a>
-            <p class="main-events__deadline">{{ event.registration.deadline }}</p>
+            <p v-if="reg.deadline" class="main-events__deadline">{{ reg.deadline }}</p>
+            <div v-if="reg.involved" class="main-events__card-bottom-involved" v-html="sanitizeText(reg.involved)"></div>
           </div>
         </article>
       </div>
@@ -136,6 +146,24 @@ defineProps({
     }
   }
 
+  &__card-bottom-subtitle {
+    align-self: flex-start;
+    text-align: left;
+    font-size: 1.6rem;
+  }
+
+  &__card-bottom-involved {
+    align-self: flex-start;
+    text-align: left;
+    font-size: 1.4rem;
+    line-height: 1.2;
+    color: $light;
+
+    b {
+      color: $red;
+    }
+  }
+
   &__decor--left {
     bottom: -3rem;
     left: -11.3rem;
@@ -179,7 +207,7 @@ defineProps({
     z-index: 2;
     display: flex;
     gap: 4rem;
-    margin-bottom: 3.4rem;
+    margin: 0 0 3rem;
 
     @media (max-width: $tablet) {
       gap: 2.4rem;
@@ -202,6 +230,10 @@ defineProps({
     border-radius: 1.3rem;
     box-shadow: 0 0.4rem 0.4rem rgba($black, 0.5);
     overflow: hidden;
+
+    &--0 .main-events__card-inner {
+      flex: 0;
+    }
 
     @media (max-width: $tablet) {
       max-width: 56rem;
@@ -273,8 +305,10 @@ defineProps({
     flex: 1;
     min-width: 0;
 
+
     @media (max-width: $mobile) {
       gap: 0.4rem;
+      margin: 0 0 3rem;
     }
   }
 
@@ -334,7 +368,6 @@ defineProps({
     font-weight: 700;
     line-height: 1;
     color: $red;
-    margin: auto 0 0;
 
     @media (max-width: $mobile) {
       margin-top: 0.8rem;
@@ -348,11 +381,16 @@ defineProps({
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1.6rem;
+    gap: 0.5rem;
     padding: 2.6rem 3.6rem 2.6rem;
+
+    &--1 {
+      padding-top: 0;
+    }
 
     @media (max-width: $tablet) {
       padding: 2.4rem;
+
     }
 
     @media (max-width: $mobile) {
