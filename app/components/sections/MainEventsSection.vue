@@ -4,8 +4,8 @@ defineProps({
   title: { type: String, required: true },
   decorRight: { type: String, default: '' },
   decorLeft: { type: String, default: '' },
+  playerImage: { type: String, default: '' },
   events: { type: Array, default: () => [] },
-  bottom: { type: Object, default: () => ({}) },
 })
 </script>
 
@@ -30,90 +30,100 @@ defineProps({
         height="280"
       />
 
+      <!-- Изображение игрока справа -->
+      <div v-if="playerImage" class="main-events__player">
+        <Image
+          :src="playerImage"
+          alt=""
+          class="main-events__player-img"
+          width="500"
+          height="1043"
+        />
+        <div class="main-events__player-overlay" />
+      </div>
+
       <h2 class="main-events__title">{{ title }}</h2>
 
       <!-- Карточки событий -->
       <div class="main-events__grid">
         <article
           v-for="(event, index) in events"
-          :class="{['main-events__card--' + index]: true }"
           :key="index"
           class="main-events__card"
         >
-          <div class="main-events__card-inner">
-            <div class="main-events__card-image">
-              <Image
-                :src="event.image"
-                :alt="event.game"
-                class="main-events__card-img"
-                width="160"
-                height="231"
-              />
-            </div>
-
-            <div class="main-events__card-info">
-              <div class="main-events__card-heading">
-                <h3 class="main-events__game">{{ event.game }}</h3>
-                <p class="main-events__subtitle">{{ event.subtitle }}</p>
-              </div>
-              <p class="main-events__desc">{{ event.description }}</p>
-              <p class="main-events__prize">{{ event.prize }}</p>
-            </div>
+          <!-- Изображение карточки -->
+          <div class="main-events__card-image">
+            <Image
+              :src="event.image"
+              :alt="event.game"
+              class="main-events__card-img"
+              width="274"
+              height="428"
+            />
           </div>
 
-          <div
-            v-for="(reg, regIndex) in event.registrations"
-            :key="regIndex"
-            class="main-events__card-bottom"
-            :class="{['main-events__card-bottom--' + regIndex]: true }"
-          >
-            <div v-if="reg.subtitle" class="main-events__card-bottom-subtitle">{{ reg.subtitle }}</div>
-            <a
-              v-if="reg.text"
-              :href="reg.link ? reg.link : undefined"
-              class="main-events__reg-btn"
-              target="_blank"
-              :class="{ disabled: reg.disabled }"
+          <!-- Контент карточки -->
+          <div class="main-events__card-content">
+            <div class="main-events__card-heading">
+              <h3 class="main-events__game">{{ event.game }}</h3>
+              <p class="main-events__subtitle">{{ event.subtitle }}</p>
+            </div>
+            <p class="main-events__desc">{{ event.description }}</p>
+
+            <!-- Призовой фонд -->
+            <div v-if="event.prize" class="main-events__prize">
+              {{ event.prize }}
+            </div>
+
+            <!-- Блок регистраций -->
+            <div
+              v-if="event.registrations && event.registrations.length"
+              class="main-events__regs"
             >
-              {{ reg.text }}
-            </a>
-            <p v-if="reg.deadline" class="main-events__deadline">{{ reg.deadline }}</p>
-            <div v-if="reg.involved" class="main-events__card-bottom-involved" v-html="sanitizeText(reg.involved)"></div>
+              <div
+                v-for="(reg, regIndex) in event.registrations"
+                :key="regIndex"
+                class="main-events__reg"
+              >
+                <!-- Регистрация с датой (Мир танков) -->
+                <template v-if="reg.date">
+                  <div class="main-events__reg-row">
+                    <span class="main-events__reg-date">{{ reg.date }}</span>
+                    <span class="main-events__reg-divider" />
+                    <a
+                      :href="reg.link || undefined"
+                      class="main-events__reg-btn"
+                      target="_blank"
+                    >
+                      {{ reg.text }}
+                    </a>
+                  </div>
+                </template>
+
+                <!-- Обычная регистрация (CS2) -->
+                <template v-else>
+                  <a
+                    :href="reg.link || undefined"
+                    class="main-events__reg-btn main-events__reg-btn--full"
+                    target="_blank"
+                  >
+                    {{ reg.text }}
+                  </a>
+                  <p v-if="reg.deadline" class="main-events__deadline">{{ reg.deadline }}</p>
+                </template>
+
+                <!-- Участники -->
+                <div
+                  v-if="reg.involved"
+                  class="main-events__involved"
+                  v-html="sanitizeText(reg.involved)"
+                />
+              </div>
+            </div>
           </div>
         </article>
       </div>
-
-      <!-- Нижний блок — Звёздный шоу-матч -->
-      <div class="main-events__showmatch">
-        <div class="main-events__showmatch-image main-events__showmatch-image--left">
-          <Image
-            :src="bottom.imageLeft"
-            alt=""
-            class="main-events__showmatch-img"
-            width="300"
-            height="183"
-          />
-        </div>
-
-        <div class="main-events__showmatch-content">
-          <h3 class="main-events__showmatch-game">{{ bottom.game }}</h3>
-          <p class="main-events__showmatch-subtitle">{{ bottom.subtitle }}</p>
-          <p class="main-events__showmatch-desc">{{ bottom.description }}</p>
-        </div>
-
-        <div class="main-events__showmatch-image main-events__showmatch-image--right">
-          <Image
-            :src="bottom.imageRight"
-            alt=""
-            class="main-events__showmatch-img"
-            width="300"
-            height="183"
-          />
-        </div>
-      </div>
     </Container>
-
-
   </section>
 </template>
 
@@ -146,32 +156,51 @@ defineProps({
     }
   }
 
-  &__card-bottom-subtitle {
-    align-self: flex-start;
-    text-align: left;
-    font-size: 1.6rem;
-  }
-
-  &__card-bottom-involved {
-    align-self: flex-start;
-    text-align: left;
-    font-size: 1.4rem;
-    line-height: 1.2;
-    color: $light;
-
-    b {
-      color: $red;
-    }
-  }
-
   &__decor--left {
-    bottom: -3rem;
+    bottom: 41.4rem;
     left: -11.3rem;
   }
 
   &__decor--right {
     top: -1rem;
     right: -7.2rem;
+  }
+
+  // ──────────────────────────────────────────────
+  // Изображение игрока справа
+  // ──────────────────────────────────────────────
+  &__player {
+    position: absolute;
+    right: 3rem;
+    top: 13rem;
+    width: 50rem;
+    z-index: 1;
+    pointer-events: none;
+    user-select: none;
+
+    @media (max-width: $laptop) {
+      width: 36rem;
+    }
+
+    @media (max-width: $tablet) {
+      display: none;
+    }
+  }
+
+  &__player-img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  &__player-overlay {
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(-90deg, $darkBlue 0%, rgba($darkBlue, 0) 28%),
+      linear-gradient(0deg, $darkBlue 0%, rgba($darkBlue, 0) 30%),
+      linear-gradient(90deg, $darkBlue 0%, rgba($darkBlue, 0) 39%),
+      linear-gradient(180deg, $darkBlue 0%, rgba($darkBlue, 0) 28%);
   }
 
   // ──────────────────────────────────────────────
@@ -206,16 +235,13 @@ defineProps({
     position: relative;
     z-index: 2;
     display: flex;
-    align-items: flex-start;
+    flex-direction: column;
     gap: 4rem;
-    margin: 0 0 3rem;
+    max-width: 66rem;
 
     @media (max-width: $tablet) {
+      max-width: 100%;
       gap: 2.4rem;
-    }
-
-    @media (max-width: $mobile) {
-      flex-direction: column;
     }
   }
 
@@ -223,43 +249,14 @@ defineProps({
   // Карточка события
   // ──────────────────────────────────────────────
   &__card {
-    flex: 1;
-    min-width: 0;
     display: flex;
-    flex-direction: column;
     background-color: $blue;
     border-radius: 1.3rem;
     box-shadow: 0 0.4rem 0.4rem rgba($black, 0.5);
     overflow: hidden;
 
-    &--0 .main-events__card-inner {
-      flex: 0;
-    }
-
-    @media (max-width: $tablet) {
-      max-width: 56rem;
-    }
-
-    @media (max-width: $mobile) {
-      max-width: 100%;
-    }
-  }
-
-  &__card-inner {
-    display: flex;
-    flex: 1;
-    gap: 2.8rem;
-    padding: 3.6rem 2.6rem 0 3.6rem;
-
-    @media (max-width: $tablet) {
-      padding: 2.4rem 2.4rem 0;
-      gap: 2.4rem;
-    }
-
     @media (max-width: $mobile) {
       flex-direction: column;
-      gap: 1.6rem;
-      padding: 2rem 2rem 0;
     }
   }
 
@@ -267,56 +264,53 @@ defineProps({
   // Изображение в карточке
   // ──────────────────────────────────────────────
   &__card-image {
-    width: 16rem;
+    position: relative;
     flex-shrink: 0;
+    width: 25rem;
     overflow: hidden;
 
-    @media (max-width: $tablet) {
-      width: 12rem;
-      height: 19rem;
+    @media (max-width: $laptop) {
+      width: 22rem;
     }
 
     @media (max-width: $mobile) {
       width: 100%;
-      max-width: 30rem;
-      height: auto;
+      height: 30rem;
     }
   }
 
   &__card-img {
     display: block;
-    width: 100%;
-    height: 23.1rem;
+    width: calc(100% + 2px);
+    height: calc(100% + 2px);
     object-fit: cover;
-    border-radius: 5px;
+    max-width: unset;
+    object-position: 0 10%;
 
     @media (max-width: $mobile) {
-      height: 100%;
-      border-radius: 10px;
+      object-position: 0 10%;
     }
   }
 
   // ──────────────────────────────────────────────
-  // Текстовая часть карточки
+  // Контент карточки
   // ──────────────────────────────────────────────
-  &__card-info {
+  &__card-content {
+    flex: 1;
     display: flex;
     flex-direction: column;
-    gap: 0.2rem;
-    flex: 1;
+    padding: 3.3rem 3.8rem 2.6rem 2.4rem;
     min-width: 0;
 
-
     @media (max-width: $mobile) {
-      gap: 0.4rem;
-      margin: 0 0 3rem;
+      padding: 2rem;
     }
   }
 
   &__card-heading {
     display: flex;
     flex-direction: column;
-    gap: 0.2rem;
+    gap: 0.8rem;
   }
 
   &__game {
@@ -363,47 +357,95 @@ defineProps({
     }
   }
 
+  // ──────────────────────────────────────────────
+  // Призовой фонд
+  // ──────────────────────────────────────────────
   &__prize {
+    margin: 2.8rem 0 0;
+    padding: 0.7rem 1rem;
+    border: 1px solid $red;
+    border-radius: 1.3rem;
     font-family: $tektur;
     font-size: 1.4rem;
     font-weight: 700;
     line-height: 1;
     color: $red;
+    text-align: center;
 
     @media (max-width: $mobile) {
-      margin-top: 0.8rem;
+      margin: 1.2rem 0 0;
+      font-size: 1.2rem;
     }
   }
 
   // ──────────────────────────────────────────────
-  // Нижняя часть карточки (кнопка + дедлайн)
+  // Блок регистраций
   // ──────────────────────────────────────────────
-  &__card-bottom {
+  &__regs {
+    margin: 1.6rem 0 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+
+  &__reg {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 0.5rem;
-    padding: 2.6rem 3.6rem 2.6rem;
+    gap: 1.3rem;
+  }
 
-    &--1 {
-      padding-top: 0;
-    }
+  // ──────────────────────────────────────────────
+  // Строка с датой + кнопкой (Мир танков)
+  // ──────────────────────────────────────────────
+  &__reg-row {
+    display: flex;
+    align-items: center;
+    gap: 2.4rem;
+    width: 100%;
+  }
 
-    @media (max-width: $tablet) {
-      padding: 2.4rem;
+  &__reg-date {
+    font-family: $tektur;
+    font-size: 1.8rem;
+    font-weight: 400;
+    line-height: 1;
+    color: #e0e2e3;
+    white-space: nowrap;
+    width: 8.9rem;
+    text-align: right;
 
+    @media (max-width: $laptop) {
+      font-size: 1.5rem;
+      width: 7rem;
     }
 
     @media (max-width: $mobile) {
-      padding: 1.6rem 2rem;
+      font-size: 1.3rem;
+      width: 6rem;
     }
   }
 
-  &__reg-btn {
+  &__reg-divider {
     display: block;
+    width: 1px;
+    height: 5.7rem;
+    background-color: $red;
+    flex-shrink: 0;
+
+    @media (max-width: $mobile) {
+      height: 4.5rem;
+    }
+  }
+
+  // ──────────────────────────────────────────────
+  // Кнопка регистрации
+  // ──────────────────────────────────────────────
+  &__reg-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-decoration: none;
-    width: 100%;
-    max-width: 48.7rem;
     padding: 0.7rem 1.6rem;
     border: none;
     border-radius: 1.3rem;
@@ -411,37 +453,38 @@ defineProps({
     font-family: $tektur;
     font-size: 1.8rem;
     font-weight: 400;
-    line-height: 1;
+    line-height: 1.3;
     color: #e0e2e3;
     text-transform: uppercase;
     text-align: center;
-    white-space: nowrap;
     cursor: pointer;
     transition: opacity 0.2s;
+    min-height: 5.7rem;
+    flex: 1;
 
-    &.disabled {
-      cursor: auto;
-    }
-
-    &:not(.disabled):hover {
+    &:hover {
       opacity: 0.85;
     }
 
-    @media (max-width: $tablet) {
-      white-space: normal;
-      height: auto;
-      font-size: 1.6rem;
+    @media (max-width: $laptop) {
+      font-size: 1.5rem;
+      min-height: 4.5rem;
     }
 
     @media (max-width: $mobile) {
-      font-size: 1.4rem;
-      white-space: normal;
-      height: auto;
-      min-height: 3.5rem;
+      font-size: 1.3rem;
+      min-height: 4rem;
       padding: 0.8rem 1.2rem;
     }
   }
 
+  &__reg-btn--full {
+    width: 100%;
+  }
+
+  // ──────────────────────────────────────────────
+  // Дедлайн
+  // ──────────────────────────────────────────────
   &__deadline {
     font-family: $tektur;
     font-size: 1rem;
@@ -456,93 +499,27 @@ defineProps({
   }
 
   // ──────────────────────────────────────────────
-  // Нижний блок — Звёздный шоу-матч
+  // Участники
   // ──────────────────────────────────────────────
-  &__showmatch {
-    position: relative;
-    z-index: 2;
-    display: flex;
-    align-items: stretch;
-    background-color: $blue;
-    border-radius: 1.3rem;
-    overflow: hidden;
-    min-height: 18.3rem;
+  &__involved {
+    max-width: 21rem;
+    align-self: flex-end;
+    text-align: left;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.2;
+    color: $grey;
+
+    b {
+      color: $red;
+    }
 
     @media (max-width: $tablet) {
-      flex-direction: column;
-      min-height: auto;
-    }
-  }
-
-  &__showmatch-image {
-    position: relative;
-    overflow: hidden;
-
-    img {
       max-width: unset;
-      width: 101%;
-      height: 101%;
     }
-
-    @media (max-width: $tablet) {
-      display: none;
-    }
-  }
-
-  &__showmatch-img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  &__showmatch-content {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 3.6rem 3rem 2rem 3rem;
-    text-align: center;
-  }
-
-  &__showmatch-game {
-    font-family: $tektur;
-    font-size: 2.4rem;
-    font-weight: 700;
-    line-height: 1;
-    color: $red;
-    text-transform: uppercase;
-    margin: 0 0 0.8rem;
 
     @media (max-width: $mobile) {
-      font-size: 1.8rem;
-    }
-  }
-
-  &__showmatch-subtitle {
-    font-family: $tektur;
-    font-size: 1.8rem;
-    font-weight: 400;
-    line-height: 1;
-    color: #e0e2e3;
-    margin: 0;
-
-    @media (max-width: $mobile) {
-      font-size: 1.5rem;
-    }
-  }
-
-  &__showmatch-desc {
-    font-family: $tektur;
-    font-size: 1.2rem;
-    font-weight: 400;
-    line-height: 1.4;
-    color: $white;
-    margin: 2.2rem 0 0;
-    max-width: 45.4rem;
-
-    @media (max-width: $mobile) {
-      font-size: 1.1rem;
+      font-size: 0.9rem;
     }
   }
 }
