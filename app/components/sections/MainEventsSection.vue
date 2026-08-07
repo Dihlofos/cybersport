@@ -59,6 +59,7 @@ defineProps({
               class="main-events__card-img"
               width="274"
               height="428"
+              :sources="event.mobileImage ? [{ media: '(max-width: 767px)', srcset: event.mobileImage  }] : undefined"
             />
           </div>
 
@@ -79,6 +80,7 @@ defineProps({
             <div
               v-if="event.registrations && event.registrations.length"
               class="main-events__regs"
+              :class="{[event.type]: true}"
             >
               <div
                 v-for="(reg, regIndex) in event.registrations"
@@ -111,14 +113,20 @@ defineProps({
                   </a>
                   <p v-if="reg.deadline" class="main-events__deadline">{{ reg.deadline }}</p>
                 </template>
-
-                <!-- Участники -->
-                <div
-                  v-if="reg.involved"
-                  class="main-events__involved"
-                  v-html="sanitizeText(reg.involved)"
-                />
               </div>
+            </div>
+            <div class="main-events__commands" v-if="event.mainCommands">
+              <div class="main-events__commands-title">{{ event.mainCommands.text }}</div>
+              <div class="main-events__commands-list">
+                <div class="main-events__command" v-for="command in event.mainCommands.list" :key="command.text">
+                  <Image :src="command.image" :alt="command.text" class="main-events__commands-img" />
+                  <span class="main-events__commands-text">{{ command.text }}</span>
+                </div>
+              </div>
+            </div>
+            <div class="main-events__commands" v-if="event.otherCommands">
+              <div class="main-events__commands-title">{{ event.otherCommands.title }}</div>
+              <span class="main-events__commands-names">{{ event.otherCommands.list }}</span>
             </div>
           </div>
         </article>
@@ -157,13 +165,61 @@ defineProps({
   }
 
   &__decor--left {
-    bottom: 41.4rem;
+    bottom: 65.4rem;
     left: -11.3rem;
   }
 
   &__decor--right {
     top: -1rem;
     right: -7.2rem;
+  }
+
+  &__commands {
+    padding: 2.6rem 0 0;
+  }
+
+  &__commands-title {
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    color: $white;
+    text-align: center;
+    margin: 0 0 1.3rem;
+    font-weight: 700;
+    font-family: $tektur;
+  }
+
+  &__commands-list {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 1.6rem;
+  }
+
+  &__commands-names {
+    display: block;
+    font-size: 1rem;
+    color: $grey;
+    max-width: 21.2rem;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  &__commands-img {
+    height: 5.5rem;
+    width: auto;
+  }
+
+  &__command {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.9rem;
+  }
+
+  &__commands-text {
+    font-size: 1rem;
+    color: $red;
+    font-weight: 700;
+    font-family: $tektur;
   }
 
   // ──────────────────────────────────────────────
@@ -393,6 +449,15 @@ defineProps({
     flex-direction: column;
     align-items: center;
     gap: 1.3rem;
+
+    .tanks & {
+      &:first-child {
+        padding-bottom: 1rem;
+        border-bottom: 1px solid $red;
+      }
+    }
+
+
   }
 
   // ──────────────────────────────────────────────

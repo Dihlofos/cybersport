@@ -7,10 +7,12 @@
   "events": [
     {
       "game": "Counter-Strike 2",
+      "type": "cs",
       "subtitle": "Финал турнира",
       "description": "Решающая битва за чемпионство",
       "prize": "Призовой фонд — 300 000 рублей",
       "image": "/images/main-events/cs2.jpg",
+      "mobileImage": "/images/main-events/cs3.jpg",
       "registrations": [{
         "text": "Регистрация на отборочные соревнования",
         "deadline": "Дата окончания регистрации: 28 августа",
@@ -19,10 +21,12 @@
     },
     {
       "game": "«Мир танков»",
+      "type": "tanks",
       "subtitle": "Финал турнира",
       "description": "Станьте свидетелем истории киберспорта",
       "prize": "Призовой фонд — 500 000 рублей",
-      "image": "/images/main-events/tanks4.jpg",
+      "image": "/images/main-events/tanks5.jpg",
+      "mobileImage": "/images/main-events/tanks6.jpg",
       "registrations": [
         {
           "date": "2 августа",
@@ -32,10 +36,50 @@
         {
           "date": "9 августа",
           "text": "Закрытая квалификация",
-          "involved": "Участники: <b>WhoCares?, ENEMY, JUMBO, ALFA, SPARTAK, Kuzbass, AMG, SCANDAL</b>, For Fun, BOGATYRI, HOAXkz, PRIME ERA, PARADOX, BOOM, HEAX, WZP.",
           "link": "https://www.google.com/url?q=https://cybermos.ru/tournament/counter-strike-2/online/kiberzarnitsa-2026-cs2/&sa=D&source=docs&ust=1785506057199456&usg=AOvVaw3CMXJ6z7b2yoA2dNU6qjM8"
         }
-      ]
+      ],
+      "mainCommands": {
+        "text": "прямое приглашение",
+        "list": [
+          {
+            "image": "/images/main-events/jumbo.png",
+            "text": "JUMBO"
+          },
+          {
+            "image": "/images/main-events/enemy.png",
+            "text": "ENEMY"
+          },
+          {
+            "image": "/images/main-events/whocares.png",
+            "text": "WhoCares?"
+          },
+          {
+            "image": "/images/main-events/alfa.png",
+            "text": "ALFA"
+          },
+          {
+            "image": "/images/main-events/spartak.png",
+            "text": "SPARTAK"
+          },
+          {
+            "image": "/images/main-events/kuzbas.png",
+            "text": "Kuzbass"
+          },
+          {
+            "image": "/images/main-events/amg.png",
+            "text": "AMG"
+          },
+          {
+            "image": "/images/main-events/scandal.png",
+            "text": "SCANDAL"
+          }
+        ]
+      },
+      "otherCommands": {
+        "title": "отбор через квалификацию",
+        "list": "For Fun, BOGATYRI, HOAXkz, PRIME ERA, PARADOX, BOOM, HEAX, WZP"
+      }
     },
     {
       "game": "Звездный шоу-матч",
