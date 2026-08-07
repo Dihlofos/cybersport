@@ -223,99 +223,102 @@ onUnmounted(() => {
             </ul>
           </div>
         </div>
-
-        <div ref="mapAreaRef" class="map__map-area">
+        <div ref="mapAreaRef" class="map__map-area" id="new-map">
           <Image
-            src="/images/map/map-overlay.jpg"
+            src="/images/map/map-overlay2.png"
             alt=""
-            width="760"
-            height="605"
+            width="1160"
+            height="773"
             class="map__overlay"
           />
           <svg
             class="map__svg"
-            width="760"
-            height="605"
-            viewBox="0 0 760 605"
+            width="1160"
+            height="773"
+            viewBox="0 0 1160 773"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
             @click="handleFigureClick"
           >
-            <g id="figure 2" data-figure="2" :class="{ 'map__figure--active': activeFigure === 2 }" transform="rotate(-41.8478 473.302 531.108)">
-              <rect id="Rectangle 489" x="473.302" y="531.108" width="51.3989" height="36.185" fill="#C3AD89" stroke="#F32F0A" stroke-width="1.09605"/>
-              <text x="499" y="549" transform="rotate(41.8478 499 549)" class="map__figure">2</text>
+            <g id="figure 1" data-figure="1" :class="{ 'map__figure--active': activeFigure === 1 }">
+              <path id="Vector" d="M920.048 605.577C927.585 605.577 933.694 599.467 933.694 591.931C933.694 584.394 927.585 578.285 920.048 578.285C912.511 578.285 906.402 584.394 906.402 591.931C906.402 599.467 912.511 605.577 920.048 605.577Z" fill="#C3AD89" stroke="#6F1510" stroke-width="0.828515" stroke-linecap="round" stroke-linejoin="round"/>
+              <text x="920.048" y="591.931" class="map__figure">1</text>
             </g>
-            <g id="figure 1" data-figure="1" :class="{ 'map__figure--active': activeFigure === 1 }" transform="rotate(-41.8478 366.195 411.394)">
-              <rect id="Rectangle 489_2" x="366.195" y="411.394" width="36.8627" height="13.9166" fill="#C3AD89" stroke="#F32F0A" stroke-width="1.09605"/>
-              <text x="384.6" y="418.4" transform="rotate(41.8478 384.6 418.4)" class="map__figure">1</text>
+            <g id="figure 3" data-figure="3" :class="{ 'map__figure--active': activeFigure === 3 }">
+              <path id="Vector_2" d="M632.939 541.077C640.476 541.077 646.585 534.967 646.585 527.431C646.585 519.894 640.476 513.785 632.939 513.785C625.403 513.785 619.293 519.894 619.293 527.431C619.293 534.967 625.403 541.077 632.939 541.077Z" fill="#C3AD89" stroke="#6F1510" stroke-width="0.828515" stroke-linecap="round" stroke-linejoin="round"/>
+              <text x="632.939" y="527.431" class="map__figure">3</text>
             </g>
-            <g id="figure 4" data-figure="4" :class="{ 'map__figure--active': activeFigure === 4 }" transform="rotate(-41.8478 403.716 408.792)">
-              <rect id="Rectangle 489_3" x="403.716" y="408.792" width="20.6595" height="39.9237" fill="#C3AD89" stroke="#F32F0A" stroke-width="1.09605"/>
-              <text x="414" y="428.8" transform="rotate(41.8478 414 428.8)" class="map__figure">4</text>
+            <g id="figure 2" data-figure="2" :class="{ 'map__figure--active': activeFigure === 2 }">
+              <path id="Vector_3" d="M653.063 469.04C660.6 469.04 666.709 462.93 666.709 455.394C666.709 447.857 660.6 441.748 653.063 441.748C645.527 441.748 639.417 447.857 639.417 455.394C639.417 462.93 645.527 469.04 653.063 469.04Z" fill="#C3AD89" stroke="#6F1510" stroke-width="0.828515" stroke-linecap="round" stroke-linejoin="round"/>
+              <text x="653.063" y="455.394" class="map__figure">2</text>
             </g>
-            <g id="figure 13" data-figure="13" :class="{ 'map__figure--active': activeFigure === 13 }" transform="rotate(-41.8478 450.167 363.902)">
-              <rect id="Rectangle 489_4" x="450.167" y="363.902" width="20.6595" height="39.9237" fill="#C3AD89" stroke="#F32F0A" stroke-width="1.09605"/>
-              <text x="460.5" y="383.9" transform="rotate(41.8478 460.5 383.9)" class="map__figure">13</text>
+            <g id="figure 4" data-figure="4" :class="{ 'map__figure--active': activeFigure === 4 }">
+              <path id="Vector_4" d="M1014.66 508.735C1022.19 508.735 1028.3 502.626 1028.3 495.089C1028.3 487.552 1022.19 481.443 1014.66 481.443C1007.12 481.443 1001.01 487.552 1001.01 495.089C1001.01 502.626 1007.12 508.735 1014.66 508.735Z" fill="#C3AD89" stroke="#6F1510" stroke-width="0.828515" stroke-linecap="round" stroke-linejoin="round"/>
+              <text x="1014.66" y="495.089" class="map__figure">4</text>
             </g>
-            <g id="figure 7" data-figure="7" :class="{ 'map__figure--active': activeFigure === 7 }" transform="rotate(-41.8478 216.2 37.1603)">
-              <rect id="Rectangle 489_5" x="216.2" y="37.1603" width="12.4565" height="26.4101" fill="#C3AD89" stroke="#F32F0A" stroke-width="1.09605"/>
-              <text x="222.4" y="50.4" transform="rotate(41.8478 222.4 50.4)" class="map__figure">7</text>
+            <g id="figure 5" data-figure="5" :class="{ 'map__figure--active': activeFigure === 5 }">
+              <path id="Vector_5" d="M964.346 550.374C971.883 550.374 977.992 544.264 977.992 536.728C977.992 529.191 971.883 523.082 964.346 523.082C956.81 523.082 950.7 529.191 950.7 536.728C950.7 544.264 956.81 550.374 964.346 550.374Z" fill="#C3AD89" stroke="#6F1510" stroke-width="0.828515" stroke-linecap="round" stroke-linejoin="round"/>
+              <text x="964.346" y="536.728" class="map__figure">5</text>
             </g>
-            <g id="figure 6" data-figure="6" :class="{ 'map__figure--active': activeFigure === 6 }" transform="rotate(-41.8478 230.899 64.775)">
-              <rect id="Rectangle 489_6" x="230.899" y="64.775" width="19.3978" height="19.3703" fill="#C3AD89" stroke="#F32F0A" stroke-width="1.09605"/>
-              <text x="240.6" y="74.5" transform="rotate(41.8478 240.6 74.5)" class="map__figure">6</text>
+            <g id="figure 6" data-figure="6" :class="{ 'map__figure--active': activeFigure === 6 }">
+              <path id="Vector_6" d="M987.364 452.519C994.9 452.519 1001.01 446.409 1001.01 438.873C1001.01 431.336 994.9 425.227 987.364 425.227C979.827 425.227 973.718 431.336 973.718 438.873C973.718 446.409 979.827 452.519 987.364 452.519Z" fill="#C3AD89" stroke="#6F1510" stroke-width="0.828515" stroke-linecap="round" stroke-linejoin="round"/>
+              <text x="987.364" y="438.873" class="map__figure">6</text>
             </g>
-            <g id="figure 5_1" data-figure="5" :class="{ 'map__figure--active': activeFigure === 5 }" transform="rotate(-41.8478 348.479 240.392)">
-              <rect id="Rectangle 489_7" x="348.479" y="240.392" width="19.3978" height="19.3703" fill="#C3AD89" stroke="#F32F0A" stroke-width="1.09605"/>
-              <text x="358.2" y="250.1" transform="rotate(41.8478 358.2 250.1)" class="map__figure">5</text>
+            <g id="figure 7" data-figure="7" :class="{ 'map__figure--active': activeFigure === 7 }">
+              <path id="Vector_7" d="M880.946 496.104C888.482 496.104 894.592 489.994 894.592 482.458C894.592 474.921 888.482 468.812 880.946 468.812C873.409 468.812 867.3 474.921 867.3 482.458C867.3 489.994 873.409 496.104 880.946 496.104Z" fill="#C3AD89" stroke="#6F1510" stroke-width="0.828515" stroke-linecap="round" stroke-linejoin="round"/>
+              <text x="880.946" y="482.458" class="map__figure">7</text>
             </g>
-            <g id="figure 11" data-figure="11" :class="{ 'map__figure--active': activeFigure === 11 }" transform="rotate(-41.8478 373.94 266.798)">
-              <rect id="Rectangle 489_8" x="373.94" y="266.798" width="30.1674" height="23.5698" fill="#C3AD89" stroke="#F32F0A" stroke-width="1.09605"/>
-              <text x="389" y="278.6" transform="rotate(41.8478 389 278.6)" class="map__figure">11</text>
+            <g id="figure 20" data-figure="20" :class="{ 'map__figure--active': activeFigure === 20 }">
+              <path id="Vector_8" d="M514.692 364.791C522.229 364.791 528.338 358.682 528.338 351.145C528.338 343.609 522.229 337.499 514.692 337.499C507.155 337.499 501.046 343.609 501.046 351.145C501.046 358.682 507.155 364.791 514.692 364.791Z" fill="#C3AD89" stroke="#6F1510" stroke-width="0.828515" stroke-linecap="round" stroke-linejoin="round"/>
+              <text x="514.692" y="351.145" class="map__figure small">20</text>
             </g>
-            <g id="figure 8" data-figure="8" :class="{ 'map__figure--active': activeFigure === 8 }" transform="rotate(-41.8478 405.663 219.117)">
-              <rect id="Rectangle 489_9" x="405.663" y="219.117" width="19.3978" height="19.3703" fill="#C3AD89" stroke="#F32F0A" stroke-width="1.09605"/>
-              <text x="415.4" y="228.8" transform="rotate(41.8478 415.4 228.8)" class="map__figure">8</text>
+            <g id="figure 19" data-figure="19" :class="{ 'map__figure--active': activeFigure === 19 }">
+              <path id="Vector_9" d="M433.872 234.363C441.408 234.363 447.518 228.253 447.518 220.716C447.518 213.18 441.408 207.07 433.872 207.07C426.335 207.07 420.226 213.18 420.226 220.716C420.226 228.253 426.335 234.363 433.872 234.363Z" fill="#C3AD89" stroke="#6F1510" stroke-width="0.828515" stroke-linecap="round" stroke-linejoin="round"/>
+              <text x="433.872" y="220.72" class="map__figure small">19</text>
             </g>
-            <g id="figure 10" data-figure="10" :class="{ 'map__figure--active': activeFigure === 10 }" transform="rotate(-41.8478 425.055 320.192)">
-              <rect id="Rectangle 489_10" x="425.055" y="320.192" width="19.3978" height="19.3703" fill="#C3AD89" stroke="#F32F0A" stroke-width="1.09605"/>
-              <text x="434.8" y="329.9" transform="rotate(41.8478 434.8 329.9)" class="map__figure">10</text>
+            <g id="figure 18" data-figure="18" :class="{ 'map__figure--active': activeFigure === 18 }">
+              <path id="Vector_10" d="M416.021 171.249C423.558 171.249 429.667 165.139 429.667 157.603C429.667 150.066 423.558 143.957 416.021 143.957C408.485 143.957 402.375 150.066 402.375 157.603C402.375 165.139 408.485 171.249 416.021 171.249Z" fill="#C3AD89" stroke="#6F1510" stroke-width="0.828515" stroke-linecap="round" stroke-linejoin="round"/>
+              <text x="416.021" y="157.603" class="map__figure small">18</text>
             </g>
-            <g id="figure 18" data-figure="18" :class="{ 'map__figure--active': activeFigure === 18 }" transform="rotate(-41.8478 516.358 400.692)">
-              <rect id="Rectangle 489_11" x="516.358" y="400.692" width="19.3978" height="19.3703" fill="#C3AD89" stroke="#F32F0A" stroke-width="1.09605"/>
-              <text x="526.1" y="410.4" transform="rotate(41.8478 526.1 410.4)" class="map__figure">18</text>
+            <g id="figure 12" data-figure="12" :class="{ 'map__figure--active': activeFigure === 12 }">
+              <path id="Vector_11" d="M605.388 254.853C612.925 254.853 619.034 248.744 619.034 241.207C619.034 233.671 612.925 227.561 605.388 227.561C597.852 227.561 591.742 233.671 591.742 241.207C591.742 248.744 597.852 254.853 605.388 254.853Z" fill="#C3AD89" stroke="#6F1510" stroke-width="0.828515" stroke-linecap="round" stroke-linejoin="round"/>
+              <text x="605.388" y="241.207" class="map__figure small">12</text>
             </g>
-            <g id="figure 14" data-figure="14" :class="{ 'map__figure--active': activeFigure === 14 }" transform="rotate(-41.8478 419.754 360.246)">
-              <rect id="Rectangle 489_12" x="419.754" y="360.246" width="19.3978" height="19.3703" fill="#C3AD89" stroke="#F32F0A" stroke-width="1.09605"/>
-              <text x="429.5" y="369.9" transform="rotate(41.8478 429.5 369.9)" class="map__figure">14</text>
+            <g id="figure 14" data-figure="14" :class="{ 'map__figure--active': activeFigure === 14 }">
+              <path id="Vector_12" d="M678.089 397.764C685.625 397.764 691.735 391.654 691.735 384.118C691.735 376.581 685.625 370.472 678.089 370.472C670.552 370.472 664.442 376.581 664.442 384.118C664.442 391.654 670.552 397.764 678.089 397.764Z" fill="#C3AD89" stroke="#6F1510" stroke-width="0.828515" stroke-linecap="round" stroke-linejoin="round"/>
+              <text x="678.089" y="384.118" class="map__figure small">14</text>
             </g>
-            <g id="figure 16" data-figure="16" :class="{ 'map__figure--active': activeFigure === 16 }" transform="rotate(-41.8478 534.337 383.909)">
-              <rect id="Rectangle 489_14" x="534.337" y="383.909" width="19.3978" height="19.3703" fill="#C3AD89" stroke="#F32F0A" stroke-width="1.09605"/>
-              <text x="544" y="393.6" transform="rotate(41.8478 544 393.6)" class="map__figure">16</text>
+            <g id="figure 13" data-figure="13" :class="{ 'map__figure--active': activeFigure === 13 }">
+              <path id="Vector_13" d="M653.214 338.636C660.75 338.636 666.86 332.526 666.86 324.99C666.86 317.453 660.75 311.344 653.214 311.344C645.677 311.344 639.567 317.453 639.567 324.99C639.567 332.526 645.677 338.636 653.214 338.636Z" fill="#C3AD89" stroke="#6F1510" stroke-width="0.828515" stroke-linecap="round" stroke-linejoin="round"/>
+              <text x="653.214" y="324.99" class="map__figure small">13</text>
             </g>
-            <g id="figure 15" data-figure="15" :class="{ 'map__figure--active': activeFigure === 15 }" transform="rotate(-41.8478 533.748 345.204)">
-              <rect id="Rectangle 489_15" x="533.748" y="345.204" width="8.41758" height="30.9737" fill="#C3AD89" stroke="#F32F0A" stroke-width="1.09605"/>
-              <text x="538" y="360.7" transform="rotate(41.8478 538 360.7)" class="map__figure small">15</text>
+            <g id="figure 9" data-figure="9" :class="{ 'map__figure--active': activeFigure === 9 }">
+              <path id="Vector_14" d="M749.393 497.92C756.93 497.92 763.039 491.811 763.039 484.274C763.039 476.738 756.93 470.628 749.393 470.628C741.857 470.628 735.747 476.738 735.747 484.274C735.747 491.811 741.857 497.92 749.393 497.92Z" fill="#C3AD89" stroke="#6F1510" stroke-width="0.828515" stroke-linecap="round" stroke-linejoin="round"/>
+              <text x="749.393" y="484.274" class="map__figure">9</text>
             </g>
-            <g id="figure 17" data-figure="17" :class="{ 'map__figure--active': activeFigure === 17 }" transform="rotate(6.14117 502.743 446.275)">
-              <rect id="Rectangle 489_16" x="502.743" y="446.275" width="12.3089" height="23.7182" fill="#C3AD89" stroke="#F32F0A" stroke-width="1.09605"/>
-              <text x="508.9" y="458.1" transform="rotate(-6.14117 508.9 458.1)" class="map__figure small">17</text>
+            <g id="figure 11" data-figure="11" :class="{ 'map__figure--active': activeFigure === 11 }">
+              <path id="Vector_15" d="M740.708 320.825C748.244 320.825 754.354 314.715 754.354 307.179C754.354 299.642 748.244 293.533 740.708 293.533C733.171 293.533 727.062 299.642 727.062 307.179C727.062 314.715 733.171 320.825 740.708 320.825Z" fill="#C3AD89" stroke="#6F1510" stroke-width="0.828515" stroke-linecap="round" stroke-linejoin="round"/>
+              <text x="740.708" y="307.179" class="map__figure small">11</text>
             </g>
-            <g id="figure 12" data-figure="12" :class="{ 'map__figure--active': activeFigure === 12 }" transform="rotate(-41.8478 425.503 241.008)">
-              <rect id="Rectangle 489_17" x="425.503" y="241.008" width="19.3978" height="19.3703" fill="#C3AD89" stroke="#F32F0A" stroke-width="1.09605"/>
-              <text x="435.2" y="250.7" transform="rotate(41.8478 435.2 250.7)" class="map__figure">12</text>
+            <g id="figure 10" data-figure="10" :class="{ 'map__figure--active': activeFigure === 10 }">
+              <path id="Vector_16" d="M788.079 346.69C795.615 346.69 801.725 340.581 801.725 333.044C801.725 325.508 795.615 319.398 788.079 319.398C780.542 319.398 774.433 325.508 774.433 333.044C774.433 340.581 780.542 346.69 788.079 346.69Z" fill="#C3AD89" stroke="#6F1510" stroke-width="0.828515" stroke-linecap="round" stroke-linejoin="round"/>
+              <text x="788.079" y="333.044" class="map__figure small">10</text>
             </g>
-            <g id="figure 19" data-figure="19" :class="{ 'map__figure--active': activeFigure === 19 }" transform="rotate(-41.8478 298.241 110.764)">
-              <rect id="Rectangle 489_18" x="298.241" y="110.764" width="22.0123" height="123.709" fill="#C3AD89" stroke="#F32F0A" stroke-width="1.09605"/>
-              <text x="309.2" y="172.6" transform="rotate(41.8478 309.2 172.6)" class="map__figure">19</text>
+            <g id="figure 15" data-figure="15" :class="{ 'map__figure--active': activeFigure === 15 }">
+              <path id="Vector_17" d="M736.706 398.011C744.242 398.011 750.352 391.901 750.352 384.365C750.352 376.828 744.242 370.719 736.706 370.719C729.169 370.719 723.06 376.828 723.06 384.365C723.06 391.901 729.169 398.011 736.706 398.011Z" fill="#C3AD89" stroke="#6F1510" stroke-width="0.828515" stroke-linecap="round" stroke-linejoin="round"/>
+              <text x="736.706" y="384.365" class="map__figure small">15</text>
             </g>
-            <g id="figure 3" data-figure="3" :class="{ 'map__figure--active': activeFigure === 3 }" transform="rotate(0.970437 207.974 100.658)">
-              <rect id="Rectangle 489_19" x="207.974" y="100.658" width="53.2104" height="117.219" fill="#C3AD89" stroke="#F32F0A" stroke-width="1.09605"/>
-              <text x="234.6" y="159.3" transform="rotate(-0.970437 234.6 159.3)" class="map__figure">3</text>
+            <g id="figure 17" data-figure="17" :class="{ 'map__figure--active': activeFigure === 17 }">
+              <path id="Vector_18" d="M480.624 192.635C488.16 192.635 494.27 186.525 494.27 178.988C494.27 171.452 488.16 165.342 480.624 165.342C473.087 165.342 466.978 171.452 466.978 178.988C466.978 186.525 473.087 192.635 480.624 192.635Z" fill="#C3AD89" stroke="#6F1510" stroke-width="0.828515" stroke-linecap="round" stroke-linejoin="round"/>
+              <text x="480.624" y="178.99" class="map__figure small">17</text>
             </g>
-            <g id="figure 9" data-figure="9" :class="{ 'map__figure--active': activeFigure === 9 }" transform="rotate(0.970437 278.294 214.136)">
-              <rect id="Rectangle 489_20" x="278.294" y="214.136" width="64.6588" height="23.9899" fill="#C3AD89" stroke="#F32F0A" stroke-width="1.09605"/>
-              <text x="310.6" y="226.1" transform="rotate(-0.970437 310.6 226.1)" class="map__figure">9</text>
+            <g id="figure 16" data-figure="16" :class="{ 'map__figure--active': activeFigure === 16 }">
+              <path id="Vector_19" d="M699.305 426.013C706.842 426.013 712.951 419.903 712.951 412.367C712.951 404.83 706.842 398.721 699.305 398.721C691.769 398.721 685.659 404.83 685.659 412.367C685.659 419.903 691.769 426.013 699.305 426.013Z" fill="#C3AD89" stroke="#6F1510" stroke-width="0.828515" stroke-linecap="round" stroke-linejoin="round"/>
+              <text x="699.305" y="412.367" class="map__figure small">16</text>
+            </g>
+            <g id="figure 8" data-figure="8" :class="{ 'map__figure--active': activeFigure === 8 }">
+              <path id="Vector_20" d="M813.384 444.865C820.921 444.865 827.031 438.755 827.031 431.218C827.031 423.682 820.921 417.572 813.384 417.572C805.848 417.572 799.738 423.682 799.738 431.218C799.738 438.755 805.848 444.865 813.384 444.865Z" fill="#C3AD89" stroke="#6F1510" stroke-width="0.828515" stroke-linecap="round" stroke-linejoin="round"/>
+              <text x="813.384" y="431.22" class="map__figure">8</text>
             </g>
           </svg>
 
@@ -376,7 +379,7 @@ onUnmounted(() => {
     display: flex;
     width: fit-content;
     gap: 3.5rem;
-    margin: 0 auto 10.3rem;
+    margin: 0 auto 4.3rem;
 
     @media (max-width: $mobile) {
       width: 100%;
@@ -430,7 +433,9 @@ onUnmounted(() => {
   }
 
   &__legend {
+    position: relative;
     padding-top: 0.8rem;
+    z-index: 5;
   }
 
   &__legend-group {
@@ -458,7 +463,7 @@ onUnmounted(() => {
     padding: 0;
     display: flex;
     flex-direction: column;
-    gap: 0.9rem;
+    gap: 0.6rem;
 
     @media (max-width: $tablet) {
       gap: 0;
@@ -528,50 +533,21 @@ onUnmounted(() => {
 
   &__map-area {
     position: relative;
-    width: 76rem;
-    height: 60.5rem;
+    width: 116rem;
+    height: 77.3rem;
     border-radius: 13px;
-
-    &::after,
-    &::before {
-      content: '';
-      position: absolute;
-      width: 7rem;
-      height: 7rem;
-      border-color: $light;
-      background: transparent;
-
-      @media (max-width: $tablet) {
-        display: none;
-      }
-    }
-
-    &::before {
-      top: -2.4rem;
-      right: -2.4rem;
-      border-top: 1.2rem solid #C3AD89;
-      border-right: 1.2rem solid #C3AD89;
-    }
-
-    &::after {
-      bottom: -2.4rem;
-      left: -2.4rem;
-      border-bottom: 1.2rem solid #C3AD89;
-      border-left: 1.2rem solid #C3AD89;
-    }
+    margin-left: -40.1rem;
+    margin-top: -3.9rem;
+    z-index: 1;
 
     @media (max-width: $tablet) {
-      width: 100%;
-      height: auto;
-      aspect-ratio: 760 / 605;
+
     }
 
     @media (max-width: $mobile) {
       height: auto;
-      width: 217%;
+      width: 305%;
       max-width: unset;
-      aspect-ratio: 760 / 605;
-      margin-left: -60%;
     }
   }
 
@@ -598,15 +574,11 @@ onUnmounted(() => {
   &__figure {
     font-family: $tektur;
     font-weight: 700;
-    font-size: 1.5rem;
-    fill: $red;
+    font-size: 2rem;
+    fill: $white;
     text-anchor: middle;
     dominant-baseline: central;
     pointer-events: none;
-
-    &.small {
-      font-size: 1.1rem;
-    }
 
     @media (max-width: $tablet) {
       font-size: 1.2rem;
@@ -614,7 +586,8 @@ onUnmounted(() => {
   }
 
   &__figure--active {
-    rect {
+    rect,
+    path {
       fill: $red;
     }
 
@@ -634,9 +607,9 @@ onUnmounted(() => {
     background-color: $red;
     color: $white;
     font-family: $tektur;
-    font-size: 1.4rem;
-    font-weight: 400;
-    line-height: 1.4;
+    font-size: 1.8rem;
+    font-weight: 700;
+    line-height: 1;
     padding: 0.4rem 0.5rem 0.4rem 1rem;
     border-radius: 13px;
     white-space: nowrap;
