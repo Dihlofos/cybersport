@@ -18,6 +18,7 @@ const activeFigure = ref(null)
 const activeFigureEl = ref(null)
 const tooltipRef = ref(null)
 const mapAreaRef = ref(null)
+const mapScrollRef = ref(null)
 const tooltipStyle = ref({ position: 'absolute', top: '0px', left: '0px' })
 
 let positionCleanup = null
@@ -34,6 +35,25 @@ function scrollToMap() {
       offset: 45,
     })
   }
+}
+
+// На мобиле/планшете карта шире экрана и скроллится по горизонтали внутри .map__scroll.
+// При выборе точки из легенды центрируем её в видимой области карты.
+function scrollMapToFigure() {
+  if (typeof window === 'undefined') return
+  const container = mapScrollRef.value
+  if (!container || activeFigure.value === null) return
+  if (container.scrollWidth <= container.clientWidth) return
+
+  const figure = mapAreaRef.value?.querySelector(`[data-figure="${activeFigure.value}"]`)
+  if (!figure) return
+
+  const contRect = container.getBoundingClientRect()
+  const figRect = figure.getBoundingClientRect()
+
+  const target = container.scrollLeft + figRect.left - contRect.left - (contRect.width - figRect.width) / 2
+
+  container.scrollTo({ left: target, behavior: 'smooth' })
 }
 
 const figureNameMap = computed(() => {
@@ -116,8 +136,9 @@ function handleFigureSelect(num) {
     return
   }
   activeFigure.value = num
-  activeFigureEl.value = document.querySelector(`[data-figure="${num}"]`)
+  activeFigureEl.value = mapAreaRef.value?.querySelector(`[data-figure="${num}"]`)
   scrollToMap()
+  scrollMapToFigure()
 }
 
 function handleFigureClick(event) {
@@ -223,7 +244,8 @@ onUnmounted(() => {
             </ul>
           </div>
         </div>
-        <div ref="mapAreaRef" class="map__map-area" id="new-map">
+        <div ref="mapScrollRef" class="map__scroll">
+          <div ref="mapAreaRef" id="new-map" class="map__map-area">
           <Image
             src="/images/map/map-overlay2.png"
             alt=""
@@ -335,6 +357,7 @@ onUnmounted(() => {
               </svg>
             </button>
           </div>
+        </div>
         </div>
       </div>
     </Container>
@@ -541,13 +564,28 @@ onUnmounted(() => {
     z-index: 1;
 
     @media (max-width: $tablet) {
-
+      margin: 0;
     }
 
     @media (max-width: $mobile) {
       height: auto;
-      width: 305%;
+      width: 119rem;
       max-width: unset;
+    }
+  }
+
+  &__scroll {
+    @media (max-width: $tablet) {
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      margin-left: -34rem;
+      margin-right: -2.4rem;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
     }
   }
 
