@@ -569,7 +569,7 @@ onUnmounted(() => {
 
     @media (max-width: $mobile) {
       height: auto;
-      width: 119rem;
+      width: 97rem;
       max-width: unset;
     }
   }
@@ -580,7 +580,7 @@ onUnmounted(() => {
       scroll-behavior: smooth;
       -webkit-overflow-scrolling: touch;
       scrollbar-width: none;
-      margin-left: -34rem;
+      margin-left: -26rem;
       margin-right: -2.4rem;
 
       &::-webkit-scrollbar {
