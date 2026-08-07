@@ -6,26 +6,27 @@
     { "text": "Построить маршрут", "icon": "distance", "link": "https://yandex.com/maps/-/CTvof-65", "target": "_blank" }
   ],
   "zones": [
-    { "number": 1, "name": "Зона регистрации и выдачи призов" },
-    { "number": 2, "name": "Главная сцена" },
-    { "number": 3, "name": "Площадка «Киберзона» на 250 игровых мест" },
-    { "number": 4, "name": "Зона мобильных игр" }
+    { "number": 1, "name": "Главная сцена" },
+    { "number": 2, "name": "Зона регистрации" },
+    { "number": 3, "name": "Зона выдачи подарков" }
   ],
   "stations": [
-    { "number": 5, "name": "CS2" },
-    { "number": 6, "name": "Мир танков" },
-    { "number": 7, "name": "Радиотанки" },
-    { "number": 8, "name": "VR" },
-    { "number": 9, "name": "Лазертаг" },
-    { "number": 10, "name": "Стритбол" },
-    { "number": 11, "name": "NBA" },
-    { "number": 12, "name": "Мини-футбол" },
-    { "number": 13, "name": "FC" },
-    { "number": 14, "name": "Дрон-баскетбол" },
-    { "number": 15, "name": "FPV" },
-    { "number": 16, "name": "Обнаружение ВОП" },
-    { "number": 17, "name": "Сапер" },
-    { "number": 18, "name": "Полоса препятствий" },
-    { "number": 19, "name": "Лазерный тир" }
+    { "number": 4, "name": "Симулятор дронов" },
+    { "number": 5, "name": "Сапёр" },
+    { "number": 6, "name": "Дрон-баскетбол" },
+    { "number": 7, "name": "VR" },
+    { "number": 8, "name": "Мини-футбол" },
+    { "number": 9, "name": "Мобильные игры" },
+    { "number": 10, "name": "Кибербаскетбол" },
+    { "number": 11, "name": "VR" },
+    { "number": 12, "name": "Полоса препятствий" },
+    { "number": 13, "name": "CS2" },
+    { "number": 14, "name": "Стритбол" },
+    { "number": 15, "name": "Лазерный тир" },
+    { "number": 16, "name": "Киберфутбол" },
+    { "number": 17, "name": "Мир танков" },
+    { "number": 18, "name": "Радиотанки" },
+    { "number": 19, "name": "Киберзона" },
+    { "number": 20, "name": "Лазертаг" }
   ]
 }
