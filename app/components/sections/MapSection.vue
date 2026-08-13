@@ -274,73 +274,73 @@ onUnmounted(() => {
               <path id="Vector_3" d="M653.063 469.04C660.6 469.04 666.709 462.93 666.709 455.394C666.709 447.857 660.6 441.748 653.063 441.748C645.527 441.748 639.417 447.857 639.417 455.394C639.417 462.93 645.527 469.04 653.063 469.04Z" fill="#C3AD89" stroke="#6F1510" stroke-width="0.828515" stroke-linecap="round" stroke-linejoin="round"/>
               <text x="653.063" y="455.394" class="map__figure">2</text>
             </g>
-            <g id="figure 4" data-figure="4" :class="{ 'map__figure--active': activeFigure === 4 }">
+            <g id="figure 18" data-figure="18" :class="{ 'map__figure--active': activeFigure === 18 }">
               <path id="Vector_4" d="M1014.66 508.735C1022.19 508.735 1028.3 502.626 1028.3 495.089C1028.3 487.552 1022.19 481.443 1014.66 481.443C1007.12 481.443 1001.01 487.552 1001.01 495.089C1001.01 502.626 1007.12 508.735 1014.66 508.735Z" fill="#C3AD89" stroke="#6F1510" stroke-width="0.828515" stroke-linecap="round" stroke-linejoin="round"/>
-              <text x="1014.66" y="495.089" class="map__figure">4</text>
-            </g>
-            <g id="figure 5" data-figure="5" :class="{ 'map__figure--active': activeFigure === 5 }">
-              <path id="Vector_5" d="M964.346 550.374C971.883 550.374 977.992 544.264 977.992 536.728C977.992 529.191 971.883 523.082 964.346 523.082C956.81 523.082 950.7 529.191 950.7 536.728C950.7 544.264 956.81 550.374 964.346 550.374Z" fill="#C3AD89" stroke="#6F1510" stroke-width="0.828515" stroke-linecap="round" stroke-linejoin="round"/>
-              <text x="964.346" y="536.728" class="map__figure">5</text>
-            </g>
-            <g id="figure 6" data-figure="6" :class="{ 'map__figure--active': activeFigure === 6 }">
-              <path id="Vector_6" d="M987.364 452.519C994.9 452.519 1001.01 446.409 1001.01 438.873C1001.01 431.336 994.9 425.227 987.364 425.227C979.827 425.227 973.718 431.336 973.718 438.873C973.718 446.409 979.827 452.519 987.364 452.519Z" fill="#C3AD89" stroke="#6F1510" stroke-width="0.828515" stroke-linecap="round" stroke-linejoin="round"/>
-              <text x="987.364" y="438.873" class="map__figure">6</text>
-            </g>
-            <g id="figure 7" data-figure="7" :class="{ 'map__figure--active': activeFigure === 7 }">
-              <path id="Vector_7" d="M880.946 496.104C888.482 496.104 894.592 489.994 894.592 482.458C894.592 474.921 888.482 468.812 880.946 468.812C873.409 468.812 867.3 474.921 867.3 482.458C867.3 489.994 873.409 496.104 880.946 496.104Z" fill="#C3AD89" stroke="#6F1510" stroke-width="0.828515" stroke-linecap="round" stroke-linejoin="round"/>
-              <text x="880.946" y="482.458" class="map__figure">7</text>
-            </g>
-            <g id="figure 20" data-figure="20" :class="{ 'map__figure--active': activeFigure === 20 }">
-              <path id="Vector_8" d="M514.692 364.791C522.229 364.791 528.338 358.682 528.338 351.145C528.338 343.609 522.229 337.499 514.692 337.499C507.155 337.499 501.046 343.609 501.046 351.145C501.046 358.682 507.155 364.791 514.692 364.791Z" fill="#C3AD89" stroke="#6F1510" stroke-width="0.828515" stroke-linecap="round" stroke-linejoin="round"/>
-              <text x="514.692" y="351.145" class="map__figure small">20</text>
+              <text x="1014.66" y="495.089" class="map__figure">18</text>
             </g>
             <g id="figure 19" data-figure="19" :class="{ 'map__figure--active': activeFigure === 19 }">
-              <path id="Vector_9" d="M433.872 234.363C441.408 234.363 447.518 228.253 447.518 220.716C447.518 213.18 441.408 207.07 433.872 207.07C426.335 207.07 420.226 213.18 420.226 220.716C420.226 228.253 426.335 234.363 433.872 234.363Z" fill="#C3AD89" stroke="#6F1510" stroke-width="0.828515" stroke-linecap="round" stroke-linejoin="round"/>
-              <text x="433.872" y="220.72" class="map__figure small">19</text>
-            </g>
-            <g id="figure 18" data-figure="18" :class="{ 'map__figure--active': activeFigure === 18 }">
-              <path id="Vector_10" d="M416.021 171.249C423.558 171.249 429.667 165.139 429.667 157.603C429.667 150.066 423.558 143.957 416.021 143.957C408.485 143.957 402.375 150.066 402.375 157.603C402.375 165.139 408.485 171.249 416.021 171.249Z" fill="#C3AD89" stroke="#6F1510" stroke-width="0.828515" stroke-linecap="round" stroke-linejoin="round"/>
-              <text x="416.021" y="157.603" class="map__figure small">18</text>
-            </g>
-            <g id="figure 12" data-figure="12" :class="{ 'map__figure--active': activeFigure === 12 }">
-              <path id="Vector_11" d="M605.388 254.853C612.925 254.853 619.034 248.744 619.034 241.207C619.034 233.671 612.925 227.561 605.388 227.561C597.852 227.561 591.742 233.671 591.742 241.207C591.742 248.744 597.852 254.853 605.388 254.853Z" fill="#C3AD89" stroke="#6F1510" stroke-width="0.828515" stroke-linecap="round" stroke-linejoin="round"/>
-              <text x="605.388" y="241.207" class="map__figure small">12</text>
-            </g>
-            <g id="figure 14" data-figure="14" :class="{ 'map__figure--active': activeFigure === 14 }">
-              <path id="Vector_12" d="M678.089 397.764C685.625 397.764 691.735 391.654 691.735 384.118C691.735 376.581 685.625 370.472 678.089 370.472C670.552 370.472 664.442 376.581 664.442 384.118C664.442 391.654 670.552 397.764 678.089 397.764Z" fill="#C3AD89" stroke="#6F1510" stroke-width="0.828515" stroke-linecap="round" stroke-linejoin="round"/>
-              <text x="678.089" y="384.118" class="map__figure small">14</text>
-            </g>
-            <g id="figure 13" data-figure="13" :class="{ 'map__figure--active': activeFigure === 13 }">
-              <path id="Vector_13" d="M653.214 338.636C660.75 338.636 666.86 332.526 666.86 324.99C666.86 317.453 660.75 311.344 653.214 311.344C645.677 311.344 639.567 317.453 639.567 324.99C639.567 332.526 645.677 338.636 653.214 338.636Z" fill="#C3AD89" stroke="#6F1510" stroke-width="0.828515" stroke-linecap="round" stroke-linejoin="round"/>
-              <text x="653.214" y="324.99" class="map__figure small">13</text>
-            </g>
-            <g id="figure 9" data-figure="9" :class="{ 'map__figure--active': activeFigure === 9 }">
-              <path id="Vector_14" d="M749.393 497.92C756.93 497.92 763.039 491.811 763.039 484.274C763.039 476.738 756.93 470.628 749.393 470.628C741.857 470.628 735.747 476.738 735.747 484.274C735.747 491.811 741.857 497.92 749.393 497.92Z" fill="#C3AD89" stroke="#6F1510" stroke-width="0.828515" stroke-linecap="round" stroke-linejoin="round"/>
-              <text x="749.393" y="484.274" class="map__figure">9</text>
-            </g>
-            <g id="figure 11" data-figure="11" :class="{ 'map__figure--active': activeFigure === 11 }">
-              <path id="Vector_15" d="M740.708 320.825C748.244 320.825 754.354 314.715 754.354 307.179C754.354 299.642 748.244 293.533 740.708 293.533C733.171 293.533 727.062 299.642 727.062 307.179C727.062 314.715 733.171 320.825 740.708 320.825Z" fill="#C3AD89" stroke="#6F1510" stroke-width="0.828515" stroke-linecap="round" stroke-linejoin="round"/>
-              <text x="740.708" y="307.179" class="map__figure small">11</text>
-            </g>
-            <g id="figure 10" data-figure="10" :class="{ 'map__figure--active': activeFigure === 10 }">
-              <path id="Vector_16" d="M788.079 346.69C795.615 346.69 801.725 340.581 801.725 333.044C801.725 325.508 795.615 319.398 788.079 319.398C780.542 319.398 774.433 325.508 774.433 333.044C774.433 340.581 780.542 346.69 788.079 346.69Z" fill="#C3AD89" stroke="#6F1510" stroke-width="0.828515" stroke-linecap="round" stroke-linejoin="round"/>
-              <text x="788.079" y="333.044" class="map__figure small">10</text>
-            </g>
-            <g id="figure 15" data-figure="15" :class="{ 'map__figure--active': activeFigure === 15 }">
-              <path id="Vector_17" d="M736.706 398.011C744.242 398.011 750.352 391.901 750.352 384.365C750.352 376.828 744.242 370.719 736.706 370.719C729.169 370.719 723.06 376.828 723.06 384.365C723.06 391.901 729.169 398.011 736.706 398.011Z" fill="#C3AD89" stroke="#6F1510" stroke-width="0.828515" stroke-linecap="round" stroke-linejoin="round"/>
-              <text x="736.706" y="384.365" class="map__figure small">15</text>
+              <path id="Vector_5" d="M964.346 550.374C971.883 550.374 977.992 544.264 977.992 536.728C977.992 529.191 971.883 523.082 964.346 523.082C956.81 523.082 950.7 529.191 950.7 536.728C950.7 544.264 956.81 550.374 964.346 550.374Z" fill="#C3AD89" stroke="#6F1510" stroke-width="0.828515" stroke-linecap="round" stroke-linejoin="round"/>
+              <text x="964.346" y="536.728" class="map__figure">19</text>
             </g>
             <g id="figure 17" data-figure="17" :class="{ 'map__figure--active': activeFigure === 17 }">
-              <path id="Vector_18" d="M480.624 192.635C488.16 192.635 494.27 186.525 494.27 178.988C494.27 171.452 488.16 165.342 480.624 165.342C473.087 165.342 466.978 171.452 466.978 178.988C466.978 186.525 473.087 192.635 480.624 192.635Z" fill="#C3AD89" stroke="#6F1510" stroke-width="0.828515" stroke-linecap="round" stroke-linejoin="round"/>
-              <text x="480.624" y="178.99" class="map__figure small">17</text>
+              <path id="Vector_6" d="M987.364 452.519C994.9 452.519 1001.01 446.409 1001.01 438.873C1001.01 431.336 994.9 425.227 987.364 425.227C979.827 425.227 973.718 431.336 973.718 438.873C973.718 446.409 979.827 452.519 987.364 452.519Z" fill="#C3AD89" stroke="#6F1510" stroke-width="0.828515" stroke-linecap="round" stroke-linejoin="round"/>
+              <text x="987.364" y="438.873" class="map__figure">17</text>
             </g>
-            <g id="figure 16" data-figure="16" :class="{ 'map__figure--active': activeFigure === 16 }">
-              <path id="Vector_19" d="M699.305 426.013C706.842 426.013 712.951 419.903 712.951 412.367C712.951 404.83 706.842 398.721 699.305 398.721C691.769 398.721 685.659 404.83 685.659 412.367C685.659 419.903 691.769 426.013 699.305 426.013Z" fill="#C3AD89" stroke="#6F1510" stroke-width="0.828515" stroke-linecap="round" stroke-linejoin="round"/>
-              <text x="699.305" y="412.367" class="map__figure small">16</text>
+            <g id="figure 20" data-figure="20" :class="{ 'map__figure--active': activeFigure === 20 }">
+              <path id="Vector_7" d="M880.946 496.104C888.482 496.104 894.592 489.994 894.592 482.458C894.592 474.921 888.482 468.812 880.946 468.812C873.409 468.812 867.3 474.921 867.3 482.458C867.3 489.994 873.409 496.104 880.946 496.104Z" fill="#C3AD89" stroke="#6F1510" stroke-width="0.828515" stroke-linecap="round" stroke-linejoin="round"/>
+              <text x="880.946" y="482.458" class="map__figure">20</text>
+            </g>
+            <g id="figure 11" data-figure="11" :class="{ 'map__figure--active': activeFigure === 11 }">
+              <path id="Vector_8" d="M514.692 364.791C522.229 364.791 528.338 358.682 528.338 351.145C528.338 343.609 522.229 337.499 514.692 337.499C507.155 337.499 501.046 343.609 501.046 351.145C501.046 358.682 507.155 364.791 514.692 364.791Z" fill="#C3AD89" stroke="#6F1510" stroke-width="0.828515" stroke-linecap="round" stroke-linejoin="round"/>
+              <text x="514.692" y="351.145" class="map__figure">11</text>
+            </g>
+            <g id="figure 4" data-figure="4" :class="{ 'map__figure--active': activeFigure === 4 }">
+              <path id="Vector_9" d="M433.872 234.363C441.408 234.363 447.518 228.253 447.518 220.716C447.518 213.18 441.408 207.07 433.872 207.07C426.335 207.07 420.226 213.18 420.226 220.716C420.226 228.253 426.335 234.363 433.872 234.363Z" fill="#C3AD89" stroke="#6F1510" stroke-width="0.828515" stroke-linecap="round" stroke-linejoin="round"/>
+              <text x="433.872" y="220.72" class="map__figure">4</text>
+            </g>
+            <g id="figure 14" data-figure="14" :class="{ 'map__figure--active': activeFigure === 14 }">
+              <path id="Vector_10" d="M416.021 171.249C423.558 171.249 429.667 165.139 429.667 157.603C429.667 150.066 423.558 143.957 416.021 143.957C408.485 143.957 402.375 150.066 402.375 157.603C402.375 165.139 408.485 171.249 416.021 171.249Z" fill="#C3AD89" stroke="#6F1510" stroke-width="0.828515" stroke-linecap="round" stroke-linejoin="round"/>
+              <text x="416.021" y="157.603" class="map__figure small">14</text>
+            </g>
+            <g id="figure 6" data-figure="6" :class="{ 'map__figure--active': activeFigure === 6 }">
+              <path id="Vector_11" d="M605.388 254.853C612.925 254.853 619.034 248.744 619.034 241.207C619.034 233.671 612.925 227.561 605.388 227.561C597.852 227.561 591.742 233.671 591.742 241.207C591.742 248.744 597.852 254.853 605.388 254.853Z" fill="#C3AD89" stroke="#6F1510" stroke-width="0.828515" stroke-linecap="round" stroke-linejoin="round"/>
+              <text x="605.388" y="241.207" class="map__figure">6</text>
+            </g>
+            <g id="figure 9" data-figure="9" :class="{ 'map__figure--active': activeFigure === 9 }">
+              <path id="Vector_12" d="M678.089 397.764C685.625 397.764 691.735 391.654 691.735 384.118C691.735 376.581 685.625 370.472 678.089 370.472C670.552 370.472 664.442 376.581 664.442 384.118C664.442 391.654 670.552 397.764 678.089 397.764Z" fill="#C3AD89" stroke="#6F1510" stroke-width="0.828515" stroke-linecap="round" stroke-linejoin="round"/>
+              <text x="678.089" y="384.118" class="map__figure">9</text>
+            </g>
+            <g id="figure 10" data-figure="10" :class="{ 'map__figure--active': activeFigure === 10 }">
+              <path id="Vector_13" d="M653.214 338.636C660.75 338.636 666.86 332.526 666.86 324.99C666.86 317.453 660.75 311.344 653.214 311.344C645.677 311.344 639.567 317.453 639.567 324.99C639.567 332.526 645.677 338.636 653.214 338.636Z" fill="#C3AD89" stroke="#6F1510" stroke-width="0.828515" stroke-linecap="round" stroke-linejoin="round"/>
+              <text x="653.214" y="324.99" class="map__figure">10</text>
+            </g>
+            <g id="figure 5" data-figure="5" :class="{ 'map__figure--active': activeFigure === 5 }">
+              <path id="Vector_14" d="M749.393 497.92C756.93 497.92 763.039 491.811 763.039 484.274C763.039 476.738 756.93 470.628 749.393 470.628C741.857 470.628 735.747 476.738 735.747 484.274C735.747 491.811 741.857 497.92 749.393 497.92Z" fill="#C3AD89" stroke="#6F1510" stroke-width="0.828515" stroke-linecap="round" stroke-linejoin="round"/>
+              <text x="749.393" y="484.274" class="map__figure">5</text>
+            </g>
+            <g id="figure 7" data-figure="7" :class="{ 'map__figure--active': activeFigure === 7 }">
+              <path id="Vector_15" d="M740.708 320.825C748.244 320.825 754.354 314.715 754.354 307.179C754.354 299.642 748.244 293.533 740.708 293.533C733.171 293.533 727.062 299.642 727.062 307.179C727.062 314.715 733.171 320.825 740.708 320.825Z" fill="#C3AD89" stroke="#6F1510" stroke-width="0.828515" stroke-linecap="round" stroke-linejoin="round"/>
+              <text x="740.708" y="307.179" class="map__figure">7</text>
             </g>
             <g id="figure 8" data-figure="8" :class="{ 'map__figure--active': activeFigure === 8 }">
+              <path id="Vector_16" d="M788.079 346.69C795.615 346.69 801.725 340.581 801.725 333.044C801.725 325.508 795.615 319.398 788.079 319.398C780.542 319.398 774.433 325.508 774.433 333.044C774.433 340.581 780.542 346.69 788.079 346.69Z" fill="#C3AD89" stroke="#6F1510" stroke-width="0.828515" stroke-linecap="round" stroke-linejoin="round"/>
+              <text x="788.079" y="333.044" class="map__figure">8</text>
+            </g>
+            <g id="figure 12" data-figure="12" :class="{ 'map__figure--active': activeFigure === 12 }">
+              <path id="Vector_17" d="M736.706 398.011C744.242 398.011 750.352 391.901 750.352 384.365C750.352 376.828 744.242 370.719 736.706 370.719C729.169 370.719 723.06 376.828 723.06 384.365C723.06 391.901 729.169 398.011 736.706 398.011Z" fill="#C3AD89" stroke="#6F1510" stroke-width="0.828515" stroke-linecap="round" stroke-linejoin="round"/>
+              <text x="736.706" y="384.365" class="map__figure small">12</text>
+            </g>
+            <g id="figure 13" data-figure="13" :class="{ 'map__figure--active': activeFigure === 13 }">
+              <path id="Vector_18" d="M480.624 192.635C488.16 192.635 494.27 186.525 494.27 178.988C494.27 171.452 488.16 165.342 480.624 165.342C473.087 165.342 466.978 171.452 466.978 178.988C466.978 186.525 473.087 192.635 480.624 192.635Z" fill="#C3AD89" stroke="#6F1510" stroke-width="0.828515" stroke-linecap="round" stroke-linejoin="round"/>
+              <text x="480.624" y="178.99" class="map__figure small">13</text>
+            </g>
+            <g id="figure 15" data-figure="15" :class="{ 'map__figure--active': activeFigure === 15 }">
+              <path id="Vector_19" d="M699.305 426.013C706.842 426.013 712.951 419.903 712.951 412.367C712.951 404.83 706.842 398.721 699.305 398.721C691.769 398.721 685.659 404.83 685.659 412.367C685.659 419.903 691.769 426.013 699.305 426.013Z" fill="#C3AD89" stroke="#6F1510" stroke-width="0.828515" stroke-linecap="round" stroke-linejoin="round"/>
+              <text x="699.305" y="412.367" class="map__figure small">15</text>
+            </g>
+            <g id="figure 16" data-figure="16" :class="{ 'map__figure--active': activeFigure === 16 }">
               <path id="Vector_20" d="M813.384 444.865C820.921 444.865 827.031 438.755 827.031 431.218C827.031 423.682 820.921 417.572 813.384 417.572C805.848 417.572 799.738 423.682 799.738 431.218C799.738 438.755 805.848 444.865 813.384 444.865Z" fill="#C3AD89" stroke="#6F1510" stroke-width="0.828515" stroke-linecap="round" stroke-linejoin="round"/>
-              <text x="813.384" y="431.22" class="map__figure">8</text>
+              <text x="813.384" y="431.22" class="map__figure">16</text>
             </g>
           </svg>
 
