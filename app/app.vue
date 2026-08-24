@@ -1,11 +1,13 @@
 <script setup>
 import site from '~/../data/site.json'
 import { getYM } from '~/utils/getYM'
+import { getTMR } from '~/utils/getTMR'
 import { useModalProvider } from '~/composables/useModal'
 
 useModalProvider()
 
 const YM_ID = '111100058' // ⚠️ ЗДЕСЬ МЕНЯТЬ ID ЯНДЕКС.МЕТРИКИ
+const TMR_ID = '3789320' // ⚠️ ЗДЕСЬ МЕНЯТЬ ID VK PIXEL (TOP.MAIL.RU)
 
 useHead({
   titleTemplate: (titleChunk) => {
@@ -32,10 +34,15 @@ useHead({
   ],
   script: [
     getYM(YM_ID),
+    getTMR(TMR_ID),
   ],
   noscript: [
     {
       innerHTML: `<div><img src="https://mc.yandex.ru/watch/${YM_ID}" style="position:absolute;left:-9999px;" alt=""></div>`,
+      tagPosition: 'bodyOpen',
+    },
+    {
+      innerHTML: `<div><img src="https://top-fwz1.mail.ru/counter?id=${TMR_ID};js=na" style="position:absolute;left:-9999px;" alt=""></div>`,
       tagPosition: 'bodyOpen',
     },
   ],
