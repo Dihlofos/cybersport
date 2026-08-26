@@ -7,6 +7,7 @@ import activitiesData from '~/../data/sections/activities.json'
 import mapData from '~/../data/sections/map.json'
 import orgData from '~/../data/sections/org.json'
 import faqData from '~/../data/sections/faq.json'
+import quizData from '~/../data/sections/quiz.json'
 
 useHead({
   title: 'Киберзарница 2026'
@@ -22,6 +23,7 @@ useHead({
     <ActivitiesSection v-bind="activitiesData" />
     <MapSection v-bind="mapData" />
     <OrgSection v-bind="orgData" />
+    <QuizSection v-bind="quizData" />
     <Faq v-bind="faqData" />
   </main>
 </template>
