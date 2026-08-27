@@ -2,6 +2,7 @@
 defineProps({
   title: { type: String, required: true },
   text: { type: String, default: '' },
+  decor: { type: String, default: '' },
 })
 
 const isOpen = ref(false)
@@ -12,25 +13,34 @@ const isOpen = ref(false)
     <Container>
       <div class="quiz__content">
         <div class="quiz__text">
-          <h2 class="quiz__title">{{ title }}</h2>
-          <p v-if="text" class="quiz__paragraph">{{ text }}</p>
+          <div class="quiz__top">
+            <h2 class="quiz__title">{{ title }}</h2>
+            <p v-if="text" class="quiz__paragraph">{{ text }}</p>
+          </div>
           <Button class="quiz__toggle" @click="isOpen = !isOpen">
             {{ isOpen ? 'Скрыть' : 'Показать' }}
           </Button>
+          <Image
+            :src="decor"
+            alt=""
+            class="quiz__decor"
+            width="1920"
+            height="100"
+          />
         </div>
         <div class="quiz__iframe" :class="{ 'quiz__iframe--open': isOpen }">
-          <iframe id="victorina" title="Victorina" width="100%" height="100%" src="https://ag.mos.ru/polls/17272/simple?invite=993a3af34205b32943f8c62f44fe4f82&amp;source=iframe&amp;medium=zoo.mos.ru"> </iframe>
+          <iframe id="victorina" title="Victorina" width="100%" height="100%" src="https://ag.mos.ru/polls/18004/simple?invite=d8b47eca42946fa501f6873a2d924a10&source=iframe&medium=cyber.sport.mos.ru"> </iframe>
         </div>
       </div>
     </Container>
   </section>
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .quiz {
   position: relative;
   background-color: $darkBlue;
-  padding: 8.2rem 0 0;
+  padding: 8.2rem 0 15rem;
 
   @media (max-width: $mobile) {
     padding: 5rem 0 0;
@@ -38,6 +48,27 @@ const isOpen = ref(false)
 
   .container {
     position: relative;
+  }
+
+  &__top {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    gap: 7rem;
+  }
+
+  &__decor {
+    position: absolute;
+    top: 7rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: block;
+    width: 100%;
+    height: auto;
+    margin-top: 4rem;
+    user-select: none;
+    pointer-events: none;
+    z-index: 0;
   }
 
   &__title {
@@ -63,8 +94,8 @@ const isOpen = ref(false)
     font-size: 1.6rem;
     line-height: 1.3;
     color: $white;
-    max-width: 64rem;
-    margin: 0 0 4rem;
+    max-width: 66.6rem;
+    margin: 0 0 6rem;
 
     @media (max-width: $mobile) {
       font-size: 1.4rem;
@@ -72,11 +103,17 @@ const isOpen = ref(false)
   }
 
   &__toggle {
-    margin: 0 0 4rem;
-    font-size: 2.4rem;
+    display: block;
+    position: relative;
+    z-index: 2;
+    margin: 0 auto 4rem;
+    font-size: 2.8rem;
+    width: 38rem;
   }
 
   &__iframe {
+    position: relative;
+    z-index: 2;
     height: 0;
     overflow: hidden;
     transition: all 0.4s ease;

@@ -78,11 +78,14 @@ function isOpen(index) {
   background-color: $darkBlue;
   padding: 11.8rem 0 12.2rem;
 
+
   @media (max-width: $mobile) {
     padding: 5rem 0 6rem;
   }
 
   &__title {
+    position: relative;
+    z-index: 2;
     font-family: $unbounded;
     font-size: 4.2rem;
     font-weight: 400;

@@ -25,6 +25,7 @@ defineProps({
   position: relative;
   background-color: $darkBlue;
   padding: 8.2rem 0 0;
+  z-index: 4;
 
   @media (max-width: $mobile) {
     padding: 5rem 0 0;
@@ -89,7 +90,7 @@ defineProps({
     position: absolute;
     right: 7rem;
     top: 0.7rem;
-    width: 33.7rem;
+    width: 25.7rem;
 
     @media(max-width: $mobile) {
       width: 10rem;

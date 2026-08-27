@@ -6,6 +6,7 @@ import howItWorksData from '~/../data/sections/how-it-works.json'
 import activitiesData from '~/../data/sections/activities.json'
 import mapData from '~/../data/sections/map.json'
 import orgData from '~/../data/sections/org.json'
+import partnersData from '~/../data/sections/partners.json'
 import faqData from '~/../data/sections/faq.json'
 import quizData from '~/../data/sections/quiz.json'
 
@@ -23,6 +24,7 @@ useHead({
     <ActivitiesSection v-bind="activitiesData" />
     <MapSection v-bind="mapData" />
     <OrgSection v-bind="orgData" />
+    <PartnersSection v-bind="partnersData" />
     <QuizSection v-bind="quizData" />
     <Faq v-bind="faqData" />
   </main>

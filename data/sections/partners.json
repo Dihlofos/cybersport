@@ -1,0 +1,43 @@
+{
+  "type": "partners",
+  "title": "Информационные партнеры",
+  "decor": {
+    "right": "/images/partners/decor-right.svg",
+    "left": "/images/partners/decor-left.svg"
+  },
+  "logos": [
+    {
+      "src": "/images/partners/news.png",
+      "width": 268,
+      "height": 69,
+      "link": "https://www.mn.ru/news",
+      "target": "_blank"
+    },
+    {
+      "src": "/images/partners/sport.png",
+      "width": 215,
+      "height": 86,
+      "link": "https://www.sovsport.ru/",
+      "target": "_blank"
+    },
+    {
+      "src": "/images/partners/spec.png",
+      "width": 174,
+      "height": 86,
+      "link": "https://pervoe.online/",
+      "target": "_blank"
+    },
+    {
+      "src": "/images/partners/mossport.svg",
+      "width": 102,
+      "height": 102,
+      "link": "https://sportvmoskve.ru/?ysclid=mtbh85tykg95363667",
+      "target": "_blank"
+    },
+    {
+      "src": "/images/partners/detmos.png",
+      "width": 92,
+      "height": 102
+    }
+  ]
+}
