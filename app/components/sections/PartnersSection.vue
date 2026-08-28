@@ -95,7 +95,12 @@ defineProps({
     display: flex;
     align-items: center;
     gap: 6rem;
-    flex-wrap: wrap;
+
+    @media (max-width: $tablet) {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
 
     @media (max-width: $mobile) {
       gap: 3rem;
@@ -106,12 +111,6 @@ defineProps({
     display: flex;
     align-items: center;
     justify-content: center;
-
-    @media (max-width: $laptop) {
-      img {
-        max-width: 20rem;
-      }
-    }
 
     @media (max-width: $tablet) {
       img {
