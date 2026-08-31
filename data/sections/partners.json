@@ -47,6 +47,13 @@
       "height": 112,
       "link": "https://ag.mos.ru/home?utm_source=ag&utm_medium=logo&utm_campaign=cyber",
       "target": "_blank"
+    },
+    {
+      "src": "/images/partners/city.png",
+      "width": 78,
+      "height": 95,
+      "link": "https://crowd.mos.ru/?utm_source=logo&utm_medium=cyberz&utm_campaign=cs",
+      "target": "_blank"
     }
   ]
 }
