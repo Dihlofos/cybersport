@@ -5,6 +5,8 @@ const props = defineProps({
   disabled: { type: Boolean, default: false },
   to: { type: String, default: '' },
   type: { type: String, default: 'button' },
+  target: { type: String, default: '' },
+  rel: { type: String, default: '' },
 })
 </script>
 
@@ -12,6 +14,8 @@ const props = defineProps({
   <a
     v-if="to"
     :href="to"
+    :target="target || undefined"
+    :rel="rel || undefined"
     :class="['button', `button--${variant}`, `button--${size}`]"
   >
     <slot />

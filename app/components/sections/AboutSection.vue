@@ -1,4 +1,6 @@
 <script setup>
+import { trackRegistrationClick } from '~/utils/tracking'
+
 const props = defineProps({
   title: { type: String, required: true },
   decor: { type: String, default: '' },
@@ -8,6 +10,10 @@ const props = defineProps({
   image: { type: Object, default: () => ({}) },
   benefits: { type: Array, default: () => [] },
 })
+
+const onRegistrationClick = () => {
+  trackRegistrationClick('click', props.link.href)
+}
 </script>
 
 <template>
@@ -55,7 +61,7 @@ const props = defineProps({
         </ul>
       </div>
       <div class="about__registration">
-        <Button :to="link.href" class="about__link" target="_blank">{{ link.text }}</Button>
+        <Button :to="link.href" class="about__link" target="_blank" rel="noopener noreferrer" @click="onRegistrationClick">{{ link.text }}</Button>
         <Image
           :src="decor"
           alt=""

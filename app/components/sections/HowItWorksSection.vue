@@ -1,13 +1,18 @@
 <script setup>
 import { sanitizeText } from '~/utils/sanitize'
+import { trackRegistrationClick } from '~/utils/tracking'
 
-defineProps({
+const props = defineProps({
   title: { type: String, required: true },
   decorLeft: { type: String, default: '' },
   decorRight: { type: String, default: '' },
   steps: { type: Array, default: () => [] },
   button: { type: Object, default: () => ({}) },
 })
+
+const onRegistrationClick = () => {
+  trackRegistrationClick('rega', props.button.link)
+}
 </script>
 
 <template>
@@ -38,7 +43,7 @@ defineProps({
           width="174"
           height="165"
         />
-        <Button :to="button.link" class="how-it-works__btn" target="_blank">{{ button.text }}</Button>
+        <Button :to="button.link" class="how-it-works__btn" target="_blank" rel="noopener noreferrer" @click="onRegistrationClick">{{ button.text }}</Button>
         <Image
           v-if="decorRight"
           :src="decorRight"
