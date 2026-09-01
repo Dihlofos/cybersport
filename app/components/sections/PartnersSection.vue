@@ -95,12 +95,8 @@ defineProps({
     display: flex;
     align-items: center;
     gap: 6rem;
-
-    @media (max-width: $tablet) {
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-
+    flex-wrap: wrap;
+    justify-content: center;
 
     @media (max-width: $mobile) {
       gap: 3rem;

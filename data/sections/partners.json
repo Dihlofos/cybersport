@@ -54,6 +54,13 @@
       "height": 95,
       "link": "https://crowd.mos.ru/?utm_source=logo&utm_medium=cyberz&utm_campaign=cs",
       "target": "_blank"
+    },
+    {
+      "src": "/images/partners/gz.png",
+      "width": 299,
+      "height": 93,
+      "link": "https://gz.mos.ru/?utm_source=kiberzarnitsa&utm_medium=logo",
+      "target": "_blank"
     }
   ]
 }
