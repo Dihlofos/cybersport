@@ -1,6 +1,9 @@
 <script setup>
+import { computed } from 'vue'
 import { sanitizeText } from '~/utils/sanitize'
 import { trackRegistrationClick } from '~/utils/tracking'
+
+const { withUtmParams } = useUtmParams()
 
 const props = defineProps({
   title: { type: String, required: true },
@@ -10,8 +13,16 @@ const props = defineProps({
   button: { type: Object, default: () => ({}) },
 })
 
-const onRegistrationClick = () => {
-  trackRegistrationClick('rega', props.button.link)
+const registrationHref = computed(() => withUtmParams(props.button.link || ''))
+
+const onRegistrationClick = (event) => {
+  const href = withUtmParams(props.button.link || '')
+
+  if (event.currentTarget instanceof HTMLAnchorElement) {
+    event.currentTarget.href = href
+  }
+
+  trackRegistrationClick('rega', href)
 }
 </script>
 
@@ -43,7 +54,7 @@ const onRegistrationClick = () => {
           width="174"
           height="165"
         />
-        <Button :to="button.link" class="how-it-works__btn" target="_blank" rel="noopener noreferrer" @click="onRegistrationClick">{{ button.text }}</Button>
+        <Button :to="registrationHref" class="how-it-works__btn" target="_blank" rel="noopener noreferrer" @click="onRegistrationClick">{{ button.text }}</Button>
         <Image
           v-if="decorRight"
           :src="decorRight"
