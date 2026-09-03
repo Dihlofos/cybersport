@@ -61,9 +61,11 @@ const props = defineProps({
     cursor: pointer;
     flex-shrink: 0;
 
-    &:hover {
-      background-color: $darkBlue;
-      border-color: $darkBlue;
+    @media (min-width: 1025px) {
+      &:hover {
+        background-color: $darkBlue;
+        border-color: $darkBlue;
+      }
     }
 
     @media (max-width: $tablet) {
@@ -82,9 +84,11 @@ const props = defineProps({
     color: #0055ff;
     border: 2px solid #0055ff;
 
-    &:hover:not(:disabled) {
-      background-color: #0055ff;
-      color: #fff;
+    @media (min-width: 1025px) {
+      &:hover:not(:disabled) {
+        background-color: #0055ff;
+        color: #fff;
+      }
     }
   }
 
@@ -92,8 +96,10 @@ const props = defineProps({
     background-color: transparent;
     color: #1e293b;
 
-    &:hover:not(:disabled) {
-      background-color: #f8fafc;
+    @media (min-width: 1025px) {
+      &:hover:not(:disabled) {
+        background-color: #f8fafc;
+      }
     }
   }
 }

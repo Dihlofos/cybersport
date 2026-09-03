@@ -45,6 +45,10 @@ const isOpen = ref(false)
   background-color: $darkBlue;
   padding: 8.2rem 0 15rem;
 
+  @media (max-width: $tablet) {
+    padding: 8rem 0 0;
+  }
+
   @media (max-width: $mobile) {
     padding: 5rem 0 0;
   }
@@ -58,6 +62,13 @@ const isOpen = ref(false)
     z-index: 2;
     display: flex;
     gap: 7rem;
+
+     @media (max-width: $mobile) {
+      flex-direction: column;
+      gap: 2rem;
+     }
+
+
   }
 
   &__decor {
@@ -72,6 +83,10 @@ const isOpen = ref(false)
     user-select: none;
     pointer-events: none;
     z-index: 0;
+
+    @media (max-width: $mobile) {
+      display: none;
+    }
   }
 
   &__title {
@@ -139,6 +154,15 @@ const isOpen = ref(false)
     &--open {
       height: 60rem;
       padding: 2rem;
+    }
+
+    @media (max-width: $mobile) {
+      border-radius: 0;
+      margin: 0 -2rem;
+      &--open {
+        height: 40rem;
+
+      }
     }
   }
 }
