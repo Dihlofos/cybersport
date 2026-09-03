@@ -134,6 +134,10 @@ const isOpen = ref(false)
     margin: 0 auto 4rem;
     font-size: 2.8rem;
     width: 38rem;
+
+    @media (max-width: $mobile) {
+      width: 100%;
+    }
   }
 
   &__iframe {
