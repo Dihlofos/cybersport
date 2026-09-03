@@ -25,7 +25,7 @@ useHead({
     <MapSection v-bind="mapData" />
     <OrgSection v-bind="orgData" />
     <PartnersSection v-bind="partnersData" />
-    <!-- <QuizSection v-bind="quizData" /> -->
+    <QuizSection v-bind="quizData" />
     <Faq v-bind="faqData" />
   </main>
 </template>

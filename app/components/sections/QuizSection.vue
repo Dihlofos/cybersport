@@ -1,8 +1,11 @@
 <script setup>
+import { sanitizeText } from '~/utils/sanitize'
+
 defineProps({
   title: { type: String, required: true },
   text: { type: String, default: '' },
   decor: { type: String, default: '' },
+  iframe: { type: String, default: '' },
 })
 
 const isOpen = ref(false)
@@ -14,8 +17,8 @@ const isOpen = ref(false)
       <div class="quiz__content">
         <div class="quiz__text">
           <div class="quiz__top">
-            <h2 class="quiz__title">{{ title }}</h2>
-            <p v-if="text" class="quiz__paragraph">{{ text }}</p>
+            <h2 class="quiz__title" v-html="sanitizeText(title)"></h2>
+            <p v-if="text" class="quiz__paragraph" v-html="sanitizeText(text)"></p>
           </div>
           <Button class="quiz__toggle" @click="isOpen = !isOpen">
             {{ isOpen ? 'Скрыть' : 'Показать' }}
@@ -29,7 +32,7 @@ const isOpen = ref(false)
           />
         </div>
         <div class="quiz__iframe" :class="{ 'quiz__iframe--open': isOpen }">
-          <iframe id="victorina" title="Victorina" width="100%" height="100%" src="https://ag.mos.ru/polls/18004/simple?invite=d8b47eca42946fa501f6873a2d924a10&source=iframe&medium=cyber.sport.mos.ru"> </iframe>
+          <iframe id="victorina" title="Victorina" width="100%" height="100%" :src="iframe"> </iframe>
         </div>
       </div>
     </Container>
@@ -86,6 +89,13 @@ const isOpen = ref(false)
 
     @media (max-width: $mobile) {
       font-size: 2.4rem;
+    }
+  }
+
+  &__text {
+    a {
+      color: currentColor;
+      text-decoration: underline;
     }
   }
 

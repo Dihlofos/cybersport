@@ -54,6 +54,17 @@ export const extractUtmParams = (query: Record<string, unknown>): UtmParams => {
   return params
 }
 
+export const extractUtmParamsFromSearch = (search: string): UtmParams => {
+  const searchParams = new URLSearchParams(search)
+  const query: Record<string, unknown> = {}
+
+  for (const key of UTM_KEYS) {
+    query[key] = searchParams.getAll(key)
+  }
+
+  return extractUtmParams(query)
+}
+
 const isAllowedTimepadUrl = (url: URL) => (
   url.protocol === 'https:'
   && url.hostname === TIMEPAD_HOST

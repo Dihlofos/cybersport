@@ -26,7 +26,7 @@ export function sanitizeText(text) {
   if (!text || typeof text !== 'string') return ''
 
   if (purify) {
-    return purify.sanitize(text, { ALLOWED_TAGS: ['b'], ALLOWED_ATTR: [] })
+    return purify.sanitize(text, { ALLOWED_TAGS: ['b', 'a', 'p'], ALLOWED_ATTR: ['href', 'target'] })
   }
 
   // Сервер / до загрузки DOMPurify — удаляем все теги, сущности остаются

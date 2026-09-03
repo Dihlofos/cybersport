@@ -3,7 +3,7 @@ import { computed } from 'vue'
 import { sanitizeText } from '~/utils/sanitize'
 import { trackRegistrationClick } from '~/utils/tracking'
 
-const { withUtmParams } = useUtmParams()
+const { withUtmParams, withUtmParamsForClick } = useUtmParams()
 
 const props = defineProps({
   title: { type: String, required: true },
@@ -16,7 +16,7 @@ const props = defineProps({
 const registrationHref = computed(() => withUtmParams(props.button.link || ''))
 
 const onRegistrationClick = (event) => {
-  const href = withUtmParams(props.button.link || '')
+  const href = withUtmParamsForClick(props.button.link || '')
 
   if (event.currentTarget instanceof HTMLAnchorElement) {
     event.currentTarget.href = href
